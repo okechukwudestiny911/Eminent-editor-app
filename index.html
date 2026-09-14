@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Eminent Editor - Pro Max Size & Auto Caption</title>
+<title>Eminent Editor - Bold Full-Screen</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,system-ui,sans-serif;background:#020617;color:#e2e8f0;display:flex;min-height:100vh}
@@ -21,12 +21,15 @@ h1{font-size:26px;font-weight:900;background:linear-gradient(90deg,#ec4899,#6366
 .btn-opt{padding:9px;border-radius:9px;border:1px solid #1e293b;background:#0f172a;color:#94a3b8;font-size:9px;font-weight:700;cursor:pointer}
 .btn-opt.active{border-color:#6366f1;background:#1e1b4b66;color:#a5b4fc}
 select{width:100%;border-radius:10px;background:#0f172a;border:1px solid #1e293b;padding:8px;font-size:11px;color:#e2e8f0}
-textarea{width:100%;border-radius:10px;background:#0f172a;border:1px solid #1e293b;padding:8px;font-size:11px;color:#e2e8f0;resize:none}
+textarea{width:100%;border-radius:10px;background:#0f172a;border:1px solid #334155;padding:8px;font-size:11px;color:#e2e8f0;resize:none}
+textarea:focus{border-color:#6366f1;outline:none}
 .btn-main{width:100%;padding:14px;border-radius:11px;background:linear-gradient(90deg,#4f46e5,#ec4899);font-weight:800;color:white;border:0;cursor:pointer}
 .btn-main:disabled{opacity:.5}
 .progress{width:100%;height:8px;background:#0f172a;border-radius:999px;border:1px solid #1e293b;overflow:hidden}
 .progress-bar{height:100%;background:#4f46e5;transition:width .4s}
-.preview-wrap{position:relative;width:100%;max-width:340px;aspect-ratio:9/16;background:#020617;border-radius:26px;overflow:hidden;border:4px solid #1e293b;box-shadow:0 20px 50px #000a;display:flex;align-items:center;justify-content:center}
+.preview-wrap{position:relative;width:100%;max-width:340px;aspect-ratio:9/16;background:#020617;border-radius:26px;overflow:hidden;border:4px solid #1e293b;box-shadow:0 20px 50px #000a;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.preview-wrap:hover .hover-tip{opacity:1}
+.hover-tip{position:absolute;inset:0;background:#0006;display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s;pointer-events:none}
 canvas{width:100%;height:100%;object-fit:cover}
 .voice-btn{padding:5px 8px;border-radius:7px;font-size:9px;font-weight:700;border:0;cursor:pointer;background:#1e293b;color:#818cf8}
 .voice-btn.rec{background:#dc2626;color:white;animation:pulse 1s infinite}
@@ -40,29 +43,29 @@ canvas{width:100%;height:100%;object-fit:cover}
 <div class="left">
   <div>
     <h1>Eminent Editor</h1>
-    <p class="small">TikTok/Reels Style HD Ad Generator - Size Scale + Auto Caption Pro Max</p>
+    <p class="small">Bold Full-Screen HD Ad Generator - Multi-line Caption Pro</p>
   </div>
 
   <div style="display:flex;flex-direction:column;gap:4px">
-    <label class="label">1. Upload HD Product Images (1 to 3)</label>
+    <label class="label">1. Upload Bold HD Product Images (1 to 3)</label>
     <input id="imgInput" type="file" accept="image/*" multiple class="input-file"/>
-    <span id="imgCount" class="small" style="color:#22c55e">✓ HD Engine Active (0 loaded)</span>
+    <span id="imgCount" class="small" style="color:#22c55e">✓ Full-Screen Bold Rendering Active (0 loaded)</span>
   </div>
 
   <div class="box">
-    <label class="label">2. Template Size & Screen Adjustment</label>
+    <label class="label">2. Bold Image Size & Screen Fill Controls</label>
     <div style="display:flex;flex-direction:column;gap:2px">
-      <div style="display:flex;justify-content:space-between" class="small"><span>Overall Scale / Zoom</span><span id="scaleVal">1.0x</span></div>
-      <input id="scaleRange" type="range" min="0.6" max="1.5" step="0.1" value="1.0" class="range"/>
+      <div style="display:flex;justify-content:space-between" class="small"><span>Bold Zoom / Fill Scale</span><span id="scaleVal">1.10x</span></div>
+      <input id="scaleRange" type="range" min="0.8" max="1.8" step="0.05" value="1.1" class="range"/>
     </div>
     <div class="grid2">
       <div style="display:flex;flex-direction:column;gap:2px">
         <div style="display:flex;justify-content:space-between" class="small"><span>Width Stretch</span><span id="wVal">0px</span></div>
-        <input id="wRange" type="range" min="-60" max="80" step="10" value="0" class="range" style="accent-color:#ec4899"/>
+        <input id="wRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#ec4899"/>
       </div>
       <div style="display:flex;flex-direction:column;gap:2px">
         <div style="display:flex;justify-content:space-between" class="small"><span>Height Stretch</span><span id="hVal">0px</span></div>
-        <input id="hRange" type="range" min="-60" max="80" step="10" value="0" class="range" style="accent-color:#ec4899"/>
+        <input id="hRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#ec4899"/>
       </div>
     </div>
   </div>
@@ -76,7 +79,7 @@ canvas{width:100%;height:100%;object-fit:cover}
   </div>
 
   <div style="display:flex;flex-direction:column;gap:4px">
-    <label class="label">4. Background Audio Track (Normal 1.0x)</label>
+    <label class="label">4. Background Audio Track (Normal 1:30 Speed)</label>
     <input id="audioInput" type="file" accept="audio/*" class="input-file"/>
     <span id="audioStatus" class="small"></span>
   </div>
@@ -111,17 +114,20 @@ canvas{width:100%;height:100%;object-fit:cover}
 
   <div class="box">
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <label class="label">7. Automated Caption Engine</label>
+      <label class="label">7. Clickable & Adjustable Captions</label>
       <div style="display:flex;gap:6px">
         <button id="autoBtn" class="auto-btn">🤖 Auto Caption</button>
         <button id="voiceBtn" class="voice-btn">🎤 Voice</button>
       </div>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center" class="small">
-      <span>Show On-Screen Lyric Animations</span>
+      <span>Show Normal-Size Captions on Screen</span>
       <input type="checkbox" id="captionCheck" checked style="width:14px;height:14px;accent-color:#6366f1"/>
     </div>
-    <textarea id="desc" rows="3" placeholder="Type why they should buy... (Animated word-by-word)"></textarea>
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <span class="small">Click & Correct Caption Text:</span>
+      <textarea id="desc" rows="3">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea>
+    </div>
   </div>
 
   <div style="display:flex;flex-direction:column;gap:4px">
@@ -141,10 +147,11 @@ canvas{width:100%;height:100%;object-fit:cover}
 </div>
 
 <div class="right">
-  <div class="preview-wrap">
+  <div class="preview-wrap" id="previewWrap" title="Click to quickly adjust caption">
     <canvas id="c" width="810" height="1440"></canvas>
+    <div class="hover-tip"><span style="background:#4f46e5;color:white;font-size:10px;font-weight:800;padding:6px 10px;border-radius:10px">✏️ Live Preview Mode</span></div>
   </div>
-  <p class="small" style="margin-top:8px" id="previewLabel">TikTok/Reels Full Preview • Scale & Auto Caption Active</p>
+  <p class="small" style="margin-top:8px">Full-Screen Bold Display • Normal-Size Multi-Line Captions Active</p>
   <audio id="aud" preload="auto" style="display:none"></audio>
 </div>
 
@@ -159,18 +166,19 @@ const descInput=document.getElementById('desc'), aud=document.getElementById('au
 const voiceBtn=document.getElementById('voiceBtn'), autoBtn=document.getElementById('autoBtn'), captionCheck=document.getElementById('captionCheck');
 const exportBtn=document.getElementById('exportBtn'), imgCount=document.getElementById('imgCount'), audioStatus=document.getElementById('audioStatus');
 const progWrap=document.getElementById('progWrap'), progBar=document.getElementById('progBar');
+const previewWrap=document.getElementById('previewWrap');
 
 let imageObjs=[], selectedBackground='neon-vibrant', videoDuration=90;
 let selectedBrightnessMode='studio-bright', selectedCameraMode='neural-hdr';
-let templateScale=1.0, templateWidthOffset=0, templateHeightOffset=0, isAutoCaptionEnabled=true;
+let templateScale=1.1, templateWidthOffset=0, templateHeightOffset=0, isAutoCaptionEnabled=true;
 ctx.imageSmoothingEnabled=true; ctx.imageSmoothingQuality='high';
 
 imgInput.addEventListener('change', e=>{
   const files=Array.from(e.target.files).slice(0,3);
   imageObjs=files.map(f=>{const im=new Image(); im.src=URL.createObjectURL(f); return im;});
-  imgCount.textContent=`✓ HD Engine Active (${files.length} loaded)`;
+  imgCount.textContent=`✓ Full-Screen Bold Rendering Active (${files.length} loaded)`;
 });
-scaleRange.addEventListener('input', e=>{templateScale=Number(e.target.value); scaleVal.textContent=templateScale.toFixed(1)+'x';});
+scaleRange.addEventListener('input', e=>{templateScale=Number(e.target.value); scaleVal.textContent=templateScale.toFixed(2)+'x';});
 wRange.addEventListener('input', e=>{templateWidthOffset=Number(e.target.value); wVal.textContent=templateWidthOffset+'px';});
 hRange.addEventListener('input', e=>{templateHeightOffset=Number(e.target.value); hVal.textContent=templateHeightOffset+'px';});
 durRange.addEventListener('input', e=>{
@@ -186,6 +194,8 @@ audioInput.addEventListener('change', e=>{
 brightSelect.addEventListener('change', e=>selectedBrightnessMode=e.target.value);
 camSelect.addEventListener('change', e=>selectedCameraMode=e.target.value);
 captionCheck.addEventListener('change', e=>isAutoCaptionEnabled=e.target.checked);
+previewWrap.addEventListener('click', ()=>{descInput.focus(); descInput.scrollIntoView({behavior:'smooth'});});
+
 document.querySelectorAll('[data-bg]').forEach(b=>{
   b.addEventListener('click', ()=>{
     document.querySelectorAll('[data-bg]').forEach(x=>x.classList.remove('active'));
@@ -194,11 +204,9 @@ document.querySelectorAll('[data-bg]').forEach(b=>{
 });
 autoBtn.addEventListener('click', ()=>{
   const hooks=[
-    "🔥 Limited Time Special Release! Grab yours before stock runs out instantly!",
-    "🚀 Transform your workflow with the ultimate tool designed for high-end creators.",
-    "✨ Premium quality engineered for maximum impression, stunning look, and performance.",
-    "💥 Flash Sale Live Now - Don't Miss Out On This Game Changing Product!",
-    "🏆 Luxury Grade Product Built For Winners Who Demand Excellence!"
+    "🔥 Limited Time Special Release! Grab yours before stock runs out!",
+    "🚀 Transform your workflow with the ultimate tool designed for creators.",
+    "✨ Premium quality engineered for maximum impression and performance."
   ];
   descInput.value=hooks[Math.floor(Math.random()*hooks.length)];
   isAutoCaptionEnabled=true; captionCheck.checked=true;
@@ -208,7 +216,7 @@ voiceBtn.addEventListener('click', ()=>{
   if(!SR){alert('Speech not supported');return;}
   const rec=new SR(); rec.continuous=false; rec.interimResults=false;
   rec.onstart=()=>{voiceBtn.textContent='🔴 Listening...';voiceBtn.classList.add('rec');};
-  rec.onresult=(ev)=>{descInput.value=(descInput.value+' '+ev.results[0][0].transcript).trim();};
+  rec.onresult=(ev)=>{descInput.value=ev.results[0][0].transcript;};
   rec.onend=()=>{voiceBtn.textContent='🎤 Voice';voiceBtn.classList.remove('rec');};
   rec.onerror=()=>{voiceBtn.textContent='🎤 Voice';voiceBtn.classList.remove('rec');};
   rec.start();
@@ -216,17 +224,28 @@ voiceBtn.addEventListener('click', ()=>{
 
 function getBrightnessFilter(mode){
   switch(mode){
-    case 'studio-bright': return 'brightness(1.35) contrast(1.15) saturate(1.25)';
-    case 'pro-hdr': return 'brightness(1.45) contrast(1.2) drop-shadow(0 0 20px rgba(255,255,255,0.5))';
-    case 'cinematic-glow': return 'brightness(1.3) saturate(1.35) sepia(0.08)';
+    case 'studio-bright': return 'brightness(1.4) contrast(1.2) saturate(1.3)';
+    case 'pro-hdr': return 'brightness(1.5) contrast(1.25) drop-shadow(0 0 25px rgba(255,255,255,0.6))';
+    case 'cinematic-glow': return 'brightness(1.35) saturate(1.4) sepia(0.05)';
     case 'ultra-clarity': return 'brightness(1.4) contrast(1.3)';
-    case 'neon-boost': return 'brightness(1.3) contrast(1.3) saturate(1.6) hue-rotate(5deg)';
+    case 'neon-boost': return 'brightness(1.35) contrast(1.35) saturate(1.6)';
     case 'ambient-soft': return 'brightness(1.15) contrast(0.95) saturate(0.9)';
-    case 'hyper-contrast': return 'brightness(1.2) contrast(1.45) saturate(1.3)';
-    case 'solar-flare': return 'brightness(1.45) contrast(1.1) saturate(1.2) drop-shadow(0 0 25px rgba(255,200,50,0.4))';
-    case 'pure-matte': return 'brightness(0.95) contrast(1.05) saturate(0.75)';
-    default: return 'brightness(1.25) contrast(1.15)';
+    case 'hyper-contrast': return 'brightness(1.2) contrast(1.5) saturate(1.3)';
+    case 'solar-flare': return 'brightness(1.5) contrast(1.15) saturate(1.2)';
+    case 'pure-matte': return 'brightness(0.95) contrast(1.05) saturate(0.7)';
+    default: return 'brightness(1.3) contrast(1.2)';
   }
+}
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight){
+  const words=text.split(' '); let line=''; let curY=y;
+  for(let n=0;n<words.length;n++){
+    const testLine=line+words[n]+' ';
+    const w=ctx.measureText(testLine).width;
+    if(w>maxWidth && n>0){ ctx.fillText(line, x, curY); line=words[n]+' '; curY+=lineHeight; }
+    else{ line=testLine; }
+  }
+  ctx.fillText(line, x, curY);
 }
 
 let frame=0;
@@ -246,29 +265,28 @@ function render(){
     const idx=Math.floor(frame/switchInterval)%imageObjs.length;
     const im=imageObjs[idx];
     if(im.complete && im.naturalWidth){
-      const baseSize=240*templateScale;
-      const drawW=baseSize+templateWidthOffset;
-      const drawH=baseSize+templateHeightOffset;
-      ctx.translate(canvas.width/2, canvas.height/2-40);
+      const baseW=canvas.width*0.85*templateScale;
+      const baseH=canvas.height*0.65*templateScale;
+      const drawW=baseW+templateWidthOffset;
+      const drawH=baseH+templateHeightOffset;
+      ctx.translate(canvas.width/2, canvas.height/2-25);
       ctx.drawImage(im,-drawW/2,-drawH/2,drawW,drawH);
     }
   }else{
-    const baseSize=240*templateScale;
+    const baseW=canvas.width*0.82*templateScale;
+    const baseH=canvas.height*0.6*templateScale;
     ctx.fillStyle='rgba(255,255,255,0.15)';
-    ctx.beginPath(); ctx.roundRect(canvas.width/2-baseSize/2, canvas.height/2-baseSize/2-40,baseSize,baseSize,16); ctx.fill();
-    ctx.fillStyle='#fff'; ctx.font='bold 22px sans-serif'; ctx.textAlign='center';
-    ctx.fillText('Upload 1-3 HD Product Images', canvas.width/2, canvas.height/2-35);
+    ctx.beginPath(); ctx.roundRect(canvas.width/2-baseW/2, canvas.height/2-baseH/2-25, baseW, baseH, 20); ctx.fill();
+    ctx.fillStyle='#fff'; ctx.font='bold 28px sans-serif'; ctx.textAlign='center';
+    ctx.fillText('Upload Bold HD Product Images', canvas.width/2, canvas.height/2-20);
   }
   ctx.restore();
 
   if(isAutoCaptionEnabled){
-    ctx.fillStyle='#fff'; ctx.font='bold 38px sans-serif'; ctx.textAlign='center';
-    ctx.shadowColor='rgba(0,0,0,0.95)'; ctx.shadowBlur=20;
-    const raw=descInput.value || 'Discover the ultimate breakthrough product engineered for your success - Get yours today!';
-    const words=raw.split(' '); const wordIndex=Math.floor((frame/totalFrames)*words.length)%words.length;
-    const start=Math.max(0,wordIndex-3), end=Math.min(words.length,start+5);
-    const line=words.slice(start,end).join(' ');
-    ctx.fillText(line, canvas.width/2, canvas.height-160);
+    ctx.fillStyle='#fff'; ctx.font='bold 36px sans-serif'; ctx.textAlign='center';
+    ctx.shadowColor='rgba(0,0,0,0.95)'; ctx.shadowBlur=18;
+    const captionText=descInput.value || 'Discover the ultimate breakthrough product engineered for your success - Get yours today!';
+    wrapText(ctx, captionText, canvas.width/2, canvas.height-220, canvas.width-80, 44);
     ctx.shadowBlur=0;
   }
   requestAnimationFrame(render);
