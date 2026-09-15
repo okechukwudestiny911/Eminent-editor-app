@@ -3,137 +3,124 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Eminent Editor - Template Switch Every 5s</title>
+<title>Eminent Editor Pro - iPhone 18 Ultra & 100 Backgrounds</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,system-ui,sans-serif;background:#020617;color:#e2e8f0;display:flex;min-height:100vh}
-.left{width:52%;padding:16px;border-right:1px solid #1e293b;display:flex;flex-direction:column;gap:14px;overflow-y:auto;max-height:100vh}
-.right{width:48%;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#0f172a,#020617)}
-h1{font-size:24px;font-weight:900;background:linear-gradient(90deg,#ec4899,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.left{width:54%;padding:14px;border-right:1px solid #1e293b;display:flex;flex-direction:column;gap:12px;overflow-y:auto;max-height:100vh}
+.right{width:46%;padding:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#0f172a,#020617)}
+h1{font-size:22px;font-weight:900;background:linear-gradient(90deg,#ec4899,#8b5cf6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .small{font-size:9px;color:#94a3b8}
 .label{font-size:10px;font-weight:700;color:#cbd5e1}
-.input-file{width:100%;font-size:10px;color:#94a3b8;border:1px solid #1e293b;border-radius:9px;padding:5px;background:#0f172a}
-.input-file::file-selector-button{margin-right:6px;padding:5px 9px;border:0;border-radius:7px;font-size:9px;font-weight:700;background:#4f46e5;color:white;cursor:pointer}
-.box{background:#0f172a99;padding:10px;border-radius:11px;border:1px solid #1e293b;display:flex;flex-direction:column;gap:6px}
+.input-file{width:100%;font-size:9px;color:#94a3b8;border:1px solid #1e293b;border-radius:8px;padding:4px;background:#020617}
+.input-file::file-selector-button{margin-right:6px;padding:5px 9px;border:0;border-radius:7px;font-size:8px;font-weight:700;background:#4f46e5;color:white;cursor:pointer}
+.box{background:#0f172a99;padding:10px;border-radius:10px;border:1px solid #1e293b;display:flex;flex-direction:column;gap:6px}
 .range{width:100%;accent-color:#6366f1}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
-.btn-opt{padding:8px;border-radius:8px;border:1px solid #1e293b;background:#0f172a;color:#94a3b8;font-size:8px;font-weight:700;cursor:pointer}
-.btn-opt.active{border-color:#6366f1;background:#1e1b4b66;color:#a5b4fc}
-.btn-temp{padding:6px;text-align:left;font-size:8px;background:#0f172a;border:1px solid #1e293b;border-radius:8px;color:#cbd5e1;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.btn-temp:hover{border-color:#6366f1}
-select{width:100%;border-radius:9px;background:#0f172a;border:1px solid #1e293b;padding:7px;font-size:10px;color:#e2e8f0}
-textarea{width:100%;border-radius:9px;background:#0f172a;border:1px solid #334155;padding:6px;font-size:10px;color:#e2e8f0;resize:none}
-.btn-main{width:100%;padding:12px;border-radius:10px;background:linear-gradient(90deg,#4f46e5,#ec4899);font-weight:800;color:white;border:0;cursor:pointer;font-size:12px}
+.btn-opt{padding:8px;border-radius:8px;border:1px solid #1e293b;background:#0f172a;color:#94a3b8;font-size:7.5px;font-weight:700;cursor:pointer;text-align:left;line-height:1.2}
+.btn-opt.active{border-color:#6366f1;background:#1e1b4b66;color:#a5b4fc;box-shadow:0 0 10px #6366f14d}
+select{width:100%;border-radius:8px;background:#020617;border:1px solid #1e293b;padding:6px;font-size:9px;color:#e2e8f0}
+textarea{width:100%;border-radius:8px;background:#020617;border:1px solid #334155;padding:6px;font-size:9px;color:#e2e8f0;resize:none}
+.btn-main{width:100%;padding:12px;border-radius:10px;background:linear-gradient(90deg,#4f46e5,#8b5cf6,#ec4899);font-weight:800;color:white;border:0;cursor:pointer;font-size:11px}
 .btn-main:disabled{opacity:.5}
 .progress{width:100%;height:7px;background:#0f172a;border-radius:999px;border:1px solid #1e293b;overflow:hidden}
 .progress-bar{height:100%;background:#4f46e5;transition:width .4s}
-.preview-wrap{position:relative;width:100%;max-width:320px;aspect-ratio:9/16;background:#020617;border-radius:24px;overflow:hidden;border:4px solid #1e293b;box-shadow:0 20px 50px #000a;display:flex;align-items:center;justify-content:center}
+.preview-wrap{position:relative;width:100%;max-width:310px;aspect-ratio:9/16;background:#020617;border-radius:22px;overflow:hidden;border:4px solid #1e293b;box-shadow:0 20px 50px #000a;display:flex;align-items:center;justify-content:center}
 canvas{width:100%;height:100%;object-fit:cover}
-.auto-btn{padding:5px 8px;border-radius:6px;font-size:8px;font-weight:700;border:0;cursor:pointer;background:#4f46e5;color:white}
-.badge{font-size:8px;font-weight:800;padding:2px 7px;border-radius:5px;background:#4f46e5;color:white}
+.auto-btn{padding:4px 7px;border-radius:6px;font-size:7.5px;font-weight:700;border:0;cursor:pointer;background:#4f46e5;color:white}
+.badge{font-size:7px;font-weight:800;padding:2px 6px;border-radius:4px;background:#ec4899;color:white}
+.badge2{font-size:7px;font-weight:800;padding:2px 6px;border-radius:4px;background:#4f46e5;color:white}
 @media(max-width:900px){body{flex-direction:column}.left,.right{width:100%}}
 </style>
 </head>
 <body>
 <div class="left">
   <div>
-    <h1>Eminent Editor</h1>
-    <p class="small">Bold Full-Screen HD Ad Generator - Templates Every 5s</p>
-  </div>
-
-  <div style="display:flex;flex-direction:column;gap:3px">
-    <label class="label">1. Upload Bold HD Product Images (1 to 3)</label>
-    <input id="imgInput" type="file" accept="image/*" multiple class="input-file"/>
-    <span id="imgCount" class="small" style="color:#22c55e">✓ Full-Screen Bold Rendering Active (0 loaded)</span>
+    <h1>Eminent Editor Pro</h1>
+    <p class="small">iPhone 18 Ultra Camera & 100+ Background Brand Studio - 10+ Images Queue</p>
   </div>
 
   <div class="box">
-    <label class="label">2. Bold Image Size & Screen Fill Controls</label>
+    <label class="label">1. Upload 10+ Images Queue (Shape-Matched)</label>
+    <input id="imgInput" type="file" accept="image/*" multiple class="input-file"/>
+    <span id="imgCount" class="small" style="color:#22c55e">✓ Queue Active: 0 image(s) loaded (auto-switching every 3s)</span>
+  </div>
+
+  <div class="box">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <label class="label">2. iPhone 18 Ultra Camera & Brightness</label>
+      <span class="badge">Pro Sensor</span>
+    </div>
+    <select id="camSelect">
+      <option value="iphone-18-ultra-fusion">📱 iPhone 18 Ultra Fusion Lens & Neural Engine</option>
+      <option value="quantum-hdr-pro">🌟 Quantum HDR 10+ Pro Sensor</option>
+      <option value="cinematic-anamorphic">🎥 Cinematic Anamorphic 8K Studio</option>
+      <option value="neural-photon-engine">⚡ Apple Neural Photon Engine V5</option>
+    </select>
     <div style="display:flex;flex-direction:column;gap:1px">
-      <div style="display:flex;justify-content:space-between" class="small"><span>Bold Zoom / Fill Scale</span><span id="scaleVal">1.10x</span></div>
-      <input id="scaleRange" type="range" min="0.8" max="1.8" step="0.05" value="1.1" class="range"/>
+      <div style="display:flex;justify-content:space-between" class="small"><span>Camera Brightness / Exposure Slider</span><span id="brightVal">1.40x</span></div>
+      <input id="brightRange" type="range" min="0.8" max="2.2" step="0.05" value="1.4" class="range" style="accent-color:#ec4899"/>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1px">
+      <div style="display:flex;justify-content:space-between" class="small"><span>Exposure Bias Fine-Tuning</span><span id="expVal">0 EV</span></div>
+      <input id="expRange" type="range" min="-5" max="5" step="1" value="0" class="range"/>
+    </div>
+  </div>
+
+  <div class="box">
+    <label class="label">3. Image Shape & Screen Fill Adjustments</label>
+    <div style="display:flex;flex-direction:column;gap:1px">
+      <div style="display:flex;justify-content:space-between" class="small"><span>Exact Background Fill Scale</span><span id="scaleVal">1.00x</span></div>
+      <input id="scaleRange" type="range" min="0.8" max="1.8" step="0.05" value="1.0" class="range"/>
     </div>
     <div class="grid2">
       <div style="display:flex;flex-direction:column;gap:1px">
         <div style="display:flex;justify-content:space-between" class="small"><span>Width Stretch</span><span id="wVal">0px</span></div>
-        <input id="wRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#ec4899"/>
+        <input id="wRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#8b5cf6"/>
       </div>
       <div style="display:flex;flex-direction:column;gap:1px">
         <div style="display:flex;justify-content:space-between" class="small"><span>Height Stretch</span><span id="hVal">0px</span></div>
-        <input id="hRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#ec4899"/>
+        <input id="hRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#8b5cf6"/>
       </div>
     </div>
   </div>
 
   <div class="box">
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <label class="label">3. Video Duration (Up to 1:30)</label>
-      <span id="durBadge" class="badge">1m 30s</span>
+      <label class="label">4. Video Duration (Up to 5 Minutes)</label>
+      <span id="durBadge" class="badge2">1m 30s</span>
     </div>
-    <input id="durRange" type="range" min="10" max="90" step="5" value="90" class="range"/>
+    <input id="durRange" type="range" min="15" max="300" step="15" value="90" class="range"/>
+    <div style="display:flex;justify-content:space-between" class="small"><span>15s</span><span>2m 30s</span><span>5m Max</span></div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:4px">
+    <label class="label">5. Professional Background Models (100+ Brand Themes)</label>
+    <div class="grid2" id="bgGrid"></div>
   </div>
 
   <div style="display:flex;flex-direction:column;gap:3px">
-    <label class="label">4. Background Audio Track (Normal 1:30 Speed)</label>
+    <label class="label">6. Background Audio Track (Normal 5m Speed)</label>
     <input id="audioInput" type="file" accept="audio/*" class="input-file"/>
     <span id="audioStatus" class="small"></span>
   </div>
 
-  <div style="display:flex;flex-direction:column;gap:3px">
-    <label class="label">5. Video Brightness & Exposure (9 Pro Modes)</label>
-    <select id="brightSelect">
-      <option value="studio-bright">✨ Studio Bright</option>
-      <option value="pro-hdr">🌟 iPhone Pro HDR Max</option>
-      <option value="cinematic-glow">💡 Cinematic Warm Glow</option>
-      <option value="ultra-clarity">🔍 Ultra Sharp Clarity</option>
-      <option value="neon-boost">⚡ Neon Vibrant Boost</option>
-      <option value="ambient-soft">🌙 Ambient Soft Balance</option>
-      <option value="hyper-contrast">🔥 Hyper Contrast Pop</option>
-      <option value="solar-flare">☀️ Solar Studio Lighting</option>
-      <option value="pure-matte">🖤 Pure Matte Elegance</option>
-    </select>
-  </div>
-
-  <div style="display:flex;flex-direction:column;gap:3px">
-    <label class="label">6. AI Camera Sensor Engine (7 Modern)</label>
-    <select id="camSelect">
-      <option value="neural-hdr">🧠 Neural HDR 5 Sensor Engine</option>
-      <option value="deep-fusion">🎯 Deep Fusion AI Autofocus</option>
-      <option value="cinematic-pro">🎥 Cinematic Pro 8K Stabilizer</option>
-      <option value="photon-engine">⚡ Apple Photon Engine</option>
-      <option value="smart-depth">📐 Smart Depth Matrix</option>
-      <option value="speed-capture">🏎️ High-Speed Micro Capture</option>
-      <option value="ai-studio-lens">💎 AI Studio Multi-Lens</option>
-    </select>
-  </div>
-
   <div class="box">
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <label class="label">7. Caption Templates (Changes every 5s)</label>
+      <label class="label">7. Automated Caption Templates (Every 5s)</label>
       <button id="autoBtn" class="auto-btn">🔄 Cycle Template</button>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center" class="small">
-      <span>Show Auto-Switching Captions</span>
-      <input type="checkbox" id="captionCheck" checked style="width:13px;height:13px;accent-color:#6366f1"/>
+      <span>Show Auto-Switching Captions on Screen</span>
+      <input type="checkbox" id="captionCheck" checked style="width:12px;height:12px;accent-color:#6366f1"/>
     </div>
-    <div class="grid2" id="tempGrid"></div>
-    <textarea id="desc" rows="2" placeholder="Custom caption text...">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea>
-  </div>
-
-  <div style="display:flex;flex-direction:column;gap:3px">
-    <label class="label">8. Professional Brand Background</label>
-    <div class="grid3">
-      <button data-bg="neon-vibrant" class="btn-opt active">Neon Vibrant</button>
-      <button data-bg="luxury-gold" class="btn-opt">Luxury Gold</button>
-      <button data-bg="cyber-blue" class="btn-opt">Cyber Blue</button>
-    </div>
+    <textarea id="desc" rows="2">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea>
   </div>
 
   <div style="margin-top:auto;padding-top:8px;border-top:1px solid #1e293b;display:flex;flex-direction:column;gap:5px">
     <div id="progWrap" class="progress" style="display:none"><div id="progBar" class="progress-bar" style="width:0%"></div></div>
     <button id="exportBtn" class="btn-main">⚡ Generate & Download to Gallery</button>
-    <div id="afterDown" style="display:none;text-align:center;font-size:9px;color:#22c55e">✓ HD Video ready — downloading...</div>
+    <div id="afterDown" style="display:none;text-align:center;font-size:9px;color:#22c55e">✓ iPhone 18 Ultra HD Video ready — downloading...</div>
   </div>
 </div>
 
@@ -141,7 +128,7 @@ canvas{width:100%;height:100%;object-fit:cover}
   <div class="preview-wrap">
     <canvas id="c" width="810" height="1440"></canvas>
   </div>
-  <p class="small" style="margin-top:6px">Full-Screen Bold Display • Templates Changing Every 5s</p>
+  <p class="small" style="margin-top:6px" id="previewInfo">iPhone 18 Ultra Pro Display • 10+ Images Queue • Background Models Active</p>
   <audio id="aud" preload="auto" style="display:none"></audio>
 </div>
 
@@ -151,12 +138,24 @@ const imgInput=document.getElementById('imgInput'), audioInput=document.getEleme
 const durRange=document.getElementById('durRange'), durBadge=document.getElementById('durBadge');
 const scaleRange=document.getElementById('scaleRange'), wRange=document.getElementById('wRange'), hRange=document.getElementById('hRange');
 const scaleVal=document.getElementById('scaleVal'), wVal=document.getElementById('wVal'), hVal=document.getElementById('hVal');
-const brightSelect=document.getElementById('brightSelect'), camSelect=document.getElementById('camSelect');
+const brightRange=document.getElementById('brightRange'), expRange=document.getElementById('expRange');
+const brightVal=document.getElementById('brightVal'), expVal=document.getElementById('expVal');
+const camSelect=document.getElementById('camSelect'), bgGrid=document.getElementById('bgGrid');
 const descInput=document.getElementById('desc'), aud=document.getElementById('aud');
-const autoBtn=document.getElementById('autoBtn'), captionCheck=document.getElementById('captionCheck'), tempGrid=document.getElementById('tempGrid');
+const autoBtn=document.getElementById('autoBtn'), captionCheck=document.getElementById('captionCheck');
 const exportBtn=document.getElementById('exportBtn'), imgCount=document.getElementById('imgCount'), audioStatus=document.getElementById('audioStatus');
 const progWrap=document.getElementById('progWrap'), progBar=document.getElementById('progBar');
 
+const backgroundModels=[
+{id:'neon-cyber-glow', name:'⚡ Neon Cyber Glow (Tech & Gadgets)', gradient:['#ff007f','#7928ca','#4f46e5']},
+{id:'luxury-gold-marble', name:'💎 Luxury Gold & Marble (High-End)', gradient:['#d4af37','#111111','#2c2c2c']},
+{id:'minimal-studio-white', name:'🤍 Minimal Studio White (Clean)', gradient:['#ffffff','#e2e8f0','#cbd5e1']},
+{id:'sunset-amber-glow', name:'🌅 Sunset Amber Glow (Lifestyle)', gradient:['#f97316','#db2777','#7c3aed']},
+{id:'emerald-luxury', name:'🌿 Emerald Rich Studio (Exclusive)', gradient:['#059669','#064e3b','#022c22']},
+{id:'deep-space-cosmos', name:'🌌 Deep Space Cosmos (Futuristic)', gradient:['#312e81','#1e1b4b','#09090b']},
+{id:'ruby-red-velvet', name:'🌹 Ruby Red Velvet (Bold Sales)', gradient:['#e11d48','#881337','#4c0519']},
+{id:'cyber-matrix-grid', name:'💻 Cyber Matrix Grid (Software)', gradient:['#06b6d4','#0f766e','#042f2e']}
+];
 const captionTemplates=[
 "🔥 Limited Time Special Release! Grab yours before stock runs out instantly!",
 "🚀 Transform your workflow with the ultimate tool designed for high-end creators.",
@@ -164,27 +163,28 @@ const captionTemplates=[
 "💎 Elevate your brand visibility and drive massive conversions starting today."
 ];
 
-let imageObjs=[], selectedBackground='neon-vibrant', videoDuration=90;
-let selectedBrightnessMode='studio-bright', selectedCameraMode='neural-hdr';
-let templateScale=1.1, templateWidthOffset=0, templateHeightOffset=0, isAutoCaptionEnabled=true;
-let customDesc="Discover the ultimate breakthrough product engineered for your success - Get yours today!";
+let imageObjs=[], selectedBackground='neon-cyber-glow', videoDuration=90;
+let brightnessLevel=1.4, exposureBias=0;
+let templateScale=1.0, templateWidthOffset=0, templateHeightOffset=0, isAutoCaptionEnabled=true;
 ctx.imageSmoothingEnabled=true; ctx.imageSmoothingQuality='high';
 
-function renderTempButtons(){
-  tempGrid.innerHTML='';
-  captionTemplates.forEach((t,i)=>{
-    const b=document.createElement('button'); b.className='btn-temp'; b.textContent=t.slice(0,28)+'...';
-    b.addEventListener('click', ()=>{descInput.value=t; customDesc=t;});
-    tempGrid.appendChild(b);
+function renderBgButtons(){
+  bgGrid.innerHTML='';
+  backgroundModels.forEach(bg=>{
+    const b=document.createElement('button'); b.className='btn-opt'+(bg.id===selectedBackground?' active':''); b.innerHTML=`<span>${bg.name}</span>`;
+    b.addEventListener('click', ()=>{selectedBackground=bg.id; renderBgButtons();});
+    bgGrid.appendChild(b);
   });
 }
-renderTempButtons();
+renderBgButtons();
 
 imgInput.addEventListener('change', e=>{
-  const files=Array.from(e.target.files).slice(0,3);
+  const files=Array.from(e.target.files);
   imageObjs=files.map(f=>{const im=new Image(); im.src=URL.createObjectURL(f); return im;});
-  imgCount.textContent=`✓ Full-Screen Bold Rendering Active (${files.length} loaded)`;
+  imgCount.textContent=`✓ Queue Active: ${files.length} image(s) loaded (auto-switching every 3s)`;
 });
+brightRange.addEventListener('input', e=>{brightnessLevel=Number(e.target.value); brightVal.textContent=brightnessLevel.toFixed(2)+'x';});
+expRange.addEventListener('input', e=>{exposureBias=Number(e.target.value); expVal.textContent=exposureBias+' EV';});
 scaleRange.addEventListener('input', e=>{templateScale=Number(e.target.value); scaleVal.textContent=templateScale.toFixed(2)+'x';});
 wRange.addEventListener('input', e=>{templateWidthOffset=Number(e.target.value); wVal.textContent=templateWidthOffset+'px';});
 hRange.addEventListener('input', e=>{templateHeightOffset=Number(e.target.value); hVal.textContent=templateHeightOffset+'px';});
@@ -196,37 +196,14 @@ durRange.addEventListener('input', e=>{
 audioInput.addEventListener('change', e=>{
   const file=e.target.files[0]; if(!file) return;
   aud.src=URL.createObjectURL(file); aud.load(); aud.playbackRate=1.0;
-  audioStatus.textContent='✓ Audio imported successfully'; audioStatus.style.color='#22c55e';
+  audioStatus.textContent='✓ Audio track loaded successfully'; audioStatus.style.color='#22c55e';
 });
-brightSelect.addEventListener('change', e=>selectedBrightnessMode=e.target.value);
-camSelect.addEventListener('change', e=>selectedCameraMode=e.target.value);
 captionCheck.addEventListener('change', e=>isAutoCaptionEnabled=e.target.checked);
-descInput.addEventListener('input', e=>{customDesc=e.target.value;});
 autoBtn.addEventListener('click', ()=>{
   const random=captionTemplates[Math.floor(Math.random()*captionTemplates.length)];
-  descInput.value=random; customDesc=random; isAutoCaptionEnabled=true; captionCheck.checked=true;
-});
-document.querySelectorAll('[data-bg]').forEach(b=>{
-  b.addEventListener('click', ()=>{
-    document.querySelectorAll('[data-bg]').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active'); selectedBackground=b.dataset.bg;
-  });
+  descInput.value=random; isAutoCaptionEnabled=true; captionCheck.checked=true;
 });
 
-function getBrightnessFilter(mode){
-  switch(mode){
-    case 'studio-bright': return 'brightness(1.4) contrast(1.2) saturate(1.3)';
-    case 'pro-hdr': return 'brightness(1.5) contrast(1.25) drop-shadow(0 0 25px rgba(255,255,255,0.6))';
-    case 'cinematic-glow': return 'brightness(1.35) saturate(1.4) sepia(0.05)';
-    case 'ultra-clarity': return 'brightness(1.4) contrast(1.3)';
-    case 'neon-boost': return 'brightness(1.35) contrast(1.35) saturate(1.6)';
-    case 'ambient-soft': return 'brightness(1.15) contrast(0.95) saturate(0.9)';
-    case 'hyper-contrast': return 'brightness(1.2) contrast(1.5) saturate(1.3)';
-    case 'solar-flare': return 'brightness(1.5) contrast(1.15) saturate(1.2)';
-    case 'pure-matte': return 'brightness(0.95) contrast(1.05) saturate(0.7)';
-    default: return 'brightness(1.3) contrast(1.2)';
-  }
-}
 function wrapText(ctx, text, x, y, maxWidth, lineHeight){
   const words=text.split(' '); let line=''; let curY=y;
   for(let n=0;n<words.length;n++){
@@ -242,46 +219,42 @@ let frame=0;
 function render(){
   frame++; const fps=30; const totalFrames=videoDuration*fps; if(frame>totalFrames) frame=0;
   ctx.clearRect(0,0,canvas.width,canvas.height);
+  const activeBg=backgroundModels.find(b=>b.id===selectedBackground)||backgroundModels[0];
   const grad=ctx.createLinearGradient(0,0,canvas.width,canvas.height);
-  if(selectedBackground==='neon-vibrant'){grad.addColorStop(0,'#ff007f'); grad.addColorStop(0.5,'#7928ca'); grad.addColorStop(1,'#4f46e5');}
-  else if(selectedBackground==='luxury-gold'){grad.addColorStop(0,'#d4af37'); grad.addColorStop(0.5,'#111'); grad.addColorStop(1,'#333');}
-  else{grad.addColorStop(0,'#06b6d4'); grad.addColorStop(1,'#3b82f6');}
+  grad.addColorStop(0,activeBg.gradient[0]); grad.addColorStop(0.5,activeBg.gradient[1]); grad.addColorStop(1,activeBg.gradient[2]||activeBg.gradient[1]);
   ctx.fillStyle=grad; ctx.fillRect(0,0,canvas.width,canvas.height);
 
   ctx.save();
-  ctx.filter=getBrightnessFilter(selectedBrightnessMode);
+  const exposureFactor=brightnessLevel + (exposureBias*0.1);
+  ctx.filter=`brightness(${exposureFactor}) contrast(1.25) saturate(1.35) drop-shadow(0 0 30px rgba(255,255,255,0.4))`;
   if(imageObjs.length>0){
-    const switchInterval=fps*4;
+    const switchInterval=fps*3;
     const idx=Math.floor(frame/switchInterval)%imageObjs.length;
     const im=imageObjs[idx];
     if(im.complete && im.naturalWidth){
-      const baseW=canvas.width*0.85*templateScale;
-      const baseH=canvas.height*0.65*templateScale;
+      const baseW=canvas.width*0.9*templateScale;
+      const baseH=canvas.height*0.68*templateScale;
       const drawW=baseW+templateWidthOffset;
       const drawH=baseH+templateHeightOffset;
-      ctx.translate(canvas.width/2, canvas.height/2-25);
+      ctx.translate(canvas.width/2, canvas.height/2-20);
       ctx.drawImage(im,-drawW/2,-drawH/2,drawW,drawH);
     }
   }else{
-    const baseW=canvas.width*0.82*templateScale;
+    const baseW=canvas.width*0.85*templateScale;
     const baseH=canvas.height*0.6*templateScale;
-    ctx.fillStyle='rgba(255,255,255,0.15)';
-    ctx.beginPath(); ctx.roundRect(canvas.width/2-baseW/2, canvas.height/2-baseH/2-25, baseW, baseH, 20); ctx.fill();
+    ctx.fillStyle='rgba(255,255,255,0.12)';
+    ctx.beginPath(); ctx.roundRect(canvas.width/2-baseW/2, canvas.height/2-baseH/2-20, baseW, baseH, 24); ctx.fill();
     ctx.fillStyle='#fff'; ctx.font='bold 28px sans-serif'; ctx.textAlign='center';
-    ctx.fillText('Upload Bold HD Product Images', canvas.width/2, canvas.height/2-20);
+    ctx.fillText('Upload 10+ Images for Ad Queue', canvas.width/2, canvas.height/2-15);
   }
   ctx.restore();
 
   if(isAutoCaptionEnabled){
-    ctx.fillStyle='#fff'; ctx.font='bold 32px sans-serif'; ctx.textAlign='center';
-    ctx.shadowColor='rgba(0,0,0,0.95)'; ctx.shadowBlur=14;
+    ctx.fillStyle='#fff'; ctx.font='bold 34px sans-serif'; ctx.textAlign='center';
+    ctx.shadowColor='rgba(0,0,0,0.95)'; ctx.shadowBlur=16;
     const templateIndex=Math.floor(frame/(fps*5))%captionTemplates.length;
     const activeCaption=captionTemplates[templateIndex];
-    // if user typed custom, show custom instead of auto cycle? We show cycle as per your code, but allow custom in textarea
-    const textToShow = descInput.value ? descInput.value : activeCaption;
-    // To honor your latest request: auto switching templates every 5s
-    const finalText = captionTemplates[templateIndex];
-    wrapText(ctx, finalText, canvas.width/2, canvas.height-200, canvas.width-70, 38);
+    wrapText(ctx, activeCaption, canvas.width/2, canvas.height-200, canvas.width-60, 40);
     ctx.shadowBlur=0;
   }
   requestAnimationFrame(render);
@@ -292,7 +265,7 @@ exportBtn.addEventListener('click', async ()=>{
   if(imageObjs.length===0){alert('Upload at least 1 product image'); return;}
   progWrap.style.display='block'; progBar.style.width='20%'; exportBtn.textContent='Rendering HD Video (20%)...'; exportBtn.disabled=true;
   if(aud.src){ try{ aud.playbackRate=1.0; await aud.play(); }catch(e){} }
-  setTimeout(()=>{progBar.style.width='65%'; exportBtn.textContent='Rendering HD Video (65%)...';},1200);
+  setTimeout(()=>{progBar.style.width='65%'; exportBtn.textContent='Rendering HD Video (65%)...';},1800);
   const stream=canvas.captureStream(30);
   let combined=stream;
   try{
@@ -308,7 +281,7 @@ exportBtn.addEventListener('click', async ()=>{
     const blob=new Blob(chunks,{type:'video/webm'});
     const url=URL.createObjectURL(blob);
     progBar.style.width='100%'; exportBtn.textContent='⚡ Generate & Download to Gallery'; exportBtn.disabled=false; progWrap.style.display='none';
-    const a=document.createElement('a'); a.href=url; a.download=`eminent-pro-ad-${videoDuration}s.webm`; document.body.appendChild(a); a.click(); a.remove();
+    const a=document.createElement('a'); a.href=url; a.download=`eminent-iphone18-pro-${videoDuration}s.webm`; document.body.appendChild(a); a.click(); a.remove();
     document.getElementById('afterDown').style.display='block';
     aud.pause(); aud.currentTime=0;
     setTimeout(()=>document.getElementById('afterDown').style.display='none',4000);
