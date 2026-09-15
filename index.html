@@ -3,150 +3,159 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Eminent Editor Pro - Live Video + Image Studio</title>
+<title>Eminent Editor Elite - 4-in-1 Studio</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,system-ui,sans-serif;background:#020617;color:#e2e8f0;display:flex;min-height:100vh}
-.left{width:54%;padding:12px;border-right:1px solid #1e293b;display:flex;flex-direction:column;gap:10px;overflow-y:auto;max-height:100vh}
-.right{width:46%;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#0f172a,#020617)}
-h1{font-size:20px;font-weight:900;background:linear-gradient(90deg,#ec4899,#8b5cf6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.small{font-size:8px;color:#94a3b8}
-.label{font-size:9px;font-weight:700;color:#cbd5e1}
-.input-file{width:100%;font-size:8px;color:#94a3b8;border:1px solid #1e293b;border-radius:7px;padding:4px;background:#020617}
-.input-file::file-selector-button{margin-right:5px;padding:4px 8px;border:0;border-radius:6px;font-size:7px;font-weight:700;background:#4f46e5;color:white;cursor:pointer}
-.box{background:#0f172a99;padding:8px;border-radius:9px;border:1px solid #1e293b;display:flex;flex-direction:column;gap:5px}
-.range{width:100%;accent-color:#6366f1}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-.btn-opt{padding:7px;border-radius:7px;border:1px solid #1e293b;background:#0f172a;color:#94a3b8;font-size:7px;font-weight:700;cursor:pointer;text-align:left}
+.left{width:55%;padding:10px;border-right:1px solid #1e293b;display:flex;flex-direction:column;gap:8px;overflow-y:auto;max-height:100vh}
+.right{width:45%;padding:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#0f172a,#020617)}
+h1{font-size:18px;font-weight:900;background:linear-gradient(90deg,#ec4899,#8b5cf6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.small{font-size:7px;color:#94a3b8}
+.label{font-size:8px;font-weight:700;color:#cbd5e1}
+.input-file{width:100%;font-size:7px;color:#94a3b8;border:1px solid #1e293b;border-radius:6px;padding:3px;background:#020617}
+.input-file::file-selector-button{margin-right:4px;padding:3px 6px;border:0;border-radius:5px;font-size:6px;font-weight:700;background:#4f46e5;color:white;cursor:pointer}
+.box{background:#0f172a99;padding:7px;border-radius:8px;border:1px solid #1e293b;display:flex;flex-direction:column;gap:4px}
+.range{width:100%;accent-color:#6366f1;height:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px}
+.btn-opt{padding:6px;border-radius:6px;border:1px solid #1e293b;background:#0f172a;color:#94a3b8;font-size:6.5px;font-weight:700;cursor:pointer;text-align:left;line-height:1.1}
 .btn-opt.active{border-color:#6366f1;background:#1e1b4b66;color:#a5b4fc}
-.btn-mode{padding:10px;border-radius:10px;border:1px solid #1e293b;font-size:9px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;transition:.2s}
-.btn-mode.active-img{background:#4f46e5;color:white;border-color:#4f46e5;box-shadow:0 0 15px #4f46e55a}
-.btn-mode.active-vid{background:#db2777;color:white;border-color:#db2777;box-shadow:0 0 15px #db27775a}
+.btn-mode{padding:7px;border-radius:8px;border:1px solid #1e293b;font-size:7px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:3px}
+.btn-mode.active-indigo{background:#4f46e5;color:white;border-color:#4f46e5}
+.btn-mode.active-pink{background:#db2777;color:white;border-color:#db2777}
+.btn-mode.active-purple{background:#7c3aed;color:white;border-color:#7c3aed}
+.btn-mode.active-cyan{background:#0891b2;color:white;border-color:#0891b2}
 .btn-mode.inactive{background:#0f172a;color:#64748b}
-select{width:100%;border-radius:7px;background:#020617;border:1px solid #1e293b;padding:5px;font-size:8px;color:#e2e8f0}
-textarea{width:100%;border-radius:7px;background:#020617;border:1px solid #334155;padding:5px;font-size:8px;color:#e2e8f0;resize:none}
-.btn-main{width:100%;padding:11px;border-radius:9px;background:linear-gradient(90deg,#4f46e5,#8b5cf6,#ec4899);font-weight:800;color:white;border:0;cursor:pointer;font-size:10px}
+select{width:100%;border-radius:6px;background:#020617;border:1px solid #1e293b;padding:4px;font-size:7px;color:#e2e8f0}
+textarea{width:100%;border-radius:6px;background:#020617;border:1px solid #334155;padding:4px;font-size:7px;color:#e2e8f0;resize:none}
+.btn-main{width:100%;padding:10px;border-radius:8px;background:linear-gradient(90deg,#4f46e5,#8b5cf6,#ec4899);font-weight:800;color:white;border:0;cursor:pointer;font-size:9px}
 .btn-main.rec{background:#dc2626;animation:pulse 1s infinite}
 .btn-main:disabled{opacity:.5}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
-@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-.fade{animation:fadeIn .3s ease}
-.progress{width:100%;height:6px;background:#0f172a;border-radius:999px;border:1px solid #1e293b;overflow:hidden}
+.progress{width:100%;height:5px;background:#0f172a;border-radius:999px;border:1px solid #1e293b;overflow:hidden}
 .progress-bar{height:100%;background:#4f46e5;transition:width .4s}
-.preview-wrap{position:relative;width:100%;max-width:310px;aspect-ratio:9/16;background:#020617;border-radius:20px;overflow:hidden;border:4px solid #1e293b;box-shadow:0 20px 50px #000a;display:flex;align-items:center;justify-content:center}
-canvas, video{width:100%;height:100%;object-fit:cover}
-.badge{font-size:7px;font-weight:800;padding:2px 6px;border-radius:4px;background:#4f46e5;color:white}
-.badge-pink{background:#db2777}
-.infoBox{padding:7px;border-radius:8px;font-size:8px;font-weight:600;line-height:1.3}
+.preview-wrap{position:relative;width:100%;max-width:300px;aspect-ratio:9/16;background:#020617;border-radius:18px;overflow:hidden;border:3px solid #1e293b;box-shadow:0 15px 40px #000a;display:flex;align-items:center;justify-content:center}
+canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
+.infoBox{padding:5px;border-radius:6px;font-size:6.5px;font-weight:600}
 .info-img{background:#1e1b4b66;border:1px solid #312e81;color:#a5b4fc}
 .info-vid{background:#4c051966;border:1px solid #881337;color:#fda4af}
+.info-photo{background:#3b076466;border:1px solid #5b21b6;color:#c4b5fd}
+.info-video{background:#042f2e66;border:1px solid #0f766e;color:#5eead4}
 @media(max-width:900px){body{flex-direction:column}.left,.right{width:100%}}
 </style>
 </head>
 <body>
 <div class="left">
   <div>
-    <h1>Eminent Editor Pro</h1>
-    <p class="small">Standalone Video Camera & Image Ad Background Studio</p>
+    <h1>Eminent Editor Elite</h1>
+    <p class="small">Advanced Video Camera, Photo Brightener & Ad Background Studio - 4 in 1</p>
   </div>
 
-  <!-- TOP MODE TOGGLE -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px;background:#0f172a;border-radius:12px;border:1px solid #1e293b">
-    <button id="modeImg" class="btn-mode active-img">🖼️ Image Ad Studio (10+)</button>
-    <button id="modeVid" class="btn-mode inactive">📹 Live Video Camera Suite</button>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:3px;background:#0f172a;border-radius:10px;border:1px solid #1e293b">
+    <button id="modeImg" class="btn-mode active-indigo">🖼️ Image Ad Studio</button>
+    <button id="modeVid" class="btn-mode inactive">📹 Live Video Camera</button>
+    <button id="modePhoto" class="btn-mode inactive">✨ Photo Brightener</button>
+    <button id="modeVideoEd" class="btn-mode inactive">🎬 Video Fixer Suite</button>
   </div>
 
-  <!-- IMAGE STUDIO PANEL -->
-  <div id="panelImg" class="fade" style="display:flex;flex-direction:column;gap:10px">
-    <div class="infoBox info-img">🖼️ Image Features Active: 10+ image queue, exact shape adjustments, 100+ brand background models.</div>
-    <div class="box">
-      <label class="label">1. Upload 10+ Images Queue (Shape-Matched)</label>
-      <input id="imgInput" type="file" accept="image/*" multiple class="input-file"/>
-      <span id="imgCount" class="small" style="color:#22c55e">✓ Queue Active: 0 loaded (auto-switching)</span>
-    </div>
+  <!-- IMAGE STUDIO -->
+  <div id="panelImg" style="display:flex;flex-direction:column;gap:6px">
+    <div class="box"><label class="label">1. Upload 10+ Images Queue (Shape-Matched)</label><input id="imgInput" type="file" accept="image/*" multiple class="input-file"/><span id="imgCount" class="small" style="color:#22c55e">✓ Queue Active: 0 loaded</span></div>
     <div class="box">
       <label class="label">2. Image Shape & Screen Fill Adjustments</label>
-      <div style="display:flex;flex-direction:column;gap:1px">
-        <div style="display:flex;justify-content:space-between" class="small"><span>Exact Background Fill Scale</span><span id="scaleVal">1.00x</span></div>
-        <input id="scaleRange" type="range" min="0.8" max="1.8" step="0.05" value="1.0" class="range"/>
-      </div>
+      <div style="display:flex;justify-content:space-between" class="small"><span>Exact Background Fill Scale</span><span id="scaleVal">1.00x</span></div>
+      <input id="scaleRange" type="range" min="0.8" max="1.8" step="0.05" value="1.0" class="range"/>
       <div class="grid2">
-        <div style="display:flex;flex-direction:column;gap:1px"><div style="display:flex;justify-content:space-between" class="small"><span>Width Stretch</span><span id="wVal">0px</span></div><input id="wRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#8b5cf6"/></div>
-        <div style="display:flex;flex-direction:column;gap:1px"><div style="display:flex;justify-content:space-between" class="small"><span>Height Stretch</span><span id="hVal">0px</span></div><input id="hRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#8b5cf6"/></div>
+        <div><div style="display:flex;justify-content:space-between" class="small"><span>Width Stretch</span><span id="wVal">0px</span></div><input id="wRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#ec4899"/></div>
+        <div><div style="display:flex;justify-content:space-between" class="small"><span>Height Stretch</span><span id="hVal">0px</span></div><input id="hRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#ec4899"/></div>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:4px"><label class="label">3. Background Changer (100+ Brand Themes)</label><div class="grid2" id="bgGrid"></div></div>
+    <div style="display:flex;flex-direction:column;gap:3px"><label class="label">3. Background Changer (100+ Brand Themes)</label><div class="grid2" id="bgGrid"></div></div>
+    <div class="box"><label class="label">4. Background Audio Track</label><input id="audioInput" type="file" accept="audio/*" class="input-file"/><span id="audioStatus" class="small"></span></div>
   </div>
 
-  <!-- VIDEO CAMERA PANEL -->
-  <div id="panelVid" class="fade" style="display:none;flex-direction:column;gap:10px">
-    <div class="infoBox info-vid">📹 Video Camera Active: Connects to phone camera hardware for live recording, selfie & iPhone 18 Ultra effects.</div>
+  <!-- VIDEO CAMERA -->
+  <div id="panelVid" style="display:none;flex-direction:column;gap:6px">
+    <div class="infoBox info-vid">📹 Live Camera: Front/Back switch + 6 ultra filters + brightness + live phone audio.</div>
     <div class="box">
-      <label class="label">1. Hardware Camera Selection</label>
-      <div class="grid2">
-        <button id="camRear" class="btn-opt active">📷 Rear Product Camera</button>
-        <button id="camFront" class="btn-opt">🤳 Selfie Camera Mode</button>
-      </div>
+      <label class="label">1. Hardware Camera Switch (Front / Back)</label>
+      <div class="grid2"><button id="camFront" class="btn-opt active">🤳 Front Selfie Camera</button><button id="camRear" class="btn-opt">📷 Back Product Camera</button></div>
     </div>
+    <div style="display:flex;flex-direction:column;gap:3px"><label class="label">2. Ultra-Modern Camera Versions (6 Colorful Filters)</label><div class="grid2" id="ultraGrid"></div></div>
     <div class="box">
-      <label class="label">2. iPhone 18 Ultra Pro Brightness & Features</label>
-      <select id="camSelect">
-        <option value="iphone-18-ultra-fusion">📱 iPhone 18 Ultra Fusion Lens & Neural Engine</option>
-        <option value="quantum-hdr-pro">🌟 Quantum HDR 10+ Pro Sensor</option>
-        <option value="cinematic-anamorphic">🎥 Cinematic Anamorphic 8K Studio</option>
-        <option value="neural-photon-engine">⚡ Apple Neural Photon Engine V5</option>
-      </select>
-      <div style="display:flex;flex-direction:column;gap:1px"><div style="display:flex;justify-content:space-between" class="small"><span>Camera Brightness Adjustment</span><span id="brightVal">1.40x</span></div><input id="brightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.4" class="range" style="accent-color:#ec4899"/></div>
-      <div style="display:flex;flex-direction:column;gap:1px"><div style="display:flex;justify-content:space-between" class="small"><span>Exposure Compensation (EV)</span><span id="expVal">0 EV</span></div><input id="expRange" type="range" min="-5" max="5" step="1" value="0" class="range"/></div>
+      <label class="label">3. Brightness & Live Phone Audio</label>
+      <div style="display:flex;justify-content:space-between" class="small"><span>Camera Exposure Brightness</span><span id="brightVal">1.30x</span></div>
+      <input id="brightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.3" class="range" style="accent-color:#ec4899"/>
+      <label class="label" style="margin-top:4px">Select Background Audio from Phone for Live Video:</label>
+      <input id="liveAudioInput" type="file" accept="audio/*" class="input-file"/>
+      <span id="liveAudioStatus" class="small"></span>
     </div>
+    <div class="box"><div style="display:flex;justify-content:space-between;align-items:center"><label class="label">4. Video Duration (Up to 5 Min)</label><span id="durBadge" class="small" style="background:#db2777;color:white;padding:2px 5px;border-radius:4px">1m 30s</span></div><input id="durRange" type="range" min="15" max="300" step="15" value="90" class="range" style="accent-color:#db2777"/></div>
+  </div>
+
+  <!-- PHOTO EDITOR -->
+  <div id="panelPhoto" style="display:none;flex-direction:column;gap:6px">
+    <div class="infoBox info-photo">✨ Photo Brightener: Fix dark, dull photos instantly with exposure & contrast controls.</div>
+    <div class="box"><label class="label">Upload Photo to Brighten</label><input id="photoInput" type="file" accept="image/*" class="input-file"/></div>
     <div class="box">
-      <div style="display:flex;justify-content:space-between;align-items:center"><label class="label">3. Video Duration (Up to 5 Minutes)</label><span id="durBadge" class="badge badge-pink">1m 30s</span></div>
-      <input id="durRange" type="range" min="15" max="300" step="15" value="90" class="range" style="accent-color:#ec4899"/>
-      <div style="display:flex;justify-content:space-between" class="small"><span>15s</span><span>2m 30s</span><span>5m Max</span></div>
+      <label class="label">Photo Adjustment Sliders</label>
+      <div style="display:flex;justify-content:space-between" class="small"><span>Brightness Booster</span><span id="pBrightVal">1.20x</span></div><input id="pBrightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.2" class="range" style="accent-color:#7c3aed"/>
+      <div style="display:flex;justify-content:space-between" class="small"><span>Contrast Pop</span><span id="pContVal">1.10x</span></div><input id="pContRange" type="range" min="0.8" max="2.0" step="0.05" value="1.1" class="range" style="accent-color:#7c3aed"/>
+      <div style="display:flex;justify-content:space-between" class="small"><span>Color Saturation</span><span id="pSatVal">1.20x</span></div><input id="pSatRange" type="range" min="0.8" max="2.0" step="0.05" value="1.2" class="range" style="accent-color:#7c3aed"/>
     </div>
   </div>
 
-  <!-- SHARED TOOLS -->
-  <div class="box">
-    <label class="label">Shared Studio Tools (Audio & Captions)</label>
-    <input id="audioInput" type="file" accept="audio/*" class="input-file"/>
-    <span id="audioStatus" class="small"></span>
-    <textarea id="desc" rows="2">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea>
+  <!-- VIDEO EDITOR -->
+  <div id="panelVideoEd" style="display:none;flex-direction:column;gap:6px">
+    <div class="infoBox info-video">🎬 Video Fixer: Upload boring/blurry videos & apply cinematic grades.</div>
+    <div class="box"><label class="label">Upload Boring / Blurry Video</label><input id="videoEditInput" type="file" accept="video/*" class="input-file"/></div>
+    <div class="box">
+      <label class="label">Video Enhancement Controls</label>
+      <div style="display:flex;justify-content:space-between" class="small"><span>Video Brightness Correction</span><span id="vBrightVal">1.20x</span></div><input id="vBrightRange" type="range" min="0.8" max="2.2" step="0.05" value="1.2" class="range" style="accent-color:#0891b2"/>
+      <label class="label" style="margin-top:4px">Cinematic Filter Grade:</label>
+      <div class="grid3"><button data-vf="normal" class="btn-opt active vfBtn">Normal</button><button data-vf="cinematic-pop" class="btn-opt vfBtn">Cinematic Pop</button><button data-vf="ultra-vibrant" class="btn-opt vfBtn">Ultra Vibrant</button></div>
+    </div>
   </div>
 
-  <div style="margin-top:auto;padding-top:8px;border-top:1px solid #1e293b;display:flex;flex-direction:column;gap:5px">
+  <!-- SHARED CAPTION -->
+  <div class="box"><label class="label">Shared Caption (Auto-switch every 5s)</label><textarea id="desc" rows="2">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea><div style="display:flex;justify-content:space-between" class="small"><span>Show Auto-Switching Captions</span><input type="checkbox" id="captionCheck" checked style="width:11px;height:11px;accent-color:#6366f1"/></div></div>
+
+  <div style="margin-top:auto;padding-top:6px;border-top:1px solid #1e293b;display:flex;flex-direction:column;gap:4px">
     <div id="progWrap" class="progress" style="display:none"><div id="progBar" class="progress-bar" style="width:0%"></div></div>
     <button id="exportBtn" class="btn-main">⚡ Generate & Download Ad to Gallery</button>
-    <div id="afterDown" style="display:none;text-align:center;font-size:8px;color:#22c55e"></div>
-    <div id="liveDownWrap" style="display:none"><a id="liveDownLink" href="#" download class="btn-main" style="display:block;text-align:center;background:#059669;text-decoration:none">📥 Download Live Video to Gallery</a></div>
+    <div id="afterDown" style="display:none;text-align:center;font-size:7px;color:#22c55e"></div>
+    <div id="liveDownWrap" style="display:none"><a id="liveDownLink" href="#" download style="display:block;text-align:center;padding:8px;border-radius:8px;background:#059669;color:white;font-size:8px;font-weight:800;text-decoration:none">📥 Download Live Video to Gallery</a></div>
   </div>
 </div>
 
 <div class="right">
   <div class="preview-wrap">
-    <canvas id="c" width="810" height="1440" style="display:block"></canvas>
+    <canvas id="c" width="810" height="1440"></canvas>
     <video id="liveVideo" autoplay playsinline muted style="display:none"></video>
+    <img id="photoPreview" class="preview-img" style="display:none"/>
+    <video id="videoEditPreview" autoplay loop playsinline muted style="display:none"></video>
   </div>
-  <p class="small" style="margin-top:6px" id="previewLabel">🖼️ Image Ad Studio Preview Active</p>
+  <p class="small" style="margin-top:5px;text-align:center" id="previewLabel">🖼️ Image Ad Studio Active</p>
   <audio id="aud" preload="auto" style="display:none"></audio>
+  <audio id="liveAud" preload="auto" style="display:none"></audio>
 </div>
 
 <script>
 const canvas=document.getElementById('c'), ctx=canvas.getContext('2d');
-const liveVideo=document.getElementById('liveVideo');
-const modeImgBtn=document.getElementById('modeImg'), modeVidBtn=document.getElementById('modeVid');
-const panelImg=document.getElementById('panelImg'), panelVid=document.getElementById('panelVid');
-const imgInput=document.getElementById('imgInput'), audioInput=document.getElementById('audioInput');
-const durRange=document.getElementById('durRange'), durBadge=document.getElementById('durBadge');
-const scaleRange=document.getElementById('scaleRange'), wRange=document.getElementById('wRange'), hRange=document.getElementById('hRange');
-const scaleVal=document.getElementById('scaleVal'), wVal=document.getElementById('wVal'), hVal=document.getElementById('hVal');
-const brightRange=document.getElementById('brightRange'), expRange=document.getElementById('expRange');
-const brightVal=document.getElementById('brightVal'), expVal=document.getElementById('expVal');
-const bgGrid=document.getElementById('bgGrid'), descInput=document.getElementById('desc'), aud=document.getElementById('aud');
-const exportBtn=document.getElementById('exportBtn'), imgCount=document.getElementById('imgCount'), audioStatus=document.getElementById('audioStatus');
-const progWrap=document.getElementById('progWrap'), progBar=document.getElementById('progBar'), afterDown=document.getElementById('afterDown');
-const previewLabel=document.getElementById('previewLabel'), liveDownWrap=document.getElementById('liveDownWrap'), liveDownLink=document.getElementById('liveDownLink');
-const camRearBtn=document.getElementById('camRear'), camFrontBtn=document.getElementById('camFront');
+const liveVideo=document.getElementById('liveVideo'), photoPreview=document.getElementById('photoPreview'), videoEditPreview=document.getElementById('videoEditPreview');
+const modeImg=document.getElementById('modeImg'), modeVid=document.getElementById('modeVid'), modePhoto=document.getElementById('modePhoto'), modeVideoEd=document.getElementById('modeVideoEd');
+const panelImg=document.getElementById('panelImg'), panelVid=document.getElementById('panelVid'), panelPhoto=document.getElementById('panelPhoto'), panelVideoEd=document.getElementById('panelVideoEd');
+const imgInput=document.getElementById('imgInput'), audioInput=document.getElementById('audioInput'), liveAudioInput=document.getElementById('liveAudioInput'), photoInput=document.getElementById('photoInput'), videoEditInput=document.getElementById('videoEditInput');
+const durRange=document.getElementById('durRange'), durBadge=document.getElementById('durBadge'), scaleRange=document.getElementById('scaleRange'), wRange=document.getElementById('wRange'), hRange=document.getElementById('hRange');
+const scaleVal=document.getElementById('scaleVal'), wVal=document.getElementById('wVal'), hVal=document.getElementById('hVal'), brightRange=document.getElementById('brightRange'), brightVal=document.getElementById('brightVal');
+const bgGrid=document.getElementById('bgGrid'), ultraGrid=document.getElementById('ultraGrid'), descInput=document.getElementById('desc'), captionCheck=document.getElementById('captionCheck');
+const exportBtn=document.getElementById('exportBtn'), imgCount=document.getElementById('imgCount'), audioStatus=document.getElementById('audioStatus'), liveAudioStatus=document.getElementById('liveAudioStatus');
+const progWrap=document.getElementById('progWrap'), progBar=document.getElementById('progBar'), afterDown=document.getElementById('afterDown'), previewLabel=document.getElementById('previewLabel');
+const aud=document.getElementById('aud'), liveAud=document.getElementById('liveAud'), liveDownWrap=document.getElementById('liveDownWrap'), liveDownLink=document.getElementById('liveDownLink');
+const camFront=document.getElementById('camFront'), camRear=document.getElementById('camRear');
+const pBrightRange=document.getElementById('pBrightRange'), pContRange=document.getElementById('pContRange'), pSatRange=document.getElementById('pSatRange');
+const pBrightVal=document.getElementById('pBrightVal'), pContVal=document.getElementById('pContVal'), pSatVal=document.getElementById('pSatVal');
+const vBrightRange=document.getElementById('vBrightRange'), vBrightVal=document.getElementById('vBrightVal');
 
 const backgroundModels=[
 {id:'neon-cyber-glow', name:'⚡ Neon Cyber Glow', gradient:['#ff007f','#7928ca','#4f46e5']},
@@ -158,6 +167,14 @@ const backgroundModels=[
 {id:'ruby-red-velvet', name:'🌹 Ruby Red Velvet', gradient:['#e11d48','#881337','#4c0519']},
 {id:'cyber-matrix-grid', name:'💻 Cyber Matrix Grid', gradient:['#06b6d4','#0f766e','#042f2e']}
 ];
+const ultraCameraVersions=[
+{id:'neural-vivid', name:'🔥 Neural Vivid Pro (Ultra Colorful)'},
+{id:'cinema-hdr', name:'🎬 Cinema HDR Max (Balanced Glow)'},
+{id:'hyper-clear', name:'💎 Hyper-Clear Sharp (Face Focus)'},
+{id:'golden-hour', name:'🌅 Warm Golden Hour (Flattering Skin)'},
+{id:'cyberpunk-neon', name:'⚡ Cyberpunk Neon (Vibrant Pop)'},
+{id:'pure-matte', name:'🖤 Pure Matte Elegance (Clean)'}
+];
 const captionTemplates=[
 "🔥 Limited Time Special Release! Grab yours before stock runs out instantly!",
 "🚀 Transform your workflow with the ultimate tool designed for high-end creators.",
@@ -166,78 +183,90 @@ const captionTemplates=[
 ];
 
 let activeMode='image-studio', imageObjs=[], selectedBackground='neon-cyber-glow', videoDuration=90;
-let brightnessLevel=1.4, exposureBias=0, templateScale=1.0, templateWidthOffset=0, templateHeightOffset=0;
-let isFrontCamera=false, isRecordingLive=false, mediaRecorder=null, recordedChunks=[], currentStream=null;
+let cameraBrightness=1.3, templateScale=1.0, templateWidthOffset=0, templateHeightOffset=0, isAutoCaptionEnabled=true;
+let cameraFacingMode='user', selectedUltraCameraVersion='neural-vivid', isFrontCamera=true;
+let isRecordingLive=false, mediaRecorder=null, recordedChunks=[], currentStream=null;
+let photoEditSource=null, photoBrightness=1.2, photoContrast=1.1, photoSaturation=1.2;
+let videoEditSource=null, videoEditBrightness=1.2, videoEditFilter='normal';
 
 ctx.imageSmoothingEnabled=true; ctx.imageSmoothingQuality='high';
 
 function renderBgButtons(){
-  bgGrid.innerHTML='';
-  backgroundModels.forEach(bg=>{
+  bgGrid.innerHTML=''; backgroundModels.forEach(bg=>{
     const b=document.createElement('button'); b.className='btn-opt'+(bg.id===selectedBackground?' active':''); b.textContent=bg.name;
-    b.addEventListener('click', ()=>{selectedBackground=bg.id; renderBgButtons();});
-    bgGrid.appendChild(b);
+    b.addEventListener('click', ()=>{selectedBackground=bg.id; renderBgButtons();}); bgGrid.appendChild(b);
   });
 }
-renderBgButtons();
+function renderUltraButtons(){
+  ultraGrid.innerHTML=''; ultraCameraVersions.forEach(cam=>{
+    const b=document.createElement('button'); b.className='btn-opt'+(cam.id===selectedUltraCameraVersion?' active':''); b.textContent=cam.name;
+    b.addEventListener('click', ()=>{selectedUltraCameraVersion=cam.id; renderUltraButtons(); applyLiveFilter();}); ultraGrid.appendChild(b);
+  });
+}
+renderBgButtons(); renderUltraButtons();
 
 function setMode(mode){
   activeMode=mode;
-  if(mode==='image-studio'){
-    panelImg.style.display='flex'; panelVid.style.display='none';
-    canvas.style.display='block'; liveVideo.style.display='none';
-    modeImgBtn.className='btn-mode active-img'; modeVidBtn.className='btn-mode inactive';
-    previewLabel.textContent='🖼️ Image Ad Studio Preview Active';
-    exportBtn.textContent='⚡ Generate & Download Ad to Gallery'; exportBtn.classList.remove('rec');
-    stopCamera();
-  }else{
-    panelImg.style.display='none'; panelVid.style.display='flex';
-    canvas.style.display='none'; liveVideo.style.display='block';
-    modeImgBtn.className='btn-mode inactive'; modeVidBtn.className='btn-mode active-vid';
-    previewLabel.textContent='📹 Live Phone Hardware Camera Feed Active';
-    exportBtn.textContent='⏺️ Start Live Hardware Video Recording';
-    startCamera();
-  }
+  [panelImg,panelVid,panelPhoto,panelVideoEd].forEach(p=>p.style.display='none');
+  [modeImg,modeVid,modePhoto,modeVideoEd].forEach(b=>b.className='btn-mode inactive');
+  [canvas,liveVideo,photoPreview,videoEditPreview].forEach(el=>el.style.display='none');
+  stopCamera();
+  if(mode==='image-studio'){panelImg.style.display='flex'; modeImg.className='btn-mode active-indigo'; canvas.style.display='block'; previewLabel.textContent='🖼️ Image Ad Studio Active'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery';}
+  else if(mode==='video-camera'){panelVid.style.display='flex'; modeVid.className='btn-mode active-pink'; liveVideo.style.display='block'; previewLabel.textContent='📹 Hardware Live Camera & 6 Ultra Filters Active'; exportBtn.textContent='⏺️ Start Live Hardware Video Recording'; startCamera();}
+  else if(mode==='photo-editor'){panelPhoto.style.display='flex'; modePhoto.className='btn-mode active-purple'; photoPreview.style.display='block'; previewLabel.textContent='✨ Photo Brightener & Enhancer Active'; exportBtn.textContent='✨ Save Enhanced Photo to Gallery'; if(photoEditSource) photoPreview.src=photoEditSource; applyPhotoFilter();}
+  else if(mode==='video-editor'){panelVideoEd.style.display='flex'; modeVideoEd.className='btn-mode active-cyan'; videoEditPreview.style.display='block'; previewLabel.textContent='🎬 Video Fixer & Color Grade Active'; exportBtn.textContent='🎬 Save Enhanced Video to Gallery'; if(videoEditSource) videoEditPreview.src=videoEditSource; applyVideoFilter();}
+  exportBtn.classList.remove('rec'); isRecordingLive=false;
 }
-modeImgBtn.addEventListener('click', ()=>setMode('image-studio'));
-modeVidBtn.addEventListener('click', ()=>setMode('video-camera'));
+modeImg.addEventListener('click', ()=>setMode('image-studio'));
+modeVid.addEventListener('click', ()=>setMode('video-camera'));
+modePhoto.addEventListener('click', ()=>setMode('photo-editor'));
+modeVideoEd.addEventListener('click', ()=>setMode('video-editor'));
 
 async function startCamera(){
   stopCamera();
   try{
-    const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:isFrontCamera?'user':'environment', width:1080, height:1920}, audio:true});
-    currentStream=stream; liveVideo.srcObject=stream; await liveVideo.play();
-    applyLiveFilter();
-  }catch(err){ alert('Camera access denied or not available: '+err.message); }
+    const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:cameraFacingMode, width:{ideal:1080}, height:{ideal:1920}}, audio:true});
+    currentStream=stream; liveVideo.srcObject=stream; await liveVideo.play(); applyLiveFilter();
+  }catch(err){ alert('Camera access denied: '+err.message); }
 }
-function stopCamera(){
-  if(currentStream){ currentStream.getTracks().forEach(t=>t.stop()); currentStream=null; }
+function stopCamera(){ if(currentStream){ currentStream.getTracks().forEach(t=>t.stop()); currentStream=null; } }
+function getCameraFilterStyle(){
+  let base=`brightness(${cameraBrightness}) `;
+  if(selectedUltraCameraVersion==='neural-vivid') return base+'contrast(1.35) saturate(1.5)';
+  if(selectedUltraCameraVersion==='cinema-hdr') return base+'contrast(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.3))';
+  if(selectedUltraCameraVersion==='hyper-clear') return base+'contrast(1.4) saturate(1.1)';
+  if(selectedUltraCameraVersion==='golden-hour') return base+'sepia(0.2) saturate(1.3) contrast(1.15)';
+  if(selectedUltraCameraVersion==='cyberpunk-neon') return base+'hue-rotate(15deg) saturate(1.6) contrast(1.4)';
+  return base+'contrast(1.05) grayscale(0.1)';
 }
-function applyLiveFilter(){
-  const exp=brightnessLevel + (exposureBias*0.1);
-  liveVideo.style.filter=`brightness(${exp}) contrast(1.25) saturate(1.35)`;
-}
-camRearBtn.addEventListener('click', ()=>{isFrontCamera=false; camRearBtn.classList.add('active'); camFrontBtn.classList.remove('active'); if(activeMode==='video-camera') startCamera();});
-camFrontBtn.addEventListener('click', ()=>{isFrontCamera=true; camFrontBtn.classList.add('active'); camRearBtn.classList.remove('active'); if(activeMode==='video-camera') startCamera();});
+function applyLiveFilter(){ liveVideo.style.filter=getCameraFilterStyle(); liveVideo.style.transform=cameraFacingMode==='user'?'scaleX(-1)':'none'; }
+camFront.addEventListener('click', ()=>{cameraFacingMode='user'; camFront.classList.add('active'); camRear.classList.remove('active'); if(activeMode==='video-camera') startCamera();});
+camRear.addEventListener('click', ()=>{cameraFacingMode='environment'; camRear.classList.add('active'); camFront.classList.remove('active'); if(activeMode==='video-camera') startCamera();});
 
-imgInput.addEventListener('change', e=>{
-  const files=Array.from(e.target.files); imageObjs=files.map(f=>{const im=new Image(); im.src=URL.createObjectURL(f); return im;});
-  imgCount.textContent=`✓ Queue Active: ${files.length} loaded (auto-switching every 3s)`;
-});
-brightRange.addEventListener('input', e=>{brightnessLevel=Number(e.target.value); brightVal.textContent=brightnessLevel.toFixed(2)+'x'; applyLiveFilter();});
-expRange.addEventListener('input', e=>{exposureBias=Number(e.target.value); expVal.textContent=exposureBias+' EV'; applyLiveFilter();});
+function applyPhotoFilter(){ if(!photoPreview) return; photoPreview.style.filter=`brightness(${photoBrightness}) contrast(${photoContrast}) saturate(${photoSaturation})`; }
+function applyVideoFilter(){ 
+  let f=`brightness(${videoEditBrightness}) `;
+  if(videoEditFilter==='cinematic-pop') f+='contrast(1.3) saturate(1.4)';
+  else if(videoEditFilter==='ultra-vibrant') f+='saturate(1.8)';
+  videoEditPreview.style.filter=f;
+}
+
+imgInput.addEventListener('change', e=>{ const files=Array.from(e.target.files); imageObjs=files.map(f=>{const im=new Image(); im.src=URL.createObjectURL(f); return im;}); imgCount.textContent=`✓ Queue Active: ${files.length} loaded`; });
+audioInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; aud.src=URL.createObjectURL(file); aud.load(); audioStatus.textContent='✓ Audio loaded'; audioStatus.style.color='#22c55e'; });
+liveAudioInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; liveAud.src=URL.createObjectURL(file); liveAud.load(); liveAudioStatus.textContent='✓ Phone audio loaded for recording'; liveAudioStatus.style.color='#22c55e'; });
+photoInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; photoEditSource=URL.createObjectURL(file); photoPreview.src=photoEditSource; applyPhotoFilter(); });
+videoEditInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; videoEditSource=URL.createObjectURL(file); videoEditPreview.src=videoEditSource; applyVideoFilter(); });
 scaleRange.addEventListener('input', e=>{templateScale=Number(e.target.value); scaleVal.textContent=templateScale.toFixed(2)+'x';});
 wRange.addEventListener('input', e=>{templateWidthOffset=Number(e.target.value); wVal.textContent=templateWidthOffset+'px';});
 hRange.addEventListener('input', e=>{templateHeightOffset=Number(e.target.value); hVal.textContent=templateHeightOffset+'px';});
-durRange.addEventListener('input', e=>{
-  videoDuration=Number(e.target.value);
-  const m=Math.floor(videoDuration/60), s=videoDuration%60; durBadge.textContent=`${m}m ${s}s`;
-});
-audioInput.addEventListener('change', e=>{
-  const file=e.target.files[0]; if(!file) return;
-  aud.src=URL.createObjectURL(file); aud.load();
-  audioStatus.textContent='✓ Background audio loaded'; audioStatus.style.color='#22c55e';
-});
+brightRange.addEventListener('input', e=>{cameraBrightness=Number(e.target.value); brightVal.textContent=cameraBrightness.toFixed(2)+'x'; applyLiveFilter();});
+durRange.addEventListener('input', e=>{videoDuration=Number(e.target.value); const m=Math.floor(videoDuration/60), s=videoDuration%60; durBadge.textContent=`${m}m ${s}s`;});
+pBrightRange.addEventListener('input', e=>{photoBrightness=Number(e.target.value); pBrightVal.textContent=photoBrightness.toFixed(2)+'x'; applyPhotoFilter();});
+pContRange.addEventListener('input', e=>{photoContrast=Number(e.target.value); pContVal.textContent=photoContrast.toFixed(2)+'x'; applyPhotoFilter();});
+pSatRange.addEventListener('input', e=>{photoSaturation=Number(e.target.value); pSatVal.textContent=photoSaturation.toFixed(2)+'x'; applyPhotoFilter();});
+vBrightRange.addEventListener('input', e=>{videoEditBrightness=Number(e.target.value); vBrightVal.textContent=videoEditBrightness.toFixed(2)+'x'; applyVideoFilter();});
+document.querySelectorAll('.vfBtn').forEach(b=>{b.addEventListener('click', ()=>{document.querySelectorAll('.vfBtn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); videoEditFilter=b.dataset.vf; applyVideoFilter();});});
+captionCheck.addEventListener('change', e=>isAutoCaptionEnabled=e.target.checked);
 
 function wrapText(ctx, text, x, y, maxWidth, lineHeight){
   const words=text.split(' '); let line=''; let curY=y;
@@ -259,13 +288,9 @@ function renderCanvas(){
   const grad=ctx.createLinearGradient(0,0,canvas.width,canvas.height);
   grad.addColorStop(0,activeBg.gradient[0]); grad.addColorStop(0.5,activeBg.gradient[1]); grad.addColorStop(1,activeBg.gradient[2]||activeBg.gradient[1]);
   ctx.fillStyle=grad; ctx.fillRect(0,0,canvas.width,canvas.height);
-  ctx.save();
-  const exp=brightnessLevel + (exposureBias*0.1);
-  ctx.filter=`brightness(${exp}) contrast(1.25) saturate(1.35)`;
+  ctx.save(); ctx.filter=`brightness(1.4) contrast(1.25) saturate(1.35)`;
   if(imageObjs.length>0){
-    const switchInterval=fps*3;
-    const idx=Math.floor(frame/switchInterval)%imageObjs.length;
-    const im=imageObjs[idx];
+    const switchInterval=fps*3; const idx=Math.floor(frame/switchInterval)%imageObjs.length; const im=imageObjs[idx];
     if(im.complete && im.naturalWidth){
       const baseW=canvas.width*0.9*templateScale; const baseH=canvas.height*0.68*templateScale;
       const drawW=baseW+templateWidthOffset; const drawH=baseH+templateHeightOffset;
@@ -277,9 +302,11 @@ function renderCanvas(){
     ctx.fillStyle='#fff'; ctx.font='bold 26px sans-serif'; ctx.textAlign='center'; ctx.fillText('Upload 10+ Images for Ad Queue', canvas.width/2, canvas.height/2-15);
   }
   ctx.restore();
-  ctx.fillStyle='#fff'; ctx.font='bold 32px sans-serif'; ctx.textAlign='center'; ctx.shadowColor='rgba(0,0,0,0.95)'; ctx.shadowBlur=14;
-  const templateIndex=Math.floor(frame/(fps*5))%captionTemplates.length;
-  wrapText(ctx, captionTemplates[templateIndex], canvas.width/2, canvas.height-200, canvas.width-60, 38); ctx.shadowBlur=0;
+  if(isAutoCaptionEnabled){
+    ctx.fillStyle='#fff'; ctx.font='bold 32px sans-serif'; ctx.textAlign='center'; ctx.shadowColor='rgba(0,0,0,0.95)'; ctx.shadowBlur=14;
+    const templateIndex=Math.floor(frame/(fps*5))%captionTemplates.length;
+    wrapText(ctx, captionTemplates[templateIndex], canvas.width/2, canvas.height-200, canvas.width-60, 38); ctx.shadowBlur=0;
+  }
   requestAnimationFrame(renderCanvas);
 }
 renderCanvas();
@@ -287,18 +314,19 @@ renderCanvas();
 function toggleLiveRecording(){
   if(!isRecordingLive){
     if(!currentStream){ alert('Camera stream not active'); return; }
-    recordedChunks=[]; mediaRecorder=new MediaRecorder(currentStream, {mimeType:'video/webm'});
+    recordedChunks=[]; 
+    if(liveAud.src) liveAud.play();
+    mediaRecorder=new MediaRecorder(currentStream, {mimeType:'video/webm'});
     mediaRecorder.ondataavailable=e=>{if(e.data.size>0) recordedChunks.push(e.data);};
     mediaRecorder.onstop=()=>{
       const blob=new Blob(recordedChunks, {type:'video/webm'}); const url=URL.createObjectURL(blob);
       liveDownLink.href=url; liveDownLink.download=`eminent-live-${videoDuration}s.webm`; liveDownWrap.style.display='block';
       afterDown.textContent='✓ Live video recorded - ready to download'; afterDown.style.display='block';
       exportBtn.textContent='⏺️ Start Live Hardware Video Recording'; exportBtn.classList.remove('rec'); isRecordingLive=false;
+      if(liveAud.src) liveAud.pause();
     };
     mediaRecorder.start(); isRecordingLive=true; exportBtn.textContent='🔴 Stop & Save Live Recording'; exportBtn.classList.add('rec');
-  }else{
-    mediaRecorder.stop();
-  }
+  }else{ mediaRecorder.stop(); }
 }
 
 exportBtn.addEventListener('click', async ()=>{
@@ -315,12 +343,47 @@ exportBtn.addEventListener('click', async ()=>{
       const blob=new Blob(chunks,{type:'video/webm'}); const url=URL.createObjectURL(blob);
       progBar.style.width='100%'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery'; exportBtn.disabled=false; progWrap.style.display='none';
       const a=document.createElement('a'); a.href=url; a.download=`eminent-pro-${videoDuration}s.webm`; document.body.appendChild(a); a.click(); a.remove();
-      afterDown.textContent='✓ HD Video ready - downloading...'; afterDown.style.display='block';
-      setTimeout(()=>afterDown.style.display='none',4000); aud.pause();
+      afterDown.textContent='✓ HD Video ready - downloading...'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',4000); aud.pause();
     };
     recorder.start(); setTimeout(()=>recorder.stop(), videoDuration*1000);
-  }else{
+  }else if(activeMode==='video-camera'){
     toggleLiveRecording();
+  }else if(activeMode==='photo-editor'){
+    if(!photoEditSource){alert('Upload a photo first'); return;}
+    // Create canvas for enhanced photo download
+    const c=document.createElement('canvas'); const img=new Image(); img.crossOrigin='anonymous';
+    img.onload=()=>{
+      c.width=img.naturalWidth; c.height=img.naturalHeight;
+      const cctx=c.getContext('2d'); cctx.filter=`brightness(${photoBrightness}) contrast(${photoContrast}) saturate(${photoSaturation})`;
+      cctx.drawImage(img,0,0);
+      const url=c.toDataURL('image/jpeg',0.95);
+      const a=document.createElement('a'); a.href=url; a.download=`eminent-enhanced-photo.jpg`; a.click();
+      afterDown.textContent='✓ Enhanced photo downloaded!'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',3000);
+    };
+    img.src=photoEditSource;
+  }else if(activeMode==='video-editor'){
+    if(!videoEditSource){alert('Upload a video first'); return;}
+    // Record filtered video via canvas
+    const v=videoEditPreview;
+    const c=document.createElement('canvas'); c.width=v.videoWidth||720; c.height=v.videoHeight||1280;
+    const cctx=c.getContext('2d');
+    const stream=c.captureStream(30);
+    const recorder=new MediaRecorder(stream, {mimeType:'video/webm'});
+    const chunks=[]; recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
+    recorder.onstop=()=>{
+      const blob=new Blob(chunks,{type:'video/webm'}); const url=URL.createObjectURL(blob);
+      const a=document.createElement('a'); a.href=url; a.download=`eminent-fixed-video.webm`; a.click();
+      afterDown.textContent='✓ Fixed video downloaded!'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',3000);
+    };
+    v.currentTime=0; v.play();
+    const drawLoop=()=>{
+      if(v.paused||v.ended) return;
+      cctx.filter=`brightness(${videoEditBrightness}) ${videoEditFilter==='cinematic-pop'?'contrast(1.3) saturate(1.4)':videoEditFilter==='ultra-vibrant'?'saturate(1.8)':''}`;
+      cctx.drawImage(v,0,0,c.width,c.height);
+      requestAnimationFrame(drawLoop);
+    };
+    recorder.start(); drawLoop();
+    setTimeout(()=>{recorder.stop(); v.pause();}, v.duration*1000||5000);
   }
 });
 </script>
