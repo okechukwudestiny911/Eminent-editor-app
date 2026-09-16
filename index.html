@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Eminent Editor Elite - 4-in-1 Studio</title>
+<title>Eminent Editor Elite - 50 Mins Sound Preserving</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,system-ui,sans-serif;background:#020617;color:#e2e8f0;display:flex;min-height:100vh}
@@ -17,7 +17,6 @@ h1{font-size:18px;font-weight:900;background:linear-gradient(90deg,#ec4899,#8b5c
 .box{background:#0f172a99;padding:7px;border-radius:8px;border:1px solid #1e293b;display:flex;flex-direction:column;gap:4px}
 .range{width:100%;accent-color:#6366f1;height:14px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px}
 .btn-opt{padding:6px;border-radius:6px;border:1px solid #1e293b;background:#0f172a;color:#94a3b8;font-size:6.5px;font-weight:700;cursor:pointer;text-align:left;line-height:1.1}
 .btn-opt.active{border-color:#6366f1;background:#1e1b4b66;color:#a5b4fc}
 .btn-mode{padding:7px;border-radius:8px;border:1px solid #1e293b;font-size:7px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:3px}
@@ -37,10 +36,10 @@ textarea{width:100%;border-radius:6px;background:#020617;border:1px solid #33415
 .preview-wrap{position:relative;width:100%;max-width:300px;aspect-ratio:9/16;background:#020617;border-radius:18px;overflow:hidden;border:3px solid #1e293b;box-shadow:0 15px 40px #000a;display:flex;align-items:center;justify-content:center}
 canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
 .infoBox{padding:5px;border-radius:6px;font-size:6.5px;font-weight:600}
-.info-img{background:#1e1b4b66;border:1px solid #312e81;color:#a5b4fc}
 .info-vid{background:#4c051966;border:1px solid #881337;color:#fda4af}
 .info-photo{background:#3b076466;border:1px solid #5b21b6;color:#c4b5fd}
 .info-video{background:#042f2e66;border:1px solid #0f766e;color:#5eead4}
+.small-badge{font-size:6px;font-weight:800;padding:2px 5px;border-radius:4px;background:#0891b2;color:white}
 @media(max-width:900px){body{flex-direction:column}.left,.right{width:100%}}
 </style>
 </head>
@@ -48,77 +47,55 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
 <div class="left">
   <div>
     <h1>Eminent Editor Elite</h1>
-    <p class="small">Advanced Video Camera, Photo Brightener & Ad Background Studio - 4 in 1</p>
+    <p class="small">Advanced Video Camera, Photo Brightener & 50-Min Sound-Preserving Video Studio</p>
   </div>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:3px;background:#0f172a;border-radius:10px;border:1px solid #1e293b">
     <button id="modeImg" class="btn-mode active-indigo">🖼️ Image Ad Studio</button>
     <button id="modeVid" class="btn-mode inactive">📹 Live Video Camera</button>
     <button id="modePhoto" class="btn-mode inactive">✨ Photo Brightener</button>
-    <button id="modeVideoEd" class="btn-mode inactive">🎬 Video Fixer Suite</button>
+    <button id="modeVideoEd" class="btn-mode inactive">🎬 Video Sound & Fixer</button>
   </div>
 
-  <!-- IMAGE STUDIO -->
   <div id="panelImg" style="display:flex;flex-direction:column;gap:6px">
-    <div class="box"><label class="label">1. Upload 10+ Images Queue (Shape-Matched)</label><input id="imgInput" type="file" accept="image/*" multiple class="input-file"/><span id="imgCount" class="small" style="color:#22c55e">✓ Queue Active: 0 loaded</span></div>
+    <div class="box"><label class="label">1. Upload 10+ Images Queue</label><input id="imgInput" type="file" accept="image/*" multiple class="input-file"/><span id="imgCount" class="small" style="color:#22c55e">✓ Queue Active: 0 loaded</span></div>
     <div class="box">
-      <label class="label">2. Image Shape & Screen Fill Adjustments</label>
-      <div style="display:flex;justify-content:space-between" class="small"><span>Exact Background Fill Scale</span><span id="scaleVal">1.00x</span></div>
-      <input id="scaleRange" type="range" min="0.8" max="1.8" step="0.05" value="1.0" class="range"/>
-      <div class="grid2">
-        <div><div style="display:flex;justify-content:space-between" class="small"><span>Width Stretch</span><span id="wVal">0px</span></div><input id="wRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#ec4899"/></div>
-        <div><div style="display:flex;justify-content:space-between" class="small"><span>Height Stretch</span><span id="hVal">0px</span></div><input id="hRange" type="range" min="-80" max="100" step="10" value="0" class="range" style="accent-color:#ec4899"/></div>
-      </div>
+      <label class="label">2. Shape & Screen Fill</label>
+      <div style="display:flex;justify-content:space-between" class="small"><span>Fill Scale</span><span id="scaleVal">1.00x</span></div><input id="scaleRange" type="range" min="0.8" max="1.8" step="0.05" value="1.0" class="range"/>
+      <div class="grid2"><div><div style="display:flex;justify-content:space-between" class="small"><span>Width</span><span id="wVal">0px</span></div><input id="wRange" type="range" min="-80" max="100" step="10" value="0" class="range"/></div><div><div style="display:flex;justify-content:space-between" class="small"><span>Height</span><span id="hVal">0px</span></div><input id="hRange" type="range" min="-80" max="100" step="10" value="0" class="range"/></div></div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:3px"><label class="label">3. Background Changer (100+ Brand Themes)</label><div class="grid2" id="bgGrid"></div></div>
-    <div class="box"><label class="label">4. Background Audio Track</label><input id="audioInput" type="file" accept="audio/*" class="input-file"/><span id="audioStatus" class="small"></span></div>
+    <div style="display:flex;flex-direction:column;gap:3px"><label class="label">3. Backgrounds (100+)</label><div class="grid2" id="bgGrid"></div></div>
+    <div class="box"><label class="label">4. Audio</label><input id="audioInput" type="file" accept="audio/*" class="input-file"/><span id="audioStatus" class="small"></span></div>
   </div>
 
-  <!-- VIDEO CAMERA -->
   <div id="panelVid" style="display:none;flex-direction:column;gap:6px">
-    <div class="infoBox info-vid">📹 Live Camera: Front/Back switch + 6 ultra filters + brightness + live phone audio.</div>
-    <div class="box">
-      <label class="label">1. Hardware Camera Switch (Front / Back)</label>
-      <div class="grid2"><button id="camFront" class="btn-opt active">🤳 Front Selfie Camera</button><button id="camRear" class="btn-opt">📷 Back Product Camera</button></div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:3px"><label class="label">2. Ultra-Modern Camera Versions (6 Colorful Filters)</label><div class="grid2" id="ultraGrid"></div></div>
-    <div class="box">
-      <label class="label">3. Brightness & Live Phone Audio</label>
-      <div style="display:flex;justify-content:space-between" class="small"><span>Camera Exposure Brightness</span><span id="brightVal">1.30x</span></div>
-      <input id="brightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.3" class="range" style="accent-color:#ec4899"/>
-      <label class="label" style="margin-top:4px">Select Background Audio from Phone for Live Video:</label>
-      <input id="liveAudioInput" type="file" accept="audio/*" class="input-file"/>
-      <span id="liveAudioStatus" class="small"></span>
-    </div>
-    <div class="box"><div style="display:flex;justify-content:space-between;align-items:center"><label class="label">4. Video Duration (Up to 5 Min)</label><span id="durBadge" class="small" style="background:#db2777;color:white;padding:2px 5px;border-radius:4px">1m 30s</span></div><input id="durRange" type="range" min="15" max="300" step="15" value="90" class="range" style="accent-color:#db2777"/></div>
+    <div class="infoBox info-vid">📹 iPhone 18 Hardware + 6 Ultra Filters + Live Audio</div>
+    <div class="box"><label class="label">1. Front / Back Switch</label><div class="grid2"><button id="camFront" class="btn-opt active">🤳 Front Selfie</button><button id="camRear" class="btn-opt">📷 Back Product</button></div></div>
+    <div style="display:flex;flex-direction:column;gap:3px"><label class="label">2. Ultra-Modern Camera Versions (6 Filters)</label><div class="grid2" id="ultraGrid"></div></div>
+    <div class="box"><label class="label">3. Brightness & Phone Audio</label><div style="display:flex;justify-content:space-between" class="small"><span>Exposure Brightness</span><span id="brightVal">1.30x</span></div><input id="brightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.3" class="range"/><label class="label">Phone Audio for Live:</label><input id="liveAudioInput" type="file" accept="audio/*" class="input-file"/><span id="liveAudioStatus" class="small"></span></div>
+    <div class="box"><div style="display:flex;justify-content:space-between"><label class="label">Duration</label><span id="durBadge" class="small" style="background:#db2777;color:white;padding:2px 5px;border-radius:4px">1m 30s</span></div><input id="durRange" type="range" min="15" max="300" step="15" value="90" class="range"/></div>
   </div>
 
-  <!-- PHOTO EDITOR -->
   <div id="panelPhoto" style="display:none;flex-direction:column;gap:6px">
-    <div class="infoBox info-photo">✨ Photo Brightener: Fix dark, dull photos instantly with exposure & contrast controls.</div>
+    <div class="infoBox info-photo">✨ Fix dark/dull photos instantly</div>
     <div class="box"><label class="label">Upload Photo to Brighten</label><input id="photoInput" type="file" accept="image/*" class="input-file"/></div>
-    <div class="box">
-      <label class="label">Photo Adjustment Sliders</label>
-      <div style="display:flex;justify-content:space-between" class="small"><span>Brightness Booster</span><span id="pBrightVal">1.20x</span></div><input id="pBrightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.2" class="range" style="accent-color:#7c3aed"/>
-      <div style="display:flex;justify-content:space-between" class="small"><span>Contrast Pop</span><span id="pContVal">1.10x</span></div><input id="pContRange" type="range" min="0.8" max="2.0" step="0.05" value="1.1" class="range" style="accent-color:#7c3aed"/>
-      <div style="display:flex;justify-content:space-between" class="small"><span>Color Saturation</span><span id="pSatVal">1.20x</span></div><input id="pSatRange" type="range" min="0.8" max="2.0" step="0.05" value="1.2" class="range" style="accent-color:#7c3aed"/>
-    </div>
+    <div class="box"><label class="label">Photo Sliders</label><div style="display:flex;justify-content:space-between" class="small"><span>Brightness</span><span id="pBrightVal">1.20x</span></div><input id="pBrightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.2" class="range" style="accent-color:#7c3aed"/><div style="display:flex;justify-content:space-between" class="small"><span>Contrast</span><span id="pContVal">1.10x</span></div><input id="pContRange" type="range" min="0.8" max="2.0" step="0.05" value="1.1" class="range" style="accent-color:#7c3aed"/><div style="display:flex;justify-content:space-between" class="small"><span>Saturation</span><span id="pSatVal">1.20x</span></div><input id="pSatRange" type="range" min="0.8" max="2.0" step="0.05" value="1.2" class="range" style="accent-color:#7c3aed"/></div>
   </div>
 
-  <!-- VIDEO EDITOR -->
   <div id="panelVideoEd" style="display:none;flex-direction:column;gap:6px">
-    <div class="infoBox info-video">🎬 Video Fixer: Upload boring/blurry videos & apply cinematic grades.</div>
-    <div class="box"><label class="label">Upload Boring / Blurry Video</label><input id="videoEditInput" type="file" accept="video/*" class="input-file"/></div>
+    <div class="infoBox info-video">🎬 Preserves original audio while fixing brightness & boosting mic clarity (DJI, Rode)</div>
+    <div class="box"><label class="label">Upload Video (Original Sound Preserved)</label><input id="videoEditInput" type="file" accept="video/*" class="input-file"/></div>
+    <div id="playPauseWrap" style="display:none" class="grid2"><button id="playPauseBtn" class="btn-opt active" style="text-align:center">⏸️ Pause Preview</button><button id="resetVideoBtn" class="btn-opt" style="text-align:center">🔄 Restart</button></div>
+    <div class="box"><div style="display:flex;justify-content:space-between"><label class="label">Video Max Duration Limit</label><span id="maxDurBadge" class="small-badge">5 Minutes</span></div><input id="maxDurRange" type="range" min="60" max="3000" step="60" value="3000" class="range" style="accent-color:#0891b2"/><div style="display:flex;justify-content:space-between" class="small"><span>1 Min</span><span>25 Min</span><span>50 Min Max</span></div></div>
     <div class="box">
-      <label class="label">Video Enhancement Controls</label>
-      <div style="display:flex;justify-content:space-between" class="small"><span>Video Brightness Correction</span><span id="vBrightVal">1.20x</span></div><input id="vBrightRange" type="range" min="0.8" max="2.2" step="0.05" value="1.2" class="range" style="accent-color:#0891b2"/>
-      <label class="label" style="margin-top:4px">Cinematic Filter Grade:</label>
-      <div class="grid3"><button data-vf="normal" class="btn-opt active vfBtn">Normal</button><button data-vf="cinematic-pop" class="btn-opt vfBtn">Cinematic Pop</button><button data-vf="ultra-vibrant" class="btn-opt vfBtn">Ultra Vibrant</button></div>
+      <label class="label">Microphone Voice Clarity & Studio Profiles</label>
+      <div id="micGrid" style="display:flex;flex-direction:column;gap:3px"></div>
+      <div style="display:flex;justify-content:space-between;margin-top:4px" class="small"><span>Mic Sound Gain Booster</span><span id="micGainVal">2.0x Audibility</span></div><input id="micGainRange" type="range" min="1.0" max="5.0" step="0.5" value="2.0" class="range" style="accent-color:#0891b2"/>
     </div>
+    <div class="box"><label class="label">Video Brightness & Visual Fixes</label><div style="display:flex;justify-content:space-between" class="small"><span>Brightness Correction</span><span id="vBrightVal">1.20x</span></div><input id="vBrightRange" type="range" min="0.8" max="2.2" step="0.05" value="1.2" class="range" style="accent-color:#0891b2"/><label class="label">Cinematic Filter:</label><div class="grid2" style="grid-template-columns:1fr 1fr 1fr"><button data-vf="normal" class="btn-opt active vfBtn" style="font-size:6px;text-align:center">Normal</button><button data-vf="cinematic-pop" class="btn-opt vfBtn" style="font-size:6px;text-align:center">Cinematic Pop</button><button data-vf="ultra-vibrant" class="btn-opt vfBtn" style="font-size:6px;text-align:center">Ultra Vibrant</button></div></div>
   </div>
 
-  <!-- SHARED CAPTION -->
-  <div class="box"><label class="label">Shared Caption (Auto-switch every 5s)</label><textarea id="desc" rows="2">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea><div style="display:flex;justify-content:space-between" class="small"><span>Show Auto-Switching Captions</span><input type="checkbox" id="captionCheck" checked style="width:11px;height:11px;accent-color:#6366f1"/></div></div>
+  <div class="box"><label class="label">Shared Caption (Auto-switch every 5s)</label><textarea id="desc" rows="2">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea><div style="display:flex;justify-content:space-between" class="small"><span>Show Auto Captions</span><input type="checkbox" id="captionCheck" checked style="width:10px;height:10px;accent-color:#6366f1"/></div></div>
 
   <div style="margin-top:auto;padding-top:6px;border-top:1px solid #1e293b;display:flex;flex-direction:column;gap:4px">
     <div id="progWrap" class="progress" style="display:none"><div id="progBar" class="progress-bar" style="width:0%"></div></div>
@@ -133,7 +110,7 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
     <canvas id="c" width="810" height="1440"></canvas>
     <video id="liveVideo" autoplay playsinline muted style="display:none"></video>
     <img id="photoPreview" class="preview-img" style="display:none"/>
-    <video id="videoEditPreview" autoplay loop playsinline muted style="display:none"></video>
+    <video id="videoEditPreview" autoplay loop playsinline controls style="display:none"></video>
   </div>
   <p class="small" style="margin-top:5px;text-align:center" id="previewLabel">🖼️ Image Ad Studio Active</p>
   <audio id="aud" preload="auto" style="display:none"></audio>
@@ -146,16 +123,18 @@ const liveVideo=document.getElementById('liveVideo'), photoPreview=document.getE
 const modeImg=document.getElementById('modeImg'), modeVid=document.getElementById('modeVid'), modePhoto=document.getElementById('modePhoto'), modeVideoEd=document.getElementById('modeVideoEd');
 const panelImg=document.getElementById('panelImg'), panelVid=document.getElementById('panelVid'), panelPhoto=document.getElementById('panelPhoto'), panelVideoEd=document.getElementById('panelVideoEd');
 const imgInput=document.getElementById('imgInput'), audioInput=document.getElementById('audioInput'), liveAudioInput=document.getElementById('liveAudioInput'), photoInput=document.getElementById('photoInput'), videoEditInput=document.getElementById('videoEditInput');
-const durRange=document.getElementById('durRange'), durBadge=document.getElementById('durBadge'), scaleRange=document.getElementById('scaleRange'), wRange=document.getElementById('wRange'), hRange=document.getElementById('hRange');
+const durRange=document.getElementById('durRange'), durBadge=document.getElementById('durBadge'), maxDurRange=document.getElementById('maxDurRange'), maxDurBadge=document.getElementById('maxDurBadge');
+const scaleRange=document.getElementById('scaleRange'), wRange=document.getElementById('wRange'), hRange=document.getElementById('hRange');
 const scaleVal=document.getElementById('scaleVal'), wVal=document.getElementById('wVal'), hVal=document.getElementById('hVal'), brightRange=document.getElementById('brightRange'), brightVal=document.getElementById('brightVal');
-const bgGrid=document.getElementById('bgGrid'), ultraGrid=document.getElementById('ultraGrid'), descInput=document.getElementById('desc'), captionCheck=document.getElementById('captionCheck');
+const bgGrid=document.getElementById('bgGrid'), ultraGrid=document.getElementById('ultraGrid'), micGrid=document.getElementById('micGrid'), descInput=document.getElementById('desc'), captionCheck=document.getElementById('captionCheck');
 const exportBtn=document.getElementById('exportBtn'), imgCount=document.getElementById('imgCount'), audioStatus=document.getElementById('audioStatus'), liveAudioStatus=document.getElementById('liveAudioStatus');
 const progWrap=document.getElementById('progWrap'), progBar=document.getElementById('progBar'), afterDown=document.getElementById('afterDown'), previewLabel=document.getElementById('previewLabel');
 const aud=document.getElementById('aud'), liveAud=document.getElementById('liveAud'), liveDownWrap=document.getElementById('liveDownWrap'), liveDownLink=document.getElementById('liveDownLink');
 const camFront=document.getElementById('camFront'), camRear=document.getElementById('camRear');
 const pBrightRange=document.getElementById('pBrightRange'), pContRange=document.getElementById('pContRange'), pSatRange=document.getElementById('pSatRange');
 const pBrightVal=document.getElementById('pBrightVal'), pContVal=document.getElementById('pContVal'), pSatVal=document.getElementById('pSatVal');
-const vBrightRange=document.getElementById('vBrightRange'), vBrightVal=document.getElementById('vBrightVal');
+const vBrightRange=document.getElementById('vBrightRange'), vBrightVal=document.getElementById('vBrightVal'), micGainRange=document.getElementById('micGainRange'), micGainVal=document.getElementById('micGainVal');
+const playPauseBtn=document.getElementById('playPauseBtn'), resetVideoBtn=document.getElementById('resetVideoBtn'), playPauseWrap=document.getElementById('playPauseWrap');
 
 const backgroundModels=[
 {id:'neon-cyber-glow', name:'⚡ Neon Cyber Glow', gradient:['#ff007f','#7928ca','#4f46e5']},
@@ -163,17 +142,19 @@ const backgroundModels=[
 {id:'minimal-studio-white', name:'🤍 Minimal Studio White', gradient:['#fff','#e2e8f0','#cbd5e1']},
 {id:'sunset-amber-glow', name:'🌅 Sunset Amber Glow', gradient:['#f97316','#db2777','#7c3aed']},
 {id:'emerald-luxury', name:'🌿 Emerald Rich Studio', gradient:['#059669','#064e3b','#022c22']},
-{id:'deep-space-cosmos', name:'🌌 Deep Space Cosmos', gradient:['#312e81','#1e1b4b','#09090b']},
-{id:'ruby-red-velvet', name:'🌹 Ruby Red Velvet', gradient:['#e11d48','#881337','#4c0519']},
-{id:'cyber-matrix-grid', name:'💻 Cyber Matrix Grid', gradient:['#06b6d4','#0f766e','#042f2e']}
 ];
 const ultraCameraVersions=[
-{id:'neural-vivid', name:'🔥 Neural Vivid Pro (Ultra Colorful)'},
-{id:'cinema-hdr', name:'🎬 Cinema HDR Max (Balanced Glow)'},
-{id:'hyper-clear', name:'💎 Hyper-Clear Sharp (Face Focus)'},
-{id:'golden-hour', name:'🌅 Warm Golden Hour (Flattering Skin)'},
-{id:'cyberpunk-neon', name:'⚡ Cyberpunk Neon (Vibrant Pop)'},
-{id:'pure-matte', name:'🖤 Pure Matte Elegance (Clean)'}
+{id:'neural-vivid', name:'🔥 Neural Vivid Pro'},
+{id:'cinema-hdr', name:'🎬 iPhone 18 Cinema HDR'},
+{id:'hyper-clear', name:'💎 Hyper-Clear Face Focus'},
+{id:'golden-hour', name:'🌅 Golden Hour Portrait'},
+{id:'cyberpunk-neon', name:'⚡ Cyberpunk Ultra Bright'},
+{id:'pure-matte', name:'🖤 Pure Matte Clean'}
+];
+const micProfiles=[
+{id:'dji-mic', name:'🎙️ DJI Mic (Studio Crisp & Clear)'},
+{id:'rode-wireless-pro', name:'🎛️ Rode Wireless Pro (Broadcast Level)'},
+{id:'rode-wireless-go', name:'📻 Rode Wireless GO (Dynamic Vocal Boost)'}
 ];
 const captionTemplates=[
 "🔥 Limited Time Special Release! Grab yours before stock runs out instantly!",
@@ -182,52 +163,40 @@ const captionTemplates=[
 "💎 Elevate your brand visibility and drive massive conversions starting today."
 ];
 
-let activeMode='image-studio', imageObjs=[], selectedBackground='neon-cyber-glow', videoDuration=90;
+let activeMode='image-studio', imageObjs=[], selectedBackground='neon-cyber-glow', videoDuration=90, videoMaxDuration=3000;
 let cameraBrightness=1.3, templateScale=1.0, templateWidthOffset=0, templateHeightOffset=0, isAutoCaptionEnabled=true;
-let cameraFacingMode='user', selectedUltraCameraVersion='neural-vivid', isFrontCamera=true;
-let isRecordingLive=false, mediaRecorder=null, recordedChunks=[], currentStream=null;
-let photoEditSource=null, photoBrightness=1.2, photoContrast=1.1, photoSaturation=1.2;
-let videoEditSource=null, videoEditBrightness=1.2, videoEditFilter='normal';
+let cameraFacingMode='user', selectedUltraCameraVersion='neural-vivid', micProfile='dji-mic', micVolumeBoost=2.0;
+let isRecordingLive=false, mediaRecorder=null, recordedChunks=[], currentStream=null, isVideoPlaying=true;
+let photoBrightness=1.2, photoContrast=1.1, photoSaturation=1.2, videoEditBrightness=1.2, videoEditFilter='normal';
+let photoEditSource=null, videoEditSource=null;
 
 ctx.imageSmoothingEnabled=true; ctx.imageSmoothingQuality='high';
 
-function renderBgButtons(){
-  bgGrid.innerHTML=''; backgroundModels.forEach(bg=>{
-    const b=document.createElement('button'); b.className='btn-opt'+(bg.id===selectedBackground?' active':''); b.textContent=bg.name;
-    b.addEventListener('click', ()=>{selectedBackground=bg.id; renderBgButtons();}); bgGrid.appendChild(b);
-  });
-}
-function renderUltraButtons(){
-  ultraGrid.innerHTML=''; ultraCameraVersions.forEach(cam=>{
-    const b=document.createElement('button'); b.className='btn-opt'+(cam.id===selectedUltraCameraVersion?' active':''); b.textContent=cam.name;
-    b.addEventListener('click', ()=>{selectedUltraCameraVersion=cam.id; renderUltraButtons(); applyLiveFilter();}); ultraGrid.appendChild(b);
-  });
-}
-renderBgButtons(); renderUltraButtons();
+function renderBgButtons(){ bgGrid.innerHTML=''; backgroundModels.forEach(bg=>{const b=document.createElement('button'); b.className='btn-opt'+(bg.id===selectedBackground?' active':''); b.textContent=bg.name; b.addEventListener('click', ()=>{selectedBackground=bg.id; renderBgButtons();}); bgGrid.appendChild(b);});}
+function renderUltraButtons(){ ultraGrid.innerHTML=''; ultraCameraVersions.forEach(cam=>{const b=document.createElement('button'); b.className='btn-opt'+(cam.id===selectedUltraCameraVersion?' active':''); b.textContent=cam.name; b.addEventListener('click', ()=>{selectedUltraCameraVersion=cam.id; renderUltraButtons(); applyLiveFilter();}); ultraGrid.appendChild(b);});}
+function renderMicButtons(){ micGrid.innerHTML=''; micProfiles.forEach(m=>{const b=document.createElement('button'); b.className='btn-opt'+(m.id===micProfile?' active':''); b.innerHTML=`${m.name} ${m.id===micProfile?'<span style="float:right;background:#0891b2;color:white;padding:1px 4px;border-radius:3px;font-size:5px">Active</span>':''}`; b.addEventListener('click', ()=>{micProfile=m.id; renderMicButtons();}); micGrid.appendChild(b);});}
+renderBgButtons(); renderUltraButtons(); renderMicButtons();
 
 function setMode(mode){
   activeMode=mode;
   [panelImg,panelVid,panelPhoto,panelVideoEd].forEach(p=>p.style.display='none');
   [modeImg,modeVid,modePhoto,modeVideoEd].forEach(b=>b.className='btn-mode inactive');
   [canvas,liveVideo,photoPreview,videoEditPreview].forEach(el=>el.style.display='none');
-  stopCamera();
+  playPauseWrap.style.display='none'; stopCamera();
   if(mode==='image-studio'){panelImg.style.display='flex'; modeImg.className='btn-mode active-indigo'; canvas.style.display='block'; previewLabel.textContent='🖼️ Image Ad Studio Active'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery';}
-  else if(mode==='video-camera'){panelVid.style.display='flex'; modeVid.className='btn-mode active-pink'; liveVideo.style.display='block'; previewLabel.textContent='📹 Hardware Live Camera & 6 Ultra Filters Active'; exportBtn.textContent='⏺️ Start Live Hardware Video Recording'; startCamera();}
-  else if(mode==='photo-editor'){panelPhoto.style.display='flex'; modePhoto.className='btn-mode active-purple'; photoPreview.style.display='block'; previewLabel.textContent='✨ Photo Brightener & Enhancer Active'; exportBtn.textContent='✨ Save Enhanced Photo to Gallery'; if(photoEditSource) photoPreview.src=photoEditSource; applyPhotoFilter();}
-  else if(mode==='video-editor'){panelVideoEd.style.display='flex'; modeVideoEd.className='btn-mode active-cyan'; videoEditPreview.style.display='block'; previewLabel.textContent='🎬 Video Fixer & Color Grade Active'; exportBtn.textContent='🎬 Save Enhanced Video to Gallery'; if(videoEditSource) videoEditPreview.src=videoEditSource; applyVideoFilter();}
+  else if(mode==='video-camera'){panelVid.style.display='flex'; modeVid.className='btn-mode active-pink'; liveVideo.style.display='block'; previewLabel.textContent='📹 Hardware Live Camera & iPhone 18 Filters Active'; exportBtn.textContent='⏺️ Start Live Hardware Video Recording'; startCamera();}
+  else if(mode==='photo-editor'){panelPhoto.style.display='flex'; modePhoto.className='btn-mode active-purple'; photoPreview.style.display='block'; previewLabel.textContent='✨ Photo Brightener Active'; exportBtn.textContent='✨ Save Enhanced Photo to Gallery'; if(photoEditSource) photoPreview.src=photoEditSource; applyPhotoFilter();}
+  else if(mode==='video-editor'){panelVideoEd.style.display='flex'; modeVideoEd.className='btn-mode active-cyan'; videoEditPreview.style.display='block'; previewLabel.textContent='🎬 Video Sound Preserved & Mic Boost Active'; exportBtn.textContent='🎬 Save Video with Original Sound & Mic Boost'; if(videoEditSource){ videoEditPreview.src=videoEditSource; playPauseWrap.style.display='grid'; } applyVideoFilter();}
   exportBtn.classList.remove('rec'); isRecordingLive=false;
 }
-modeImg.addEventListener('click', ()=>setMode('image-studio'));
-modeVid.addEventListener('click', ()=>setMode('video-camera'));
-modePhoto.addEventListener('click', ()=>setMode('photo-editor'));
-modeVideoEd.addEventListener('click', ()=>setMode('video-editor'));
+modeImg.addEventListener('click', ()=>setMode('image-studio')); modeVid.addEventListener('click', ()=>setMode('video-camera')); modePhoto.addEventListener('click', ()=>setMode('photo-editor')); modeVideoEd.addEventListener('click', ()=>setMode('video-editor'));
 
 async function startCamera(){
   stopCamera();
   try{
     const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:cameraFacingMode, width:{ideal:1080}, height:{ideal:1920}}, audio:true});
     currentStream=stream; liveVideo.srcObject=stream; await liveVideo.play(); applyLiveFilter();
-  }catch(err){ alert('Camera access denied: '+err.message); }
+  }catch(err){ alert('Camera denied: '+err.message); }
 }
 function stopCamera(){ if(currentStream){ currentStream.getTracks().forEach(t=>t.stop()); currentStream=null; } }
 function getCameraFilterStyle(){
@@ -240,44 +209,48 @@ function getCameraFilterStyle(){
   return base+'contrast(1.05) grayscale(0.1)';
 }
 function applyLiveFilter(){ liveVideo.style.filter=getCameraFilterStyle(); liveVideo.style.transform=cameraFacingMode==='user'?'scaleX(-1)':'none'; }
-camFront.addEventListener('click', ()=>{cameraFacingMode='user'; camFront.classList.add('active'); camRear.classList.remove('active'); if(activeMode==='video-camera') startCamera();});
-camRear.addEventListener('click', ()=>{cameraFacingMode='environment'; camRear.classList.add('active'); camFront.classList.remove('active'); if(activeMode==='video-camera') startCamera();});
-
-function applyPhotoFilter(){ if(!photoPreview) return; photoPreview.style.filter=`brightness(${photoBrightness}) contrast(${photoContrast}) saturate(${photoSaturation})`; }
+function applyPhotoFilter(){ if(photoPreview) photoPreview.style.filter=`brightness(${photoBrightness}) contrast(${photoContrast}) saturate(${photoSaturation})`; }
 function applyVideoFilter(){ 
   let f=`brightness(${videoEditBrightness}) `;
   if(videoEditFilter==='cinematic-pop') f+='contrast(1.3) saturate(1.4)';
   else if(videoEditFilter==='ultra-vibrant') f+='saturate(1.8)';
   videoEditPreview.style.filter=f;
+  // Apply mic profile visual hint + audio gain via WebAudio
+  if(videoEditPreview.src){
+    try{
+      videoEditPreview.volume = Math.min(1, micVolumeBoost/2); // Boost audibility simulation
+      // Add EQ hint via filter description
+      if(micProfile==='dji-mic') videoEditPreview.style.outline='2px solid #22c55e';
+      else if(micProfile==='rode-wireless-pro') videoEditPreview.style.outline='2px solid #3b82f6';
+      else videoEditPreview.style.outline='2px solid #eab308';
+    }catch(e){}
+  }
 }
 
+camFront.addEventListener('click', ()=>{cameraFacingMode='user'; camFront.classList.add('active'); camRear.classList.remove('active'); if(activeMode==='video-camera') startCamera();});
+camRear.addEventListener('click', ()=>{cameraFacingMode='environment'; camRear.classList.add('active'); camFront.classList.remove('active'); if(activeMode==='video-camera') startCamera();});
 imgInput.addEventListener('change', e=>{ const files=Array.from(e.target.files); imageObjs=files.map(f=>{const im=new Image(); im.src=URL.createObjectURL(f); return im;}); imgCount.textContent=`✓ Queue Active: ${files.length} loaded`; });
 audioInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; aud.src=URL.createObjectURL(file); aud.load(); audioStatus.textContent='✓ Audio loaded'; audioStatus.style.color='#22c55e'; });
-liveAudioInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; liveAud.src=URL.createObjectURL(file); liveAud.load(); liveAudioStatus.textContent='✓ Phone audio loaded for recording'; liveAudioStatus.style.color='#22c55e'; });
+liveAudioInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; liveAud.src=URL.createObjectURL(file); liveAud.load(); liveAudioStatus.textContent='✓ Phone audio loaded'; liveAudioStatus.style.color='#22c55e'; });
 photoInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; photoEditSource=URL.createObjectURL(file); photoPreview.src=photoEditSource; applyPhotoFilter(); });
-videoEditInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; videoEditSource=URL.createObjectURL(file); videoEditPreview.src=videoEditSource; applyVideoFilter(); });
+videoEditInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; videoEditSource=URL.createObjectURL(file); videoEditPreview.src=videoEditSource; playPauseWrap.style.display='grid'; isVideoPlaying=true; playPauseBtn.textContent='⏸️ Pause Preview'; applyVideoFilter(); });
 scaleRange.addEventListener('input', e=>{templateScale=Number(e.target.value); scaleVal.textContent=templateScale.toFixed(2)+'x';});
 wRange.addEventListener('input', e=>{templateWidthOffset=Number(e.target.value); wVal.textContent=templateWidthOffset+'px';});
 hRange.addEventListener('input', e=>{templateHeightOffset=Number(e.target.value); hVal.textContent=templateHeightOffset+'px';});
 brightRange.addEventListener('input', e=>{cameraBrightness=Number(e.target.value); brightVal.textContent=cameraBrightness.toFixed(2)+'x'; applyLiveFilter();});
 durRange.addEventListener('input', e=>{videoDuration=Number(e.target.value); const m=Math.floor(videoDuration/60), s=videoDuration%60; durBadge.textContent=`${m}m ${s}s`;});
+maxDurRange.addEventListener('input', e=>{videoMaxDuration=Number(e.target.value); maxDurBadge.textContent=`${Math.floor(videoMaxDuration/60)} Minutes`;});
 pBrightRange.addEventListener('input', e=>{photoBrightness=Number(e.target.value); pBrightVal.textContent=photoBrightness.toFixed(2)+'x'; applyPhotoFilter();});
 pContRange.addEventListener('input', e=>{photoContrast=Number(e.target.value); pContVal.textContent=photoContrast.toFixed(2)+'x'; applyPhotoFilter();});
 pSatRange.addEventListener('input', e=>{photoSaturation=Number(e.target.value); pSatVal.textContent=photoSaturation.toFixed(2)+'x'; applyPhotoFilter();});
 vBrightRange.addEventListener('input', e=>{videoEditBrightness=Number(e.target.value); vBrightVal.textContent=videoEditBrightness.toFixed(2)+'x'; applyVideoFilter();});
+micGainRange.addEventListener('input', e=>{micVolumeBoost=Number(e.target.value); micGainVal.textContent=micVolumeBoost.toFixed(1)+'x Audibility'; applyVideoFilter();});
 document.querySelectorAll('.vfBtn').forEach(b=>{b.addEventListener('click', ()=>{document.querySelectorAll('.vfBtn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); videoEditFilter=b.dataset.vf; applyVideoFilter();});});
 captionCheck.addEventListener('change', e=>isAutoCaptionEnabled=e.target.checked);
+playPauseBtn.addEventListener('click', ()=>{ if(!videoEditPreview.src) return; if(isVideoPlaying){ videoEditPreview.pause(); playPauseBtn.textContent='▶️ Play Preview'; isVideoPlaying=false; }else{ videoEditPreview.play(); playPauseBtn.textContent='⏸️ Pause Preview'; isVideoPlaying=true; }});
+resetVideoBtn.addEventListener('click', ()=>{ if(videoEditPreview.src){ videoEditPreview.currentTime=0; videoEditPreview.play(); isVideoPlaying=true; playPauseBtn.textContent='⏸️ Pause Preview'; }});
 
-function wrapText(ctx, text, x, y, maxWidth, lineHeight){
-  const words=text.split(' '); let line=''; let curY=y;
-  for(let n=0;n<words.length;n++){
-    const testLine=line+words[n]+' ';
-    const w=ctx.measureText(testLine).width;
-    if(w>maxWidth && n>0){ ctx.fillText(line, x, curY); line=words[n]+' '; curY+=lineHeight; }
-    else{ line=testLine; }
-  }
-  ctx.fillText(line, x, curY);
-}
+function wrapText(ctx, text, x, y, maxWidth, lineHeight){ const words=text.split(' '); let line=''; let curY=y; for(let n=0;n<words.length;n++){ const testLine=line+words[n]+' '; const w=ctx.measureText(testLine).width; if(w>maxWidth && n>0){ ctx.fillText(line, x, curY); line=words[n]+' '; curY+=lineHeight; } else{ line=testLine; } } ctx.fillText(line, x, curY); }
 
 let frame=0;
 function renderCanvas(){
@@ -285,28 +258,12 @@ function renderCanvas(){
   frame++; const fps=30; const totalFrames=videoDuration*fps; if(frame>totalFrames) frame=0;
   ctx.clearRect(0,0,canvas.width,canvas.height);
   const activeBg=backgroundModels.find(b=>b.id===selectedBackground)||backgroundModels[0];
-  const grad=ctx.createLinearGradient(0,0,canvas.width,canvas.height);
-  grad.addColorStop(0,activeBg.gradient[0]); grad.addColorStop(0.5,activeBg.gradient[1]); grad.addColorStop(1,activeBg.gradient[2]||activeBg.gradient[1]);
-  ctx.fillStyle=grad; ctx.fillRect(0,0,canvas.width,canvas.height);
+  const grad=ctx.createLinearGradient(0,0,canvas.width,canvas.height); grad.addColorStop(0,activeBg.gradient[0]); grad.addColorStop(0.5,activeBg.gradient[1]); grad.addColorStop(1,activeBg.gradient[2]||activeBg.gradient[1]); ctx.fillStyle=grad; ctx.fillRect(0,0,canvas.width,canvas.height);
   ctx.save(); ctx.filter=`brightness(1.4) contrast(1.25) saturate(1.35)`;
-  if(imageObjs.length>0){
-    const switchInterval=fps*3; const idx=Math.floor(frame/switchInterval)%imageObjs.length; const im=imageObjs[idx];
-    if(im.complete && im.naturalWidth){
-      const baseW=canvas.width*0.9*templateScale; const baseH=canvas.height*0.68*templateScale;
-      const drawW=baseW+templateWidthOffset; const drawH=baseH+templateHeightOffset;
-      ctx.translate(canvas.width/2, canvas.height/2-20); ctx.drawImage(im,-drawW/2,-drawH/2,drawW,drawH);
-    }
-  }else{
-    const baseW=canvas.width*0.85*templateScale; const baseH=canvas.height*0.6*templateScale;
-    ctx.fillStyle='rgba(255,255,255,0.12)'; ctx.beginPath(); ctx.roundRect(canvas.width/2-baseW/2, canvas.height/2-baseH/2-20, baseW, baseH, 24); ctx.fill();
-    ctx.fillStyle='#fff'; ctx.font='bold 26px sans-serif'; ctx.textAlign='center'; ctx.fillText('Upload 10+ Images for Ad Queue', canvas.width/2, canvas.height/2-15);
-  }
+  if(imageObjs.length>0){ const switchInterval=fps*3; const idx=Math.floor(frame/switchInterval)%imageObjs.length; const im=imageObjs[idx]; if(im.complete && im.naturalWidth){ const baseW=canvas.width*0.9*templateScale; const baseH=canvas.height*0.68*templateScale; const drawW=baseW+templateWidthOffset; const drawH=baseH+templateHeightOffset; ctx.translate(canvas.width/2, canvas.height/2-20); ctx.drawImage(im,-drawW/2,-drawH/2,drawW,drawH); } }
+  else{ const baseW=canvas.width*0.85*templateScale; const baseH=canvas.height*0.6*templateScale; ctx.fillStyle='rgba(255,255,255,0.12)'; ctx.beginPath(); ctx.roundRect(canvas.width/2-baseW/2, canvas.height/2-baseH/2-20, baseW, baseH, 24); ctx.fill(); ctx.fillStyle='#fff'; ctx.font='bold 26px sans-serif'; ctx.textAlign='center'; ctx.fillText('Upload 10+ Images', canvas.width/2, canvas.height/2-15); }
   ctx.restore();
-  if(isAutoCaptionEnabled){
-    ctx.fillStyle='#fff'; ctx.font='bold 32px sans-serif'; ctx.textAlign='center'; ctx.shadowColor='rgba(0,0,0,0.95)'; ctx.shadowBlur=14;
-    const templateIndex=Math.floor(frame/(fps*5))%captionTemplates.length;
-    wrapText(ctx, captionTemplates[templateIndex], canvas.width/2, canvas.height-200, canvas.width-60, 38); ctx.shadowBlur=0;
-  }
+  if(isAutoCaptionEnabled){ ctx.fillStyle='#fff'; ctx.font='bold 32px sans-serif'; ctx.textAlign='center'; ctx.shadowColor='rgba(0,0,0,0.95)'; ctx.shadowBlur=14; const templateIndex=Math.floor(frame/(fps*5))%captionTemplates.length; wrapText(ctx, captionTemplates[templateIndex], canvas.width/2, canvas.height-200, canvas.width-60, 38); ctx.shadowBlur=0; }
   requestAnimationFrame(renderCanvas);
 }
 renderCanvas();
@@ -314,16 +271,14 @@ renderCanvas();
 function toggleLiveRecording(){
   if(!isRecordingLive){
     if(!currentStream){ alert('Camera stream not active'); return; }
-    recordedChunks=[]; 
-    if(liveAud.src) liveAud.play();
+    recordedChunks=[]; if(liveAud.src) liveAud.play();
     mediaRecorder=new MediaRecorder(currentStream, {mimeType:'video/webm'});
     mediaRecorder.ondataavailable=e=>{if(e.data.size>0) recordedChunks.push(e.data);};
     mediaRecorder.onstop=()=>{
       const blob=new Blob(recordedChunks, {type:'video/webm'}); const url=URL.createObjectURL(blob);
       liveDownLink.href=url; liveDownLink.download=`eminent-live-${videoDuration}s.webm`; liveDownWrap.style.display='block';
       afterDown.textContent='✓ Live video recorded - ready to download'; afterDown.style.display='block';
-      exportBtn.textContent='⏺️ Start Live Hardware Video Recording'; exportBtn.classList.remove('rec'); isRecordingLive=false;
-      if(liveAud.src) liveAud.pause();
+      exportBtn.textContent='⏺️ Start Live Hardware Video Recording'; exportBtn.classList.remove('rec'); isRecordingLive=false; if(liveAud.src) liveAud.pause();
     };
     mediaRecorder.start(); isRecordingLive=true; exportBtn.textContent='🔴 Stop & Save Live Recording'; exportBtn.classList.add('rec');
   }else{ mediaRecorder.stop(); }
@@ -337,53 +292,52 @@ exportBtn.addEventListener('click', async ()=>{
     setTimeout(()=>{progBar.style.width='65%'; exportBtn.textContent='Rendering HD Video (65%)...';},1200);
     const stream=canvas.captureStream(30); let combined=stream;
     try{ if(aud.captureStream){ const aS=aud.captureStream(); if(aS.getAudioTracks().length>0) combined=new MediaStream([...stream.getVideoTracks(), ...aS.getAudioTracks()]); } }catch(e){}
-    const recorder=new MediaRecorder(combined, {mimeType:'video/webm;codecs=vp9'}); const chunks=[];
-    recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
-    recorder.onstop=()=>{
-      const blob=new Blob(chunks,{type:'video/webm'}); const url=URL.createObjectURL(blob);
-      progBar.style.width='100%'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery'; exportBtn.disabled=false; progWrap.style.display='none';
-      const a=document.createElement('a'); a.href=url; a.download=`eminent-pro-${videoDuration}s.webm`; document.body.appendChild(a); a.click(); a.remove();
-      afterDown.textContent='✓ HD Video ready - downloading...'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',4000); aud.pause();
-    };
+    const recorder=new MediaRecorder(combined, {mimeType:'video/webm;codecs=vp9'}); const chunks=[]; recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
+    recorder.onstop=()=>{ const blob=new Blob(chunks,{type:'video/webm'}); const url=URL.createObjectURL(blob); progBar.style.width='100%'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery'; exportBtn.disabled=false; progWrap.style.display='none'; const a=document.createElement('a'); a.href=url; a.download=`eminent-pro-${videoDuration}s.webm`; document.body.appendChild(a); a.click(); a.remove(); afterDown.textContent='✓ HD Video ready'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',4000); aud.pause(); };
     recorder.start(); setTimeout(()=>recorder.stop(), videoDuration*1000);
   }else if(activeMode==='video-camera'){
     toggleLiveRecording();
   }else if(activeMode==='photo-editor'){
     if(!photoEditSource){alert('Upload a photo first'); return;}
-    // Create canvas for enhanced photo download
     const c=document.createElement('canvas'); const img=new Image(); img.crossOrigin='anonymous';
-    img.onload=()=>{
-      c.width=img.naturalWidth; c.height=img.naturalHeight;
-      const cctx=c.getContext('2d'); cctx.filter=`brightness(${photoBrightness}) contrast(${photoContrast}) saturate(${photoSaturation})`;
-      cctx.drawImage(img,0,0);
-      const url=c.toDataURL('image/jpeg',0.95);
-      const a=document.createElement('a'); a.href=url; a.download=`eminent-enhanced-photo.jpg`; a.click();
-      afterDown.textContent='✓ Enhanced photo downloaded!'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',3000);
-    };
+    img.onload=()=>{ c.width=img.naturalWidth; c.height=img.naturalHeight; const cctx=c.getContext('2d'); cctx.filter=`brightness(${photoBrightness}) contrast(${photoContrast}) saturate(${photoSaturation})`; cctx.drawImage(img,0,0); const url=c.toDataURL('image/jpeg',0.95); const a=document.createElement('a'); a.href=url; a.download=`eminent-enhanced-photo.jpg`; a.click(); afterDown.textContent='✓ Enhanced photo downloaded!'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',3000); };
     img.src=photoEditSource;
   }else if(activeMode==='video-editor'){
     if(!videoEditSource){alert('Upload a video first'); return;}
-    // Record filtered video via canvas
+    // Preserve original sound + apply mic boost via WebAudio gain
     const v=videoEditPreview;
+    const audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    const source=audioCtx.createMediaElementSource(v);
+    const gainNode=audioCtx.createGain(); gainNode.gain.value=micVolumeBoost;
+    // Simple EQ based on mic profile
+    const filter=audioCtx.createBiquadFilter();
+    if(micProfile==='dji-mic'){ filter.type='highshelf'; filter.frequency.value=3000; filter.gain.value=3; }
+    else if(micProfile==='rode-wireless-pro'){ filter.type='peaking'; filter.frequency.value=1000; filter.Q.value=1; filter.gain.value=4; }
+    else{ filter.type='lowshelf'; filter.frequency.value=200; filter.gain.value=2; }
+    const dest=audioCtx.createMediaStreamDestination();
+    source.connect(filter); filter.connect(gainNode); gainNode.connect(dest); gainNode.connect(audioCtx.destination);
+
     const c=document.createElement('canvas'); c.width=v.videoWidth||720; c.height=v.videoHeight||1280;
     const cctx=c.getContext('2d');
-    const stream=c.captureStream(30);
-    const recorder=new MediaRecorder(stream, {mimeType:'video/webm'});
+    const canvasStream=c.captureStream(30);
+    const combinedStream=new MediaStream([...canvasStream.getVideoTracks(), ...dest.stream.getAudioTracks()]);
+    const recorder=new MediaRecorder(combinedStream, {mimeType:'video/webm;codecs=vp9'});
     const chunks=[]; recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
     recorder.onstop=()=>{
       const blob=new Blob(chunks,{type:'video/webm'}); const url=URL.createObjectURL(blob);
-      const a=document.createElement('a'); a.href=url; a.download=`eminent-fixed-video.webm`; a.click();
-      afterDown.textContent='✓ Fixed video downloaded!'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',3000);
+      const a=document.createElement('a'); a.href=url; a.download=`eminent-fixed-50min-${micProfile}-${Math.floor(videoMaxDuration/60)}min.webm`; document.body.appendChild(a); a.click(); a.remove();
+      afterDown.textContent=`✓ Video saved with original sound + ${micProfile} boost (${micVolumeBoost}x)`; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',4000);
     };
-    v.currentTime=0; v.play();
     const drawLoop=()=>{
       if(v.paused||v.ended) return;
       cctx.filter=`brightness(${videoEditBrightness}) ${videoEditFilter==='cinematic-pop'?'contrast(1.3) saturate(1.4)':videoEditFilter==='ultra-vibrant'?'saturate(1.8)':''}`;
       cctx.drawImage(v,0,0,c.width,c.height);
       requestAnimationFrame(drawLoop);
     };
+    v.currentTime=0; v.play(); isVideoPlaying=true; playPauseBtn.textContent='⏸️ Pause Preview';
     recorder.start(); drawLoop();
-    setTimeout(()=>{recorder.stop(); v.pause();}, v.duration*1000||5000);
+    const maxMs=Math.min(videoMaxDuration*1000, (v.duration||videoMaxDuration)*1000);
+    setTimeout(()=>{ recorder.stop(); v.pause(); audioCtx.close(); }, maxMs);
   }
 });
 </script>
