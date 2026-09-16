@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Eminent Editor Elite - Studio Pro Ringlight & Noise Remover</title>
+<title>Eminent Editor Elite - Skin Retouch & Active Ringlight</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,system-ui,sans-serif;background:#020617;color:#e2e8f0;display:flex;min-height:100vh}
@@ -42,10 +42,7 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
 </head>
 <body>
 <div class="left">
-  <div>
-    <h1>Eminent Editor Elite</h1>
-    <p class="small">Videographer Studio Brightness, Ring Lights & Noise Remover - 50 Mins Studio</p>
-  </div>
+  <div><h1>Eminent Editor Elite</h1><p class="small">Human Natural Skin Makeup, Active Ring Lights & Studio Fixer - 50 Mins</p></div>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:3px;background:#0f172a;border-radius:10px;border:1px solid #1e293b">
     <button id="modeImg" class="btn-mode active-indigo">🖼️ Image Ad Studio</button>
@@ -55,61 +52,64 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
   </div>
 
   <div id="panelImg" style="display:flex;flex-direction:column;gap:6px">
-    <div class="box"><label class="label">1. Upload 10+ Images Queue</label><input id="imgInput" type="file" accept="image/*" multiple class="input-file"/><span id="imgCount" class="small" style="color:#22c55e">✓ Queue Active: 0 loaded</span></div>
-    <div class="box">
-      <label class="label">2. Shape & Fill</label>
-      <div style="display:flex;justify-content:space-between" class="small"><span>Fill Scale</span><span id="scaleVal">1.00x</span></div><input id="scaleRange" type="range" min="0.8" max="1.8" step="0.05" value="1.0" class="range"/>
-      <div class="grid2"><div><div style="display:flex;justify-content:space-between" class="small"><span>W</span><span id="wVal">0px</span></div><input id="wRange" type="range" min="-80" max="100" step="10" value="0" class="range"/></div><div><div style="display:flex;justify-content:space-between" class="small"><span>H</span><span id="hVal">0px</span></div><input id="hRange" type="range" min="-80" max="100" step="10" value="0" class="range"/></div></div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:3px"><label class="label">3. Backgrounds (100+)</label><div class="grid2" id="bgGrid"></div></div>
+    <div class="box"><label class="label">1. Upload 10+ Images Queue</label><input id="imgInput" type="file" accept="image/*" multiple class="input-file"/><span id="imgCount" class="small" style="color:#22c55e">✓ Queue: 0 loaded</span></div>
+    <div class="box"><label class="label">2. Shape & Fill</label><div style="display:flex;justify-content:space-between" class="small"><span>Scale</span><span id="scaleVal">1.00x</span></div><input id="scaleRange" type="range" min="0.8" max="1.8" step="0.05" value="1.0" class="range"/><div class="grid2"><div><div style="display:flex;justify-content:space-between" class="small"><span>W</span><span id="wVal">0px</span></div><input id="wRange" type="range" min="-80" max="100" step="10" value="0" class="range"/></div><div><div style="display:flex;justify-content:space-between" class="small"><span>H</span><span id="hVal">0px</span></div><input id="hRange" type="range" min="-80" max="100" step="10" value="0" class="range"/></div></div></div>
+    <div style="display:flex;flex-direction:column;gap:3px"><label class="label">3. Backgrounds</label><div class="grid2" id="bgGrid"></div></div>
     <div class="box"><label class="label">4. Audio</label><input id="audioInput" type="file" accept="audio/*" class="input-file"/><span id="audioStatus" class="small"></span></div>
   </div>
 
   <div id="panelVid" style="display:none;flex-direction:column;gap:6px">
-    <div class="box"><label class="label">1. Front / Back Switch</label><div class="grid2"><button id="camFront" class="btn-opt active">🤳 Front Selfie</button><button id="camRear" class="btn-opt">📷 Back Product</button></div></div>
-    <div style="display:flex;flex-direction:column;gap:3px"><label class="label">2. Ultra-Modern Filters (6)</label><div class="grid2" id="ultraGrid"></div></div>
-    <div class="box"><label class="label">3. Brightness & Phone Audio</label><div style="display:flex;justify-content:space-between" class="small"><span>Exposure</span><span id="brightVal">1.30x</span></div><input id="brightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.3" class="range"/><input id="liveAudioInput" type="file" accept="audio/*" class="input-file" style="margin-top:4px"/><span id="liveAudioStatus" class="small"></span></div>
+    <div class="box"><label class="label">1. Front / Back</label><div class="grid2"><button id="camFront" class="btn-opt active">🤳 Front Selfie</button><button id="camRear" class="btn-opt">📷 Back</button></div></div>
+    <div style="display:flex;flex-direction:column;gap:3px"><label class="label">2. Ultra Filters (6)</label><div class="grid2" id="ultraGrid"></div></div>
+    <div class="box"><label class="label">3. Brightness & Audio</label><div style="display:flex;justify-content:space-between" class="small"><span>Exposure</span><span id="brightVal">1.30x</span></div><input id="brightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.3" class="range"/><input id="liveAudioInput" type="file" accept="audio/*" class="input-file" style="margin-top:4px"/><span id="liveAudioStatus" class="small"></span></div>
     <div class="box"><div style="display:flex;justify-content:space-between"><label class="label">Duration</label><span id="durBadge" class="small" style="background:#db2777;color:white;padding:2px 5px;border-radius:4px">1m 30s</span></div><input id="durRange" type="range" min="15" max="300" step="15" value="90" class="range"/></div>
   </div>
 
   <div id="panelPhoto" style="display:none;flex-direction:column;gap:6px">
-    <div class="box"><label class="label">Upload Photo to Brighten</label><input id="photoInput" type="file" accept="image/*" class="input-file"/></div>
-    <div class="box"><label class="label">Photo Sliders</label><div style="display:flex;justify-content:space-between" class="small"><span>Brightness</span><span id="pBrightVal">1.20x</span></div><input id="pBrightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.2" class="range" style="accent-color:#7c3aed"/><div style="display:flex;justify-content:space-between" class="small"><span>Contrast</span><span id="pContVal">1.10x</span></div><input id="pContRange" type="range" min="0.8" max="2.0" step="0.05" value="1.1" class="range" style="accent-color:#7c3aed"/><div style="display:flex;justify-content:space-between" class="small"><span>Saturation</span><span id="pSatVal">1.20x</span></div><input id="pSatRange" type="range" min="0.8" max="2.0" step="0.05" value="1.2" class="range" style="accent-color:#7c3aed"/></div>
+    <div class="box"><label class="label">Upload Photo</label><input id="photoInput" type="file" accept="image/*" class="input-file"/></div>
+    <div class="box"><label class="label">Sliders</label><div style="display:flex;justify-content:space-between" class="small"><span>Brightness</span><span id="pBrightVal">1.20x</span></div><input id="pBrightRange" type="range" min="0.8" max="2.5" step="0.05" value="1.2" class="range" style="accent-color:#7c3aed"/><div style="display:flex;justify-content:space-between" class="small"><span>Contrast</span><span id="pContVal">1.10x</span></div><input id="pContRange" type="range" min="0.8" max="2.0" step="0.05" value="1.1" class="range" style="accent-color:#7c3aed"/><div style="display:flex;justify-content:space-between" class="small"><span>Saturation</span><span id="pSatVal">1.20x</span></div><input id="pSatRange" type="range" min="0.8" max="2.0" step="0.05" value="1.2" class="range" style="accent-color:#7c3aed"/></div>
   </div>
 
   <div id="panelVideoEd" style="display:none;flex-direction:column;gap:6px">
-    <div class="infoBox info-video">🎬 Studio Fixer: Studio Brightness + Ringlights + AI Noise Remover + Mic Boost + Original Sound</div>
+    <div class="infoBox info-video">🎬 Studio: Skin Makeup Retouch + Active Ring Light + Studio Brightness + Noise Remover + Mic Boost</div>
     <div class="box"><label class="label">Upload Video (Original Sound Preserved)</label><input id="videoEditInput" type="file" accept="video/*" class="input-file"/></div>
-    <div id="playPauseWrap" style="display:none" class="grid2"><button id="playPauseBtn" class="btn-opt active" style="text-align:center">⏸️ Pause</button><button id="resetVideoBtn" class="btn-opt" style="text-align:center">🔄 Restart</button></div>
-    <div class="box"><div style="display:flex;justify-content:space-between"><label class="label">Max Duration (Up to 50 Mins)</label><span id="maxDurBadge" class="small-badge">50 Minutes</span></div><input id="maxDurRange" type="range" min="60" max="3000" step="60" value="3000" class="range" style="accent-color:#0891b2"/><div style="display:flex;justify-content:space-between" class="small"><span>1 Min</span><span>25 Min</span><span>50 Max</span></div></div>
-    
+    <div id="playPauseWrap" style="display:none" class="grid2"><button id="playPauseBtn" class="btn-opt active" style="text-align:center">⏸️ Pause Preview</button><button id="resetVideoBtn" class="btn-opt" style="text-align:center">🔄 Restart</button></div>
+    <div class="box"><div style="display:flex;justify-content:space-between"><label class="label">Max Duration Up to 50 Mins</label><span id="maxDurBadge" class="small-badge">50 Minutes</span></div><input id="maxDurRange" type="range" min="60" max="3000" step="60" value="3000" class="range" style="accent-color:#0891b2"/></div>
+
     <div class="box">
-      <label class="label">🎥 Videographer Studio Brightness Moderator</label>
-      <div style="display:flex;justify-content:space-between" class="small"><span>Studio Grade Exposure</span><span id="studioExpVal">1.40x Pro Studio</span></div><input id="studioExpRange" type="range" min="0.8" max="2.8" step="0.05" value="1.4" class="range" style="accent-color:#06b6d4"/>
-      <span class="small">Makes any video look like shot in pro videographer studio.</span>
+      <label class="label">💄 Human Natural Skin Camera Makeup & Retouch</label>
+      <div id="skinGrid" style="display:flex;flex-direction:column;gap:3px"></div>
+      <div id="skinIntensityWrap" style="display:flex;flex-direction:column;gap:2px;margin-top:4px">
+        <div style="display:flex;justify-content:space-between" class="small"><span>Skin Smoothing & Makeup Glow Intensity</span><span id="skinIntVal">75% Retouch</span></div><input id="skinIntRange" type="range" min="20" max="100" step="5" value="75" class="range" style="accent-color:#ec4899"/>
+      </div>
+      <span class="small">Viewers will wonder which high-end pro studio produced your video!</span>
     </div>
 
     <div class="box">
-      <label class="label">💡 Professional Ring Light Kits</label>
+      <label class="label">🎥 Videographer Studio Brightness Moderator</label>
+      <div style="display:flex;justify-content:space-between" class="small"><span>Studio Grade Exposure</span><span id="studioExpVal">1.40x Pro Studio</span></div><input id="studioExpRange" type="range" min="0.8" max="2.8" step="0.05" value="1.4" class="range" style="accent-color:#06b6d4"/>
+    </div>
+
+    <div class="box">
+      <label class="label">💡 Professional Ring Light Kits (Active)</label>
       <div id="ringGrid" style="display:flex;flex-direction:column;gap:3px"></div>
-      <div id="ringIntensityWrap" style="display:none;flex-direction:column;gap:2px;margin-top:4px">
-        <div style="display:flex;justify-content:space-between" class="small"><span>Ring Light Glow Intensity & Warmth</span><span id="ringIntVal">75% Power</span></div><input id="ringIntRange" type="range" min="20" max="100" step="5" value="75" class="range" style="accent-color:#06b6d4"/>
+      <div style="display:flex;flex-direction:column;gap:2px;margin-top:4px">
+        <div style="display:flex;justify-content:space-between" class="small"><span>Ring Light Glow Intensity & Warmth</span><span id="ringIntVal">80% Power</span></div><input id="ringIntRange" type="range" min="20" max="100" step="5" value="80" class="range" style="accent-color:#06b6d4"/>
       </div>
     </div>
 
     <div class="box">
       <label class="label">🔇 AI Noise Moderator / Remover</label>
       <div style="display:flex;justify-content:space-between" class="small"><span>Hiss, Wind & Fan Reduction</span><span id="noiseVal">85% Noise Filter</span></div><input id="noiseRange" type="range" min="0" max="100" step="5" value="85" class="range" style="accent-color:#06b6d4"/>
-      <span class="small">Removes hums, wind, room echo while keeping voice crystal clear.</span>
     </div>
 
     <div class="box">
-      <label class="label">🎙️ Microphone Sound Profiles</label>
+      <label class="label">🎙️ Mic Sound Profiles</label>
       <div id="micGrid" style="display:flex;flex-direction:column;gap:3px"></div>
       <div style="display:flex;justify-content:space-between;margin-top:4px" class="small"><span>Mic Gain Booster</span><span id="micGainVal">2.0x Audibility</span></div><input id="micGainRange" type="range" min="1.0" max="5.0" step="0.5" value="2.0" class="range" style="accent-color:#06b6d4"/>
     </div>
 
-    <div class="box"><label class="label">🎨 Color Grading & Filters</label><div style="display:flex;justify-content:space-between" class="small"><span>General Brightness</span><span id="vBrightVal">1.20x</span></div><input id="vBrightRange" type="range" min="0.8" max="2.2" step="0.05" value="1.2" class="range" style="accent-color:#0891b2"/><div class="grid2" style="grid-template-columns:1fr 1fr 1fr;margin-top:4px"><button data-vf="normal" class="btn-opt active vfBtn" style="text-align:center;font-size:6px">Normal</button><button data-vf="cinematic-pop" class="btn-opt vfBtn" style="text-align:center;font-size:6px">Cinematic Pop</button><button data-vf="ultra-vibrant" class="btn-opt vfBtn" style="text-align:center;font-size:6px">Ultra Vibrant</button></div></div>
+    <div class="box"><label class="label">🎨 Color Grading</label><div style="display:flex;justify-content:space-between" class="small"><span>General Brightness</span><span id="vBrightVal">1.20x</span></div><input id="vBrightRange" type="range" min="0.8" max="2.2" step="0.05" value="1.2" class="range" style="accent-color:#0891b2"/><div class="grid2" style="grid-template-columns:1fr 1fr 1fr;margin-top:4px"><button data-vf="normal" class="btn-opt active vfBtn" style="text-align:center;font-size:6px">Normal</button><button data-vf="cinematic-pop" class="btn-opt vfBtn" style="text-align:center;font-size:6px">Cinematic Pop</button><button data-vf="ultra-vibrant" class="btn-opt vfBtn" style="text-align:center;font-size:6px">Ultra Vibrant</button></div></div>
   </div>
 
   <div class="box"><label class="label">Shared Caption (Auto-switch every 5s)</label><textarea id="desc" rows="2">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea><div style="display:flex;justify-content:space-between" class="small"><span>Show Auto Captions</span><input type="checkbox" id="captionCheck" checked style="width:10px;height:10px;accent-color:#6366f1"/></div></div>
@@ -143,7 +143,7 @@ const imgInput=document.getElementById('imgInput'), audioInput=document.getEleme
 const durRange=document.getElementById('durRange'), durBadge=document.getElementById('durBadge'), maxDurRange=document.getElementById('maxDurRange'), maxDurBadge=document.getElementById('maxDurBadge');
 const scaleRange=document.getElementById('scaleRange'), wRange=document.getElementById('wRange'), hRange=document.getElementById('hRange');
 const scaleVal=document.getElementById('scaleVal'), wVal=document.getElementById('wVal'), hVal=document.getElementById('hVal'), brightRange=document.getElementById('brightRange'), brightVal=document.getElementById('brightVal');
-const bgGrid=document.getElementById('bgGrid'), ultraGrid=document.getElementById('ultraGrid'), micGrid=document.getElementById('micGrid'), ringGrid=document.getElementById('ringGrid');
+const bgGrid=document.getElementById('bgGrid'), ultraGrid=document.getElementById('ultraGrid'), micGrid=document.getElementById('micGrid'), ringGrid=document.getElementById('ringGrid'), skinGrid=document.getElementById('skinGrid');
 const exportBtn=document.getElementById('exportBtn'), imgCount=document.getElementById('imgCount'), audioStatus=document.getElementById('audioStatus'), liveAudioStatus=document.getElementById('liveAudioStatus');
 const progWrap=document.getElementById('progWrap'), progBar=document.getElementById('progBar'), afterDown=document.getElementById('afterDown'), previewLabel=document.getElementById('previewLabel');
 const aud=document.getElementById('aud'), liveAud=document.getElementById('liveAud'), liveDownWrap=document.getElementById('liveDownWrap'), liveDownLink=document.getElementById('liveDownLink');
@@ -152,7 +152,7 @@ const pBrightRange=document.getElementById('pBrightRange'), pContRange=document.
 const pBrightVal=document.getElementById('pBrightVal'), pContVal=document.getElementById('pContVal'), pSatVal=document.getElementById('pSatVal');
 const vBrightRange=document.getElementById('vBrightRange'), vBrightVal=document.getElementById('vBrightVal'), micGainRange=document.getElementById('micGainRange'), micGainVal=document.getElementById('micGainVal');
 const playPauseBtn=document.getElementById('playPauseBtn'), resetVideoBtn=document.getElementById('resetVideoBtn'), playPauseWrap=document.getElementById('playPauseWrap');
-const studioExpRange=document.getElementById('studioExpRange'), studioExpVal=document.getElementById('studioExpVal'), ringIntRange=document.getElementById('ringIntRange'), ringIntVal=document.getElementById('ringIntVal'), ringIntensityWrap=document.getElementById('ringIntensityWrap'), noiseRange=document.getElementById('noiseRange'), noiseVal=document.getElementById('noiseVal');
+const studioExpRange=document.getElementById('studioExpRange'), studioExpVal=document.getElementById('studioExpVal'), ringIntRange=document.getElementById('ringIntRange'), ringIntVal=document.getElementById('ringIntVal'), noiseRange=document.getElementById('noiseRange'), noiseVal=document.getElementById('noiseVal'), skinIntRange=document.getElementById('skinIntRange'), skinIntVal=document.getElementById('skinIntVal');
 
 const backgroundModels=[
 {id:'neon-cyber-glow', name:'⚡ Neon Cyber Glow', gradient:['#ff007f','#7928ca','#4f46e5']},
@@ -175,11 +175,16 @@ const micProfiles=[
 {id:'rode-wireless-go', name:'📻 Rode Wireless GO (Dynamic Vocal Boost)'}
 ];
 const ringLightKits=[
-{id:'none', name:'🚫 No Ring Light'},
 {id:'razer-ring', name:'🟢 Razer Ring Light (Adjustable Spectrum)'},
 {id:'rotolight-vlogging', name:'🟡 Rotolight Ultimate Vlogging Kit (Soft Studio Glow)'},
 {id:'neewer-18', name:'⚪ Neewer 18-Inch LED Ring Light Kit (Ultra Bright)'},
 {id:'elgato-ring', name:'🔵 Elgato Ring Light (Edge-Lit Studio Panel)'}
+];
+const skinMakeupKits=[
+{id:'natural-glow', name:'✨ Natural Skin Glow & Clean Portrait Tone'},
+{id:'flawless-studio', name:'💄 Flawless Pro Studio Makeup & Retouch'},
+{id:'soft-vibrant', name:'🌸 Soft Cinematic Skin Airbrush'},
+{id:'none', name:'🚫 Standard Raw Skin'}
 ];
 const captionTemplates=[
 "🔥 Limited Time Special Release! Grab yours before stock runs out instantly!",
@@ -191,7 +196,8 @@ const captionTemplates=[
 let activeMode='image-studio', imageObjs=[], selectedBackground='neon-cyber-glow', videoDuration=90, videoMaxDuration=3000;
 let cameraBrightness=1.3, templateScale=1.0, templateWidthOffset=0, templateHeightOffset=0, isAutoCaptionEnabled=true;
 let cameraFacingMode='user', selectedUltraCameraVersion='neural-vivid', micProfile='dji-mic', micVolumeBoost=2.0;
-let studioExposureLevel=1.4, selectedRingLight='none', ringLightIntensity=75, noiseRemovalLevel=85;
+let studioExposureLevel=1.4, selectedRingLight='razer-ring', ringLightIntensity=80, noiseRemovalLevel=85;
+let skinMakeupMode='natural-glow', skinSmoothness=75;
 let isRecordingLive=false, mediaRecorder=null, recordedChunks=[], currentStream=null, isVideoPlaying=true;
 let photoBrightness=1.2, photoContrast=1.1, photoSaturation=1.2, videoEditBrightness=1.2, videoEditFilter='normal';
 let photoEditSource=null, videoEditSource=null;
@@ -201,25 +207,20 @@ ctx.imageSmoothingEnabled=true; ctx.imageSmoothingQuality='high';
 function renderBgButtons(){ bgGrid.innerHTML=''; backgroundModels.forEach(bg=>{const b=document.createElement('button'); b.className='btn-opt'+(bg.id===selectedBackground?' active':''); b.textContent=bg.name; b.addEventListener('click', ()=>{selectedBackground=bg.id; renderBgButtons();}); bgGrid.appendChild(b);});}
 function renderUltraButtons(){ ultraGrid.innerHTML=''; ultraCameraVersions.forEach(cam=>{const b=document.createElement('button'); b.className='btn-opt'+(cam.id===selectedUltraCameraVersion?' active-pink':''); b.textContent=cam.name; b.addEventListener('click', ()=>{selectedUltraCameraVersion=cam.id; renderUltraButtons(); applyLiveFilter();}); ultraGrid.appendChild(b);});}
 function renderMicButtons(){ micGrid.innerHTML=''; micProfiles.forEach(m=>{const b=document.createElement('button'); b.className='btn-opt'+(m.id===micProfile?' active':''); b.innerHTML=`${m.name} ${m.id===micProfile?'<span style="float:right;background:#0891b2;color:white;padding:1px 4px;border-radius:3px;font-size:5px">Active</span>':''}`; b.addEventListener('click', ()=>{micProfile=m.id; renderMicButtons();}); micGrid.appendChild(b);});}
-function renderRingButtons(){
-  ringGrid.innerHTML=''; ringLightKits.forEach(r=>{
-    const b=document.createElement('button'); b.className='btn-opt'+(r.id===selectedRingLight?' active':''); b.innerHTML=`${r.name} ${r.id===selectedRingLight?'<span style="float:right;background:#0891b2;color:white;padding:1px 4px;border-radius:3px;font-size:5px">Active</span>':''}`;
-    b.addEventListener('click', ()=>{selectedRingLight=r.id; renderRingButtons(); if(r.id!=='none'){ ringIntensityWrap.style.display='flex'; } else { ringIntensityWrap.style.display='none'; } applyVideoFilter(); });
-    ringGrid.appendChild(b);
-  });
-}
-renderBgButtons(); renderUltraButtons(); renderMicButtons(); renderRingButtons();
+function renderRingButtons(){ ringGrid.innerHTML=''; ringLightKits.forEach(r=>{const b=document.createElement('button'); b.className='btn-opt'+(r.id===selectedRingLight?' active':''); b.innerHTML=`${r.name} ${r.id===selectedRingLight?'<span style="float:right;background:#0891b2;color:white;padding:1px 4px;border-radius:3px;font-size:5px">Active</span>':''}`; b.addEventListener('click', ()=>{selectedRingLight=r.id; renderRingButtons(); applyVideoFilter();}); ringGrid.appendChild(b);});}
+function renderSkinButtons(){ skinGrid.innerHTML=''; skinMakeupKits.forEach(s=>{const b=document.createElement('button'); b.className='btn-opt'+(s.id===skinMakeupMode?' active-pink':''); b.innerHTML=`${s.name} ${s.id===skinMakeupMode?'<span style="float:right;background:#ec4899;color:white;padding:1px 4px;border-radius:3px;font-size:5px">Active</span>':''}`; b.addEventListener('click', ()=>{skinMakeupMode=s.id; renderSkinButtons(); applyVideoFilter();}); skinGrid.appendChild(b);});}
+renderBgButtons(); renderUltraButtons(); renderMicButtons(); renderRingButtons(); renderSkinButtons();
 
 function setMode(mode){
   activeMode=mode;
   [panelImg,panelVid,panelPhoto,panelVideoEd].forEach(p=>p.style.display='none');
   [modeImg,modeVid,modePhoto,modeVideoEd].forEach(b=>b.className='btn-mode inactive');
   [canvas,liveVideo,photoPreview,videoEditPreview].forEach(el=>el.style.display='none');
-  playPauseWrap.style.display='none'; stopCamera();
+  if(playPauseWrap) playPauseWrap.style.display='none'; stopCamera();
   if(mode==='image-studio'){panelImg.style.display='flex'; modeImg.className='btn-mode active-indigo'; canvas.style.display='block'; previewLabel.textContent='🖼️ Image Ad Studio Active'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery';}
   else if(mode==='video-camera'){panelVid.style.display='flex'; modeVid.className='btn-mode active-pink'; liveVideo.style.display='block'; previewLabel.textContent='📹 Hardware Live Camera & iPhone 18 Filters Active'; exportBtn.textContent='⏺️ Start Live Hardware Video Recording'; startCamera();}
   else if(mode==='photo-editor'){panelPhoto.style.display='flex'; modePhoto.className='btn-mode active-purple'; photoPreview.style.display='block'; previewLabel.textContent='✨ Photo Brightener Active'; exportBtn.textContent='✨ Save Enhanced Photo to Gallery'; if(photoEditSource) photoPreview.src=photoEditSource; applyPhotoFilter();}
-  else if(mode==='video-editor'){panelVideoEd.style.display='flex'; modeVideoEd.className='btn-mode active-cyan'; videoEditPreview.style.display='block'; previewLabel.textContent='🎬 Studio Videographer Brightness & Ringlight Active'; exportBtn.textContent='🎬 Save Video (Studio Brightness, Ringlight & Original Sound)'; if(videoEditSource){ videoEditPreview.src=videoEditSource; playPauseWrap.style.display='grid'; } applyVideoFilter();}
+  else if(mode==='video-editor'){panelVideoEd.style.display='flex'; modeVideoEd.className='btn-mode active-cyan'; videoEditPreview.style.display='block'; previewLabel.textContent='🎬 Studio Skin Retouching & Active Ring Light Glow Active'; exportBtn.textContent='🎬 Save Video (Skin Retouch, Ringlight & Original Sound)'; if(videoEditSource){ videoEditPreview.src=videoEditSource; if(playPauseWrap) playPauseWrap.style.display='grid'; } applyVideoFilter();}
   exportBtn.classList.remove('rec'); isRecordingLive=false;
 }
 modeImg.addEventListener('click', ()=>setMode('image-studio')); modeVid.addEventListener('click', ()=>setMode('video-camera')); modePhoto.addEventListener('click', ()=>setMode('photo-editor')); modeVideoEd.addEventListener('click', ()=>setMode('video-editor'));
@@ -243,24 +244,31 @@ function getCameraFilterStyle(){
 }
 function applyLiveFilter(){ liveVideo.style.filter=getCameraFilterStyle(); liveVideo.style.transform=cameraFacingMode==='user'?'scaleX(-1)':'none'; }
 function applyPhotoFilter(){ if(photoPreview) photoPreview.style.filter=`brightness(${photoBrightness}) contrast(${photoContrast}) saturate(${photoSaturation})`; }
+function getSkinFilter(){
+  if(skinMakeupMode==='none') return '';
+  const intensity=skinSmoothness/100;
+  if(skinMakeupMode==='natural-glow') return `contrast(${1+0.15*intensity}) saturate(${1+0.2*intensity}) brightness(${1+0.05*intensity}) blur(${0.3*intensity}px)`;
+  if(skinMakeupMode==='flawless-studio') return `contrast(${1+0.1*intensity}) saturate(${1+0.35*intensity}) sepia(${0.08*intensity}) brightness(${1+0.08*intensity})`;
+  if(skinMakeupMode==='soft-vibrant') return `contrast(${1+0.05*intensity}) saturate(${1+0.4*intensity}) hue-rotate(${2*intensity}deg) blur(${0.2*intensity}px)`;
+  return '';
+}
 function applyVideoFilter(){ 
-  let f=`brightness(${videoEditBrightness * studioExposureLevel}) `;
-  if(selectedRingLight!=='none') f+=`drop-shadow(0 0 ${ringLightIntensity/3}px rgba(255,255,255,0.7)) `;
+  let f=`brightness(${videoEditBrightness * studioExposureLevel}) drop-shadow(0 0 ${ringLightIntensity/2.5}px rgba(255,255,255,0.85)) `;
+  const skinF=getSkinFilter();
+  if(skinF) f+=skinF+' ';
   if(videoEditFilter==='cinematic-pop') f+='contrast(1.3) saturate(1.4)';
   else if(videoEditFilter==='ultra-vibrant') f+='saturate(1.8)';
   videoEditPreview.style.filter=f;
-  if(videoEditPreview.src){
-    try{ videoEditPreview.volume = Math.min(1, micVolumeBoost/2); }catch(e){}
-  }
+  if(videoEditPreview.src){ try{ videoEditPreview.volume = Math.min(1, micVolumeBoost/2); }catch(e){} }
 }
 
 camFront.addEventListener('click', ()=>{cameraFacingMode='user'; camFront.classList.add('active'); camRear.classList.remove('active'); if(activeMode==='video-camera') startCamera();});
 camRear.addEventListener('click', ()=>{cameraFacingMode='environment'; camRear.classList.add('active'); camFront.classList.remove('active'); if(activeMode==='video-camera') startCamera();});
-imgInput.addEventListener('change', e=>{ const files=Array.from(e.target.files); imageObjs=files.map(f=>{const im=new Image(); im.src=URL.createObjectURL(f); return im;}); imgCount.textContent=`✓ Queue Active: ${files.length} loaded`; });
+imgInput.addEventListener('change', e=>{ const files=Array.from(e.target.files); imageObjs=files.map(f=>{const im=new Image(); im.src=URL.createObjectURL(f); return im;}); imgCount.textContent=`✓ Queue: ${files.length} loaded`; });
 audioInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; aud.src=URL.createObjectURL(file); aud.load(); audioStatus.textContent='✓ Audio loaded'; audioStatus.style.color='#22c55e'; });
 liveAudioInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; liveAud.src=URL.createObjectURL(file); liveAud.load(); liveAudioStatus.textContent='✓ Phone audio loaded'; liveAudioStatus.style.color='#22c55e'; });
 photoInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; photoEditSource=URL.createObjectURL(file); photoPreview.src=photoEditSource; applyPhotoFilter(); });
-videoEditInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; videoEditSource=URL.createObjectURL(file); videoEditPreview.src=videoEditSource; playPauseWrap.style.display='grid'; isVideoPlaying=true; if(document.getElementById('playPauseBtn')) document.getElementById('playPauseBtn').textContent='⏸️ Pause'; applyVideoFilter(); });
+videoEditInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; videoEditSource=URL.createObjectURL(file); videoEditPreview.src=videoEditSource; if(playPauseWrap) playPauseWrap.style.display='grid'; isVideoPlaying=true; if(playPauseBtn) playPauseBtn.textContent='⏸️ Pause Preview'; applyVideoFilter(); });
 scaleRange.addEventListener('input', e=>{templateScale=Number(e.target.value); scaleVal.textContent=templateScale.toFixed(2)+'x';});
 wRange.addEventListener('input', e=>{templateWidthOffset=Number(e.target.value); wVal.textContent=templateWidthOffset+'px';});
 hRange.addEventListener('input', e=>{templateHeightOffset=Number(e.target.value); hVal.textContent=templateHeightOffset+'px';});
@@ -275,10 +283,11 @@ studioExpRange.addEventListener('input', e=>{studioExposureLevel=Number(e.target
 ringIntRange.addEventListener('input', e=>{ringLightIntensity=Number(e.target.value); ringIntVal.textContent=ringLightIntensity+'% Power'; applyVideoFilter();});
 noiseRange.addEventListener('input', e=>{noiseRemovalLevel=Number(e.target.value); noiseVal.textContent=noiseRemovalLevel+'% Noise Filter';});
 micGainRange.addEventListener('input', e=>{micVolumeBoost=Number(e.target.value); micGainVal.textContent=micVolumeBoost.toFixed(1)+'x Audibility'; applyVideoFilter();});
+skinIntRange.addEventListener('input', e=>{skinSmoothness=Number(e.target.value); skinIntVal.textContent=skinSmoothness+'% Retouch'; applyVideoFilter();});
 document.querySelectorAll('.vfBtn').forEach(b=>{b.addEventListener('click', ()=>{document.querySelectorAll('.vfBtn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); videoEditFilter=b.dataset.vf; applyVideoFilter();});});
 document.getElementById('captionCheck').addEventListener('change', e=>isAutoCaptionEnabled=e.target.checked);
-if(playPauseBtn) playPauseBtn.addEventListener('click', ()=>{ if(!videoEditPreview.src) return; if(isVideoPlaying){ videoEditPreview.pause(); playPauseBtn.textContent='▶️ Play'; isVideoPlaying=false; }else{ videoEditPreview.play(); playPauseBtn.textContent='⏸️ Pause'; isVideoPlaying=true; }});
-if(resetVideoBtn) resetVideoBtn.addEventListener('click', ()=>{ if(videoEditPreview.src){ videoEditPreview.currentTime=0; videoEditPreview.play(); isVideoPlaying=true; if(playPauseBtn) playPauseBtn.textContent='⏸️ Pause'; }});
+if(playPauseBtn) playPauseBtn.addEventListener('click', ()=>{ if(!videoEditPreview.src) return; if(isVideoPlaying){ videoEditPreview.pause(); playPauseBtn.textContent='▶️ Play Preview'; isVideoPlaying=false; }else{ videoEditPreview.play(); playPauseBtn.textContent='⏸️ Pause Preview'; isVideoPlaying=true; }});
+if(resetVideoBtn) resetVideoBtn.addEventListener('click', ()=>{ if(videoEditPreview.src){ videoEditPreview.currentTime=0; videoEditPreview.play(); isVideoPlaying=true; if(playPauseBtn) playPauseBtn.textContent='⏸️ Pause Preview'; }});
 
 function wrapText(ctx, text, x, y, maxWidth, lineHeight){ const words=text.split(' '); let line=''; let curY=y; for(let n=0;n<words.length;n++){ const testLine=line+words[n]+' '; const w=ctx.measureText(testLine).width; if(w>maxWidth && n>0){ ctx.fillText(line, x, curY); line=words[n]+' '; curY+=lineHeight; } else{ line=testLine; } } ctx.fillText(line, x, curY); }
 
@@ -342,9 +351,8 @@ exportBtn.addEventListener('click', async ()=>{
     if(micProfile==='dji-mic'){ filter.type='highshelf'; filter.frequency.value=3000; filter.gain.value=3; }
     else if(micProfile==='rode-wireless-pro'){ filter.type='peaking'; filter.frequency.value=1000; filter.Q.value=1; filter.gain.value=4; }
     else{ filter.type='lowshelf'; filter.frequency.value=200; filter.gain.value=2; }
-    // Noise removal simulation with dynamics compressor + filter
     const compressor=audioCtx.createDynamicsCompressor();
-    compressor.threshold.value=-50 + (noiseRemovalLevel/2 - 25); // More removal = lower threshold
+    compressor.threshold.value=-50 + (noiseRemovalLevel/2 - 25);
     compressor.knee.value=40; compressor.ratio.value=12; compressor.attack.value=0.003; compressor.release.value=0.25;
     const dest=audioCtx.createMediaStreamDestination();
     source.connect(filter); filter.connect(gainNode); gainNode.connect(compressor); compressor.connect(dest); gainNode.connect(audioCtx.destination);
@@ -357,16 +365,16 @@ exportBtn.addEventListener('click', async ()=>{
     const chunks=[]; recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
     recorder.onstop=()=>{
       const blob=new Blob(chunks,{type:'video/webm'}); const url=URL.createObjectURL(blob);
-      const a=document.createElement('a'); a.href=url; a.download=`eminent-studio-${selectedRingLight}-${micProfile}-${Math.floor(videoMaxDuration/60)}min-${ringLightIntensity}glow.webm`; document.body.appendChild(a); a.click(); a.remove();
-      afterDown.textContent=`✓ Studio video saved: ${selectedRingLight} ${ringLightIntensity}% + Noise ${noiseRemovalLevel}% + ${micProfile} ${micVolumeBoost}x`; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',5000);
+      const a=document.createElement('a'); a.href=url; a.download=`eminent-studio-skin-${skinMakeupMode}-${skinSmoothness}retouch-${selectedRingLight}-${micProfile}-${Math.floor(videoMaxDuration/60)}min.webm`; document.body.appendChild(a); a.click(); a.remove();
+      afterDown.textContent=`✓ Studio: Skin ${skinMakeupMode} ${skinSmoothness}% + Ring ${selectedRingLight} ${ringLightIntensity}% + Noise ${noiseRemovalLevel}% + ${micProfile}`; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',6000);
     };
     const drawLoop=()=>{
       if(v.paused||v.ended) return;
-      cctx.filter=`brightness(${videoEditBrightness * studioExposureLevel}) ${selectedRingLight!=='none'?`drop-shadow(0 0 ${ringLightIntensity/3}px rgba(255,255,255,0.7))`:''} ${videoEditFilter==='cinematic-pop'?'contrast(1.3) saturate(1.4)':videoEditFilter==='ultra-vibrant'?'saturate(1.8)':''}`;
+      cctx.filter=`brightness(${videoEditBrightness * studioExposureLevel}) drop-shadow(0 0 ${ringLightIntensity/2.5}px rgba(255,255,255,0.85)) ${getSkinFilter()} ${videoEditFilter==='cinematic-pop'?'contrast(1.3) saturate(1.4)':videoEditFilter==='ultra-vibrant'?'saturate(1.8)':''}`;
       cctx.drawImage(v,0,0,c.width,c.height);
       requestAnimationFrame(drawLoop);
     };
-    v.currentTime=0; v.play(); isVideoPlaying=true; if(playPauseBtn) playPauseBtn.textContent='⏸️ Pause';
+    v.currentTime=0; v.play(); isVideoPlaying=true; if(playPauseBtn) playPauseBtn.textContent='⏸️ Pause Preview';
     recorder.start(); drawLoop();
     const maxMs=Math.min(videoMaxDuration*1000, (v.duration||videoMaxDuration)*1000);
     setTimeout(()=>{ recorder.stop(); v.pause(); audioCtx.close(); }, maxMs);
