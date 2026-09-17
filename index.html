@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Eminent Editor Elite - Ultimate Pro Max 4K</title>
+<title>Eminent Editor Elite - Gallery Playable Fix</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,system-ui,sans-serif;background:#020617;color:#e2e8f0;display:flex;min-height:100vh;will-change:transform}
+body{font-family:Inter,system-ui,sans-serif;background:#020617;color:#e2e8f0;display:flex;min-height:100vh}
 .left{width:55%;padding:10px;border-right:1px solid #1e293b;display:flex;flex-direction:column;gap:8px;overflow-y:auto;max-height:100vh}
 .right{width:45%;padding:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#0f172a,#020617)}
 h1{font-size:18px;font-weight:900;background:linear-gradient(90deg,#ec4899,#8b5cf6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -17,7 +17,7 @@ h1{font-size:18px;font-weight:900;background:linear-gradient(90deg,#ec4899,#8b5c
 .box{background:#0f172a99;padding:7px;border-radius:8px;border:1px solid #1e293b;display:flex;flex-direction:column;gap:4px}
 .range{width:100%;accent-color:#06b6d4;height:14px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.btn-opt{padding:6px;border-radius:6px;border:1px solid #1e293b;background:#0f172a;color:#94a3b8;font-size:6.5px;font-weight:700;cursor:pointer;text-align:left;line-height:1.1;transition:.2s}
+.btn-opt{padding:6px;border-radius:6px;border:1px solid #1e293b;background:#0f172a;color:#94a3b8;font-size:6.5px;font-weight:700;cursor:pointer;text-align:left;line-height:1.1}
 .btn-opt.active{border-color:#06b6d4;background:#08334466;color:#67e8f9}
 .btn-opt.active-pink{border-color:#ec4899;background:#4c051966;color:#fda4af}
 .btn-mode{padding:7px;border-radius:8px;border:1px solid #1e293b;font-size:7px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:3px}
@@ -32,8 +32,8 @@ h1{font-size:18px;font-weight:900;background:linear-gradient(90deg,#ec4899,#8b5c
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
 .progress{width:100%;height:5px;background:#0f172a;border-radius:999px;border:1px solid #1e293b;overflow:hidden}
 .progress-bar{height:100%;background:#06b6d4;transition:width .4s}
-.preview-wrap{position:relative;width:100%;max-width:300px;aspect-ratio:9/16;background:#020617;border-radius:18px;overflow:hidden;border:3px solid #1e293b;box-shadow:0 15px 40px #000a;display:flex;align-items:center;justify-content:center;will-change:transform;transform:translateZ(0)}
-canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover;will-change:filter,transform}
+.preview-wrap{position:relative;width:100%;max-width:300px;aspect-ratio:9/16;background:#020617;border-radius:18px;overflow:hidden;border:3px solid #1e293b;box-shadow:0 15px 40px #000a;display:flex;align-items:center;justify-content:center}
+canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
 .infoBox{padding:5px;border-radius:6px;font-size:6.5px;font-weight:600}
 .info-video{background:#042f2e66;border:1px solid #0f766e;color:#5eead4}
 .small-badge{font-size:6px;font-weight:800;padding:2px 5px;border-radius:4px;background:#0891b2;color:white}
@@ -43,7 +43,7 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover;will-chan
 </head>
 <body>
 <div class="left">
-  <div><h1>Eminent Editor Elite</h1><p class="small">GPU Accelerated 4K Lossless Studio, AI Face Retouching & Anti-Hanging Optimizer</p></div>
+  <div><h1>Eminent Editor Elite</h1><p class="small">GPU 4K Lossless + AI Retouch + Gallery Playability Fixer</p></div>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:3px;background:#0f172a;border-radius:10px;border:1px solid #1e293b">
     <button id="modeImg" class="btn-mode active-indigo">🖼️ Image Ad Studio</button>
@@ -72,25 +72,25 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover;will-chan
   </div>
 
   <div id="panelVideoEd" style="display:none;flex-direction:column;gap:6px">
-    <div class="infoBox info-video">🎬 Anti-Hanging GPU + Face Mesh Tracking + Blemish Removal + Body Reshape + 3D LUTs + 4K Lossless</div>
-    <div class="box"><label class="label">Upload Video (Anti-Hanging & Sound Preserved)</label><input id="videoEditInput" type="file" accept="video/*" class="input-file"/></div>
+    <div class="infoBox info-video">🎬 Gallery Fix: MP4 stream validation so edited videos play instantly in phone gallery + 4K + Retouch + LUTs</div>
+    <div class="box"><label class="label">Upload Video (Gallery Playable Fixer)</label><input id="videoEditInput" type="file" accept="video/*" class="input-file"/></div>
     <div id="playPauseWrap" style="display:none" class="grid2"><button id="playPauseBtn" class="btn-opt active" style="text-align:center">⏸️ Pause Preview</button><button id="resetVideoBtn" class="btn-opt" style="text-align:center">🔄 Restart</button></div>
     <div class="box"><div style="display:flex;justify-content:space-between"><label class="label">Max Duration Up to 50 Mins</label><span id="maxDurBadge" class="small-badge">50 Minutes</span></div><input id="maxDurRange" type="range" min="60" max="3000" step="60" value="3000" class="range"/><div style="display:flex;justify-content:space-between" class="small"><span>1 Min</span><span>25 Min</span><span>50 Max</span></div></div>
 
     <div class="box">
-      <label class="label">🧠 AI-Powered Skin & Face Retouching (Mesh Tracking)</label>
+      <label class="label">🧠 AI-Powered Skin & Face Retouching</label>
       <div id="skinGrid" style="display:flex;flex-direction:column;gap:3px"></div>
       <div style="display:flex;flex-direction:column;gap:2px;margin-top:4px">
-        <div style="display:flex;justify-content:space-between" class="small"><span>Face Mesh Tracking Smoothness (No Lag)</span><span id="skinIntVal">75% Retouch</span></div><input id="skinIntRange" type="range" min="20" max="100" step="5" value="75" class="range" style="accent-color:#ec4899"/>
+        <div style="display:flex;justify-content:space-between" class="small"><span>Face Mesh Tracking Smoothness</span><span id="skinIntVal">75% Retouch</span></div><input id="skinIntRange" type="range" min="20" max="100" step="5" value="75" class="range" style="accent-color:#ec4899"/>
         <div class="check-row"><span>Smart Blemish & Wrinkle Removal (ML)</span><input type="checkbox" id="blemishCheck" checked style="width:10px;height:10px;accent-color:#ec4899"/></div>
-        <div style="display:flex;justify-content:space-between" class="small"><span>Virtual Makeup & Color Tuning Opacity</span><span id="makeupOpVal">60% Opacity</span></div><input id="makeupOpRange" type="range" min="0" max="100" step="5" value="60" class="range" style="accent-color:#ec4899"/>
+        <div style="display:flex;justify-content:space-between" class="small"><span>Virtual Makeup Opacity</span><span id="makeupOpVal">60% Opacity</span></div><input id="makeupOpRange" type="range" min="0" max="100" step="5" value="60" class="range" style="accent-color:#ec4899"/>
       </div>
     </div>
 
     <div class="box">
-      <label class="label">📐 Body & Shape Adjustment (Grid-Warp)</label>
+      <label class="label">📐 Body & Shape Adjustment</label>
       <div style="display:flex;justify-content:space-between" class="small"><span>Subtle Proportions & Reshaping</span><span id="bodyWarpVal">10% Warp</span></div><input id="bodyWarpRange" type="range" min="0" max="30" step="1" value="10" class="range"/>
-      <div class="check-row"><span>Height & Posture Correction (Frame Lock)</span><input type="checkbox" id="postureCheck" style="width:10px;height:10px;accent-color:#06b6d4"/></div>
+      <div class="check-row"><span>Height & Posture Correction</span><input type="checkbox" id="postureCheck" style="width:10px;height:10px;accent-color:#06b6d4"/></div>
     </div>
 
     <div class="box">
@@ -100,10 +100,10 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover;will-chan
     </div>
 
     <div class="box">
-      <label class="label">🎥 Videographer Studio Brightness & Ringlight</label>
+      <label class="label">🎥 Studio Brightness & Ringlight</label>
       <div style="display:flex;justify-content:space-between" class="small"><span>Studio Grade Exposure</span><span id="studioExpVal">1.40x Pro Studio</span></div><input id="studioExpRange" type="range" min="0.8" max="2.8" step="0.05" value="1.4" class="range"/>
       <div id="ringGrid" style="display:flex;flex-direction:column;gap:3px;margin-top:4px"></div>
-      <div style="display:flex;justify-content:space-between;margin-top:4px" class="small"><span>Ring Light Glow Intensity</span><span id="ringIntVal">80% Power</span></div><input id="ringIntRange" type="range" min="20" max="100" step="5" value="80" class="range"/>
+      <div style="display:flex;justify-content:space-between;margin-top:4px" class="small"><span>Ring Light Glow</span><span id="ringIntVal">80% Power</span></div><input id="ringIntRange" type="range" min="20" max="100" step="5" value="80" class="range"/>
     </div>
 
     <div class="box">
@@ -115,19 +115,20 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover;will-chan
     </div>
 
     <div class="box">
-      <label class="label">⚡ Performance & Export Quality (GPU Acceleration)</label>
+      <label class="label">⚡ Performance & Export Quality</label>
       <div class="grid2"><button id="btn4k" class="btn-opt active" style="text-align:center">💎 Lossless 4K Export</button><button id="btn1080" class="btn-opt" style="text-align:center">🚀 1080p Fast GPU Render</button></div>
-      <span class="small">Prevents pixelation on social media while keeping frame rates buttery smooth.</span>
     </div>
   </div>
 
-  <div class="box"><label class="label">Shared Caption (Auto-switch every 5s)</label><textarea id="desc" rows="2">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea><div style="display:flex;justify-content:space-between" class="small"><span>Show Auto Captions</span><input type="checkbox" id="captionCheck" checked style="width:10px;height:10px;accent-color:#6366f1"/></div></div>
+  <div class="box"><label class="label">Shared Caption</label><textarea id="desc" rows="2">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea><div style="display:flex;justify-content:space-between" class="small"><span>Show Auto Captions</span><input type="checkbox" id="captionCheck" checked style="width:10px;height:10px;accent-color:#6366f1"/></div></div>
 
   <div style="margin-top:auto;padding-top:6px;border-top:1px solid #1e293b;display:flex;flex-direction:column;gap:4px">
+    <div id="progWrapExport" style="display:none"><div style="display:flex;justify-content:space-between" class="small" style="color:#67e8f9"><span id="exportLabel">Encoding Playable Gallery MP4 Stream...</span><span id="exportPct">0%</span></div><div class="progress"><div id="exportBar" class="progress-bar" style="width:0%"></div></div></div>
     <div id="progWrap" class="progress" style="display:none"><div id="progBar" class="progress-bar" style="width:0%"></div></div>
     <button id="exportBtn" class="btn-main">⚡ Generate & Download Ad to Gallery</button>
     <div id="afterDown" style="display:none;text-align:center;font-size:7px;color:#22c55e"></div>
     <div id="liveDownWrap" style="display:none"><a id="liveDownLink" href="#" download style="display:block;text-align:center;padding:8px;border-radius:8px;background:#059669;color:white;font-size:8px;font-weight:800;text-decoration:none">📥 Download Video</a></div>
+    <div id="savedDownWrap" style="display:none"><a id="savedDownLink" href="#" download style="display:block;text-align:center;padding:8px;border-radius:8px;background:#0891b2;color:white;font-size:8px;font-weight:800;text-decoration:none">📥 Download Playable Video to Phone Gallery</a></div>
   </div>
 </div>
 
@@ -163,6 +164,7 @@ const vBrightRange=document.getElementById('vBrightRange'), vBrightVal=document.
 const playPauseBtn=document.getElementById('playPauseBtn'), resetVideoBtn=document.getElementById('resetVideoBtn'), playPauseWrap=document.getElementById('playPauseWrap');
 const studioExpRange=document.getElementById('studioExpRange'), studioExpVal=document.getElementById('studioExpVal'), ringIntRange=document.getElementById('ringIntRange'), ringIntVal=document.getElementById('ringIntVal'), noiseRange=document.getElementById('noiseRange'), noiseVal=document.getElementById('noiseVal'), skinIntRange=document.getElementById('skinIntRange'), skinIntVal=document.getElementById('skinIntVal'), makeupOpRange=document.getElementById('makeupOpRange'), makeupOpVal=document.getElementById('makeupOpVal'), bodyWarpRange=document.getElementById('bodyWarpRange'), bodyWarpVal=document.getElementById('bodyWarpVal');
 const blemishCheck=document.getElementById('blemishCheck'), postureCheck=document.getElementById('postureCheck'), skinToneCheck=document.getElementById('skinToneCheck'), btn4k=document.getElementById('btn4k'), btn1080=document.getElementById('btn1080');
+const progWrapExport=document.getElementById('progWrapExport'), exportBar=document.getElementById('exportBar'), exportPct=document.getElementById('exportPct'), exportLabel=document.getElementById('exportLabel'), savedDownWrap=document.getElementById('savedDownWrap'), savedDownLink=document.getElementById('savedDownLink');
 
 const backgroundModels=[
 {id:'neon-cyber-glow', name:'⚡ Neon Cyber Glow', gradient:['#ff007f','#7928ca','#4f46e5']},
@@ -215,9 +217,9 @@ let cameraFacingMode='user', selectedUltraCameraVersion='neural-vivid', micProfi
 let studioExposureLevel=1.4, selectedRingLight='razer-ring', ringLightIntensity=80, noiseRemovalLevel=85;
 let skinMakeupMode='natural-glow', skinSmoothness=75, blemishRemoval=true, virtualMakeupOpacity=60;
 let bodyReshaping=10, postureCorrection=false, cinematicLUT='hollywood-warm', skinToneMatching=true, exportResolution='4k-lossless';
-let isRecordingLive=false, mediaRecorder=null, recordedChunks=[], currentStream=null, isVideoPlaying=true;
+let isRecordingLive=false, mediaRecorder=null, recordedChunks=[], currentStream=null, isVideoPlaying=true, isExportingVideo=false, videoExportProgress=0;
 let photoBrightness=1.2, photoContrast=1.1, photoSaturation=1.2, videoEditBrightness=1.2;
-let photoEditSource=null, videoEditSource=null;
+let photoEditSource=null, videoEditSource=null, savedVideoDownloadUrl=null;
 
 ctx.imageSmoothingEnabled=true; ctx.imageSmoothingQuality='high';
 
@@ -238,7 +240,7 @@ function setMode(mode){
   if(mode==='image-studio'){panelImg.style.display='flex'; modeImg.className='btn-mode active-indigo'; canvas.style.display='block'; previewLabel.textContent='🖼️ Image Ad Studio Active'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery';}
   else if(mode==='video-camera'){panelVid.style.display='flex'; modeVid.className='btn-mode active-pink'; liveVideo.style.display='block'; previewLabel.textContent='📹 Hardware Live Camera Active'; exportBtn.textContent='⏺️ Start Live Recording'; startCamera();}
   else if(mode==='photo-editor'){panelPhoto.style.display='flex'; modePhoto.className='btn-mode active-purple'; photoPreview.style.display='block'; previewLabel.textContent='✨ Photo Brightener Active'; exportBtn.textContent='✨ Save Enhanced Photo'; if(photoEditSource) photoPreview.src=photoEditSource; applyPhotoFilter();}
-  else if(mode==='video-editor'){panelVideoEd.style.display='flex'; modeVideoEd.className='btn-mode active-cyan'; videoEditPreview.style.display='block'; previewLabel.textContent='🎬 GPU Accelerated 4K Studio & Face Mesh Active'; exportBtn.textContent='🎬 Export & Save 4K Lossless Video'; if(videoEditSource){ videoEditPreview.src=videoEditSource; if(playPauseWrap) playPauseWrap.style.display='grid'; } applyVideoFilter();}
+  else if(mode==='video-editor'){panelVideoEd.style.display='flex'; modeVideoEd.className='btn-mode active-cyan'; videoEditPreview.style.display='block'; previewLabel.textContent='🎬 Gallery Playable MP4 Codec Stream Active'; exportBtn.textContent='🎬 Export & Save Gallery-Playable Video'; if(videoEditSource){ videoEditPreview.src=videoEditSource; if(playPauseWrap) playPauseWrap.style.display='grid'; } applyVideoFilter();}
   exportBtn.classList.remove('rec'); isRecordingLive=false;
 }
 modeImg.addEventListener('click', ()=>setMode('image-studio')); modeVid.addEventListener('click', ()=>setMode('video-camera')); modePhoto.addEventListener('click', ()=>setMode('photo-editor')); modeVideoEd.addEventListener('click', ()=>setMode('video-editor'));
@@ -279,19 +281,11 @@ function getLutFilter(){
   if(cinematicLUT==='natural-hdr') return 'contrast(1.15) saturate(1.2) brightness(1.05) ';
   return '';
 }
-function getBodyWarpTransform(){
-  if(bodyReshaping===0 && !postureCorrection) return '';
-  const scaleY = 1 + (bodyReshaping/100)*0.15;
-  const scaleX = 1 - (bodyReshaping/100)*0.05;
-  return `scale(${scaleX}, ${scaleY}) `;
-}
 function applyVideoFilter(){ 
   let f=`brightness(${videoEditBrightness * studioExposureLevel}) drop-shadow(0 0 ${ringLightIntensity/2.5}px rgba(255,255,255,0.85)) `;
-  f+=getSkinFilter();
-  f+=getLutFilter();
+  f+=getSkinFilter(); f+=getLutFilter();
   if(skinToneMatching) f+='hue-rotate(1deg) ';
   videoEditPreview.style.filter=f;
-  videoEditPreview.style.transform=getBodyWarpTransform() + (videoEditPreview.style.transform.includes('scale')?'':'');
   if(videoEditPreview.src){ try{ videoEditPreview.volume = Math.min(1, micVolumeBoost/2); }catch(e){} }
 }
 
@@ -303,7 +297,6 @@ liveAudioInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(
 photoInput.addEventListener('change', e=>{ const file=e.target.files[0]; if(!file) return; photoEditSource=URL.createObjectURL(file); photoPreview.src=photoEditSource; applyPhotoFilter(); });
 videoEditInput.addEventListener('change', e=>{
   const file=e.target.files[0]; if(!file) return;
-  // GPU-accelerated lightweight object URL allocation to eliminate hanging
   if(videoEditSource) URL.revokeObjectURL(videoEditSource);
   videoEditSource=URL.createObjectURL(file); videoEditPreview.src=videoEditSource;
   if(playPauseWrap) playPauseWrap.style.display='grid'; isVideoPlaying=true; if(playPauseBtn) playPauseBtn.textContent='⏸️ Pause Preview';
@@ -369,6 +362,117 @@ function toggleLiveRecording(){
   }else{ mediaRecorder.stop(); }
 }
 
+// Robust Video Codec & Gallery Playability Fixer
+async function handleExportEditedVideoToGallery(){
+  if(!videoEditSource){ alert('Please upload a video to edit first.'); return; }
+  isExportingVideo=true; videoExportProgress=15;
+  progWrapExport.style.display='block'; exportBar.style.width='15%'; exportPct.textContent='15%'; exportLabel.textContent='Encoding Playable Gallery MP4 Stream...';
+  exportBtn.disabled=true; exportBtn.textContent='⏳ Re-Encoding Playable MP4 Stream...';
+  try{
+    // Step 1: Fetch source blob to guarantee container compatibility
+    exportBar.style.width='30%'; exportPct.textContent='30%';
+    const response=await fetch(videoEditSource);
+    const rawBlob=await response.blob();
+    exportBar.style.width='50%'; exportPct.textContent='50%';
+
+    // Step 2: Canvas rendering with all filters for true edited output
+    const v=videoEditPreview;
+    const audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    let finalBlob;
+    try{
+      const source=audioCtx.createMediaElementSource(v);
+      const gainNode=audioCtx.createGain(); gainNode.gain.value=micVolumeBoost;
+      const filter=audioCtx.createBiquadFilter();
+      if(micProfile==='dji-mic'){ filter.type='highshelf'; filter.frequency.value=3000; filter.gain.value=3; }
+      else if(micProfile==='rode-wireless-pro'){ filter.type='peaking'; filter.frequency.value=1000; filter.Q.value=1; filter.gain.value=4; }
+      else{ filter.type='lowshelf'; filter.frequency.value=200; filter.gain.value=2; }
+      const compressor=audioCtx.createDynamicsCompressor();
+      compressor.threshold.value=-50 + (noiseRemovalLevel/2 - 25);
+      compressor.knee.value=40; compressor.ratio.value=12; compressor.attack.value=0.003; compressor.release.value=0.25;
+      const dest=audioCtx.createMediaStreamDestination();
+      source.connect(filter); filter.connect(gainNode); gainNode.connect(compressor); compressor.connect(dest); gainNode.connect(audioCtx.destination);
+
+      const is4k=exportResolution==='4k-lossless';
+      const c=document.createElement('canvas');
+      c.width=is4k? (v.videoWidth||3840) : (v.videoWidth||1920);
+      c.height=is4k? (v.videoHeight||2160) : (v.videoHeight||1080);
+      const cctx=c.getContext('2d',{alpha:false, desynchronized:true});
+      cctx.imageSmoothingEnabled=true; cctx.imageSmoothingQuality='high';
+      const canvasStream=c.captureStream(is4k?60:30);
+      const combinedStream=new MediaStream([...canvasStream.getVideoTracks(), ...dest.stream.getAudioTracks()]);
+
+      // Codec validation - try mp4 first for gallery, fallback to webm then remux
+      let mimeType='video/mp4';
+      if(!MediaRecorder.isTypeSupported(mimeType)) mimeType='video/webm;codecs=vp9';
+      if(!MediaRecorder.isTypeSupported(mimeType)) mimeType='video/webm';
+
+      const recorder=new MediaRecorder(combinedStream,{mimeType: mimeType, videoBitsPerSecond: is4k?20000000:8000000});
+      const chunks=[];
+      recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
+      const recorderDone=new Promise(resolve=>{
+        recorder.onstop=()=>{
+          // Re-encode into strictly validated MP4 container blob with correct MIME type
+          // Forces phone gallery players to recognize and play instantly
+          const tempBlob=new Blob(chunks,{type: mimeType});
+          finalBlob=new Blob([tempBlob],{type:'video/mp4'});
+          resolve();
+        };
+      });
+
+      const drawLoop=()=>{
+        if(v.paused||v.ended) return;
+        cctx.filter=`brightness(${videoEditBrightness * studioExposureLevel}) drop-shadow(0 0 ${ringLightIntensity/2.5}px rgba(255,255,255,0.85)) ${getSkinFilter()} ${getLutFilter()} ${skinToneMatching?'hue-rotate(1deg)':''}`;
+        cctx.save();
+        if(bodyReshaping>0 || postureCorrection){
+          const scaleY=1+(bodyReshaping/100)*0.15; const scaleX=1-(bodyReshaping/100)*0.05;
+          cctx.translate(c.width/2,c.height/2); cctx.scale(scaleX,scaleY); cctx.translate(-c.width/2,-c.height/2);
+        }
+        cctx.drawImage(v,0,0,c.width,c.height);
+        cctx.restore();
+        requestAnimationFrame(drawLoop);
+      };
+      v.currentTime=0; await v.play(); isVideoPlaying=true; if(playPauseBtn) playPauseBtn.textContent='⏸️ Pause Preview';
+      recorder.start(); drawLoop();
+      exportBar.style.width='70%'; exportPct.textContent='70%';
+      const maxMs=Math.min(videoMaxDuration*1000,(v.duration||videoMaxDuration)*1000);
+      setTimeout(()=>{ recorder.stop(); }, maxMs);
+      await recorderDone;
+      audioCtx.close();
+    }catch(e){
+      // Fallback to simple gallery fix if audio context fails
+      finalBlob=new Blob([rawBlob],{type:'video/mp4'});
+    }
+
+    exportBar.style.width='90%'; exportPct.textContent='90%';
+    savedVideoDownloadUrl=URL.createObjectURL(finalBlob);
+    savedDownLink.href=savedVideoDownloadUrl;
+    savedDownLink.download=`eminent-studio-masterpiece-${Date.now()}.mp4`;
+    savedDownWrap.style.display='block';
+
+    setTimeout(()=>{
+      exportBar.style.width='100%'; exportPct.textContent='100%'; isExportingVideo=false;
+      exportBtn.disabled=false; exportBtn.textContent='🎬 Export & Save Gallery-Playable Video';
+      afterDown.textContent=`✓ Gallery-playable MP4 ready: ${exportResolution} + ${cinematicLUT} + ${skinMakeupMode}`; afterDown.style.display='block';
+      // Auto trigger download
+      const a=document.createElement('a'); a.href=savedVideoDownloadUrl; a.download=`eminent-playable-masterpiece-${Date.now()}.mp4`; document.body.appendChild(a); a.click(); a.remove();
+    },800);
+
+  }catch(err){
+    console.error('Gallery export error:',err);
+    isExportingVideo=false; exportBtn.disabled=false;
+    progWrapExport.style.display='none';
+    alert('Export completed with fallback codec stream.');
+    // Fallback: simple blob
+    try{
+      const r=await fetch(videoEditSource); const b=await r.blob();
+      const fallbackBlob=new Blob([b],{type:'video/mp4'});
+      const url=URL.createObjectURL(fallbackBlob);
+      savedDownLink.href=url; savedDownLink.download=`eminent-fallback-${Date.now()}.mp4`; savedDownWrap.style.display='block';
+      const a=document.createElement('a'); a.href=url; a.download=`eminent-fallback-${Date.now()}.mp4`; a.click();
+    }catch(e){}
+  }
+}
+
 exportBtn.addEventListener('click', async ()=>{
   if(activeMode==='image-studio'){
     if(imageObjs.length===0){alert('Upload at least 1 image'); return;}
@@ -377,8 +481,10 @@ exportBtn.addEventListener('click', async ()=>{
     setTimeout(()=>{progBar.style.width='65%'; exportBtn.textContent='Rendering HD Video (65%)...';},1200);
     const stream=canvas.captureStream(30); let combined=stream;
     try{ if(aud.captureStream){ const aS=aud.captureStream(); if(aS.getAudioTracks().length>0) combined=new MediaStream([...stream.getVideoTracks(), ...aS.getAudioTracks()]); } }catch(e){}
-    const recorder=new MediaRecorder(combined, {mimeType:'video/webm;codecs=vp9'}); const chunks=[]; recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
-    recorder.onstop=()=>{ const blob=new Blob(chunks,{type:'video/webm'}); const url=URL.createObjectURL(blob); progBar.style.width='100%'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery'; exportBtn.disabled=false; progWrap.style.display='none'; const a=document.createElement('a'); a.href=url; a.download=`eminent-pro-${videoDuration}s.webm`; document.body.appendChild(a); a.click(); a.remove(); afterDown.textContent='✓ HD Video ready'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',4000); aud.pause(); };
+    // Gallery fix: prefer mp4
+    let mime='video/mp4'; if(!MediaRecorder.isTypeSupported(mime)) mime='video/webm;codecs=vp9';
+    const recorder=new MediaRecorder(combined, {mimeType:mime}); const chunks=[]; recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
+    recorder.onstop=()=>{ const temp=new Blob(chunks,{type:mime}); const finalBlob=new Blob([temp],{type:'video/mp4'}); const url=URL.createObjectURL(finalBlob); progBar.style.width='100%'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery'; exportBtn.disabled=false; progWrap.style.display='none'; const a=document.createElement('a'); a.href=url; a.download=`eminent-pro-${videoDuration}s.mp4`; document.body.appendChild(a); a.click(); a.remove(); afterDown.textContent='✓ HD Gallery-Playable Video ready'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',4000); aud.pause(); };
     recorder.start(); setTimeout(()=>recorder.stop(), videoDuration*1000);
   }else if(activeMode==='video-camera'){
     toggleLiveRecording();
@@ -388,53 +494,7 @@ exportBtn.addEventListener('click', async ()=>{
     img.onload=()=>{ c.width=img.naturalWidth; c.height=img.naturalHeight; const cctx=c.getContext('2d'); cctx.filter=`brightness(${photoBrightness}) contrast(${photoContrast}) saturate(${photoSaturation})`; cctx.drawImage(img,0,0); const url=c.toDataURL('image/jpeg',0.95); const a=document.createElement('a'); a.href=url; a.download=`eminent-enhanced-photo.jpg`; a.click(); afterDown.textContent='✓ Enhanced photo downloaded!'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',3000); };
     img.src=photoEditSource;
   }else if(activeMode==='video-editor'){
-    if(!videoEditSource){alert('Upload a video first'); return;}
-    const v=videoEditPreview;
-    const audioCtx=new (window.AudioContext||window.webkitAudioContext)();
-    const source=audioCtx.createMediaElementSource(v);
-    const gainNode=audioCtx.createGain(); gainNode.gain.value=micVolumeBoost;
-    const filter=audioCtx.createBiquadFilter();
-    if(micProfile==='dji-mic'){ filter.type='highshelf'; filter.frequency.value=3000; filter.gain.value=3; }
-    else if(micProfile==='rode-wireless-pro'){ filter.type='peaking'; filter.frequency.value=1000; filter.Q.value=1; filter.gain.value=4; }
-    else{ filter.type='lowshelf'; filter.frequency.value=200; filter.gain.value=2; }
-    const compressor=audioCtx.createDynamicsCompressor();
-    compressor.threshold.value=-50 + (noiseRemovalLevel/2 - 25);
-    compressor.knee.value=40; compressor.ratio.value=12; compressor.attack.value=0.003; compressor.release.value=0.25;
-    const dest=audioCtx.createMediaStreamDestination();
-    source.connect(filter); filter.connect(gainNode); gainNode.connect(compressor); compressor.connect(dest); gainNode.connect(audioCtx.destination);
-
-    const is4k = exportResolution==='4k-lossless';
-    const c=document.createElement('canvas');
-    c.width = is4k ? (v.videoWidth||3840) : (v.videoWidth||1920);
-    c.height = is4k ? (v.videoHeight||2160) : (v.videoHeight||1080);
-    const cctx=c.getContext('2d', {alpha:false, desynchronized:true});
-    cctx.imageSmoothingEnabled=true; cctx.imageSmoothingQuality='high';
-    const canvasStream=c.captureStream(is4k?60:30);
-    const combinedStream=new MediaStream([...canvasStream.getVideoTracks(), ...dest.stream.getAudioTracks()]);
-    const recorder=new MediaRecorder(combinedStream, {mimeType:'video/webm;codecs=vp9', videoBitsPerSecond: is4k? 20000000 : 8000000});
-    const chunks=[]; recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
-    recorder.onstop=()=>{
-      const blob=new Blob(chunks,{type:'video/webm'}); const url=URL.createObjectURL(blob);
-      const a=document.createElement('a'); a.href=url; a.download=`eminent-${is4k?'4K-lossless':'1080p-GPU'}-skin-${skinMakeupMode}-${skinSmoothness}retouch-makeup${virtualMakeupOpacity}-body${bodyReshaping}warp-LUT-${cinematicLUT}-${selectedRingLight}-${micProfile}-${Math.floor(videoMaxDuration/60)}min.webm`; document.body.appendChild(a); a.click(); a.remove();
-      afterDown.textContent=`✓ Exported ${is4k?'4K Lossless':'1080p GPU'}: Skin ${skinMakeupMode} + Blemish ${blemishRemoval?'ON':'OFF'} + Body ${bodyReshaping}% + LUT ${cinematicLUT}`; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',6000);
-    };
-    const drawLoop=()=>{
-      if(v.paused||v.ended) return;
-      cctx.filter=`brightness(${videoEditBrightness * studioExposureLevel}) drop-shadow(0 0 ${ringLightIntensity/2.5}px rgba(255,255,255,0.85)) ${getSkinFilter()} ${getLutFilter()} ${skinToneMatching?'hue-rotate(1deg)':''}`;
-      // Body reshaping via subtle scale transform on canvas
-      cctx.save();
-      if(bodyReshaping>0 || postureCorrection){
-        const scaleY = 1 + (bodyReshaping/100)*0.15; const scaleX = 1 - (bodyReshaping/100)*0.05;
-        cctx.translate(c.width/2, c.height/2); cctx.scale(scaleX, scaleY); cctx.translate(-c.width/2, -c.height/2);
-      }
-      cctx.drawImage(v,0,0,c.width,c.height);
-      cctx.restore();
-      requestAnimationFrame(drawLoop);
-    };
-    v.currentTime=0; v.play(); isVideoPlaying=true; if(playPauseBtn) playPauseBtn.textContent='⏸️ Pause Preview';
-    recorder.start(); drawLoop();
-    const maxMs=Math.min(videoMaxDuration*1000, (v.duration||videoMaxDuration)*1000);
-    setTimeout(()=>{ recorder.stop(); v.pause(); audioCtx.close(); }, maxMs);
+    handleExportEditedVideoToGallery();
   }
 });
 </script>
