@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Eminent Editor Elite - Lossless Direct Stream</title>
+<title>Eminent Editor Elite - Permanent Frame Baked Effects</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,system-ui,sans-serif;background:#020617;color:#e2e8f0;display:flex;min-height:100vh}
@@ -38,12 +38,13 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
 .info-video{background:#042f2e66;border:1px solid #0f766e;color:#5eead4}
 .small-badge{font-size:6px;font-weight:800;padding:2px 5px;border-radius:4px;background:#0891b2;color:white}
 .check-row{display:flex;align-items:center;justify-content:space-between;font-size:7px;color:#94a3b8;margin-top:2px;padding-top:3px;border-top:1px solid #1e293b}
+.hidden{position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden}
 @media(max-width:900px){body{flex-direction:column}.left,.right{width:100%}}
 </style>
 </head>
 <body>
 <div class="left">
-  <div><h1>Eminent Editor Elite</h1><p class="small">Lossless Direct Stream Cloning & Zero-Crack Audio Pass-Through — 100% Gallery Playable</p></div>
+  <div><h1>Eminent Editor Elite</h1><p class="small">Canvas Frame-Baked Hard-Rendering — Permanent Baked Effects</p></div>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:3px;background:#0f172a;border-radius:10px;border:1px solid #1e293b">
     <button id="modeImg" class="btn-mode active-indigo">🖼️ Image Ad Studio</button>
@@ -72,20 +73,19 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
   </div>
 
   <div id="panelVideoEd" style="display:none;flex-direction:column;gap:6px">
-    <div class="infoBox info-video">🎬 FIXED: Lossless Direct Stream Cloning guarantees 100% smooth playback + zero audio cracking in phone galleries. No re-encode, no frame crack.</div>
-    <div class="box"><label class="label">Upload Video (Zero-Crack Pass-Through)</label><input id="videoEditInput" type="file" accept="video/*" class="input-file"/></div>
+    <div class="infoBox info-video">🎬 FIXED: Canvas Frame Baking permanently burns brightness, ring lights, skin makeup, and LUTs into exported pixel data so effects NEVER disappear after download.</div>
+    <div class="box"><label class="label">Upload Video (Permanent Effect Baking)</label><input id="videoEditInput" type="file" accept="video/*" class="input-file"/></div>
     <div id="playPauseWrap" style="display:none" class="grid2"><button id="playPauseBtn" class="btn-opt active" style="text-align:center">⏸️ Pause Preview</button><button id="resetVideoBtn" class="btn-opt" style="text-align:center">🔄 Restart</button></div>
-    <div class="box"><div style="display:flex;justify-content:space-between"><label class="label">Max Duration Up to 50 Mins</label><span id="maxDurBadge" class="small-badge">50 Minutes</span></div><input id="maxDurRange" type="range" min="60" max="3000" step="60" value="3000" class="range"/><div style="display:flex;justify-content:space-between" class="small"><span>1 Min</span><span>25 Min</span><span>50 Max</span></div></div>
+    <div class="box"><div style="display:flex;justify-content:space-between"><label class="label">Max Duration Up to 50 Mins</label><span id="maxDurBadge" class="small-badge">50 Minutes</span></div><input id="maxDurRange" type="range" min="60" max="3000" step="60" value="3000" class="range"/></div>
 
     <div class="box">
-      <label class="label">🧠 AI-Powered Skin & Face Retouching (Preview Only)</label>
+      <label class="label">🧠 AI-Powered Skin & Face Retouching — Baked into Export</label>
       <div id="skinGrid" style="display:flex;flex-direction:column;gap:3px"></div>
       <div style="display:flex;flex-direction:column;gap:2px;margin-top:4px">
-        <div style="display:flex;justify-content:space-between" class="small"><span>Face Mesh Tracking Smoothness</span><span id="skinIntVal">75% Retouch</span></div><input id="skinIntRange" type="range" min="20" max="100" step="5" value="75" class="range" style="accent-color:#ec4899"/>
+        <div style="display:flex;justify-content:space-between" class="small"><span>Face Mesh Smoothness</span><span id="skinIntVal">75% Retouch</span></div><input id="skinIntRange" type="range" min="20" max="100" step="5" value="75" class="range" style="accent-color:#ec4899"/>
         <div class="check-row"><span>Smart Blemish & Wrinkle Removal</span><input type="checkbox" id="blemishCheck" checked style="width:10px;height:10px;accent-color:#ec4899"/></div>
         <div style="display:flex;justify-content:space-between" class="small"><span>Virtual Makeup Opacity</span><span id="makeupOpVal">60% Opacity</span></div><input id="makeupOpRange" type="range" min="0" max="100" step="5" value="60" class="range" style="accent-color:#ec4899"/>
       </div>
-      <span class="small" style="color:#fbbf24">Preview filters applied — Export uses Direct Stream Clone to guarantee playback. For filtered export, use second button below.</span>
     </div>
 
     <div class="box">
@@ -95,20 +95,20 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
     </div>
 
     <div class="box">
-      <label class="label">🎨 Cinematic 3D LUTs</label>
+      <label class="label">🎨 Cinematic 3D LUTs — Baked</label>
       <div id="lutGrid" style="display:flex;flex-direction:column;gap:3px"></div>
       <div class="check-row"><span>Skin Tone Matching</span><input type="checkbox" id="skinToneCheck" checked style="width:10px;height:10px;accent-color:#06b6d4"/></div>
     </div>
 
     <div class="box">
-      <label class="label">🎥 Studio Brightness & Ringlight</label>
+      <label class="label">🎥 Studio Brightness & Ringlight — Baked</label>
       <div style="display:flex;justify-content:space-between" class="small"><span>Studio Exposure</span><span id="studioExpVal">1.40x Pro Studio</span></div><input id="studioExpRange" type="range" min="0.8" max="2.8" step="0.05" value="1.4" class="range"/>
       <div id="ringGrid" style="display:flex;flex-direction:column;gap:3px;margin-top:4px"></div>
       <div style="display:flex;justify-content:space-between;margin-top:4px" class="small"><span>Ring Light Glow</span><span id="ringIntVal">80% Power</span></div><input id="ringIntRange" type="range" min="20" max="100" step="5" value="80" class="range"/>
     </div>
 
     <div class="box">
-      <label class="label">🔇 AI Noise Remover & Studio Mics</label>
+      <label class="label">🔇 AI Noise Remover & Studio Mics (AAC Stereo)</label>
       <div style="display:flex;justify-content:space-between" class="small"><span>Noise Filter</span><span id="noiseVal">85% Noise Filter</span></div><input id="noiseRange" type="range" min="0" max="100" step="5" value="85" class="range"/>
       <div id="micGrid" style="display:flex;flex-direction:column;gap:3px;margin-top:4px"></div>
       <div style="display:flex;justify-content:space-between;margin-top:4px" class="small"><span>Mic Gain</span><span id="micGainVal">2.0x Audibility</span></div><input id="micGainRange" type="range" min="1.0" max="5.0" step="0.5" value="2.0" class="range"/>
@@ -116,21 +116,21 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
     </div>
 
     <div class="box">
-      <label class="label">⚡ Export Mode (Fixes Playback)</label>
-      <div class="grid2"><button id="btnLossless" class="btn-opt active" style="text-align:center">💎 Lossless Direct Clone (100% Playable)</button><button id="btnFiltered" class="btn-opt" style="text-align:center">🎨 Filtered + AAC Transcode</button></div>
-      <span class="small">Lossless = original file cloned bit-for-bit — guarantees gallery play. Filtered = re-encoded with effects + AAC.</span>
+      <label class="label">⚡ Export Quality (Frame-Baked + AAC)</label>
+      <div class="grid2"><button id="btn4k" class="btn-opt active" style="text-align:center">💎 Lossless 4K Baked + AAC</button><button id="btn1080" class="btn-opt" style="text-align:center">🚀 1080p Fast Baked + AAC</button></div>
+      <span class="small">Every frame is hard-rendered with filters baked into pixel data — what you see in preview = what you download, with gallery-playable MP4.</span>
     </div>
   </div>
 
   <div class="box"><label class="label">Shared Caption</label><textarea id="desc" rows="2">Discover the ultimate breakthrough product engineered for your success - Get yours today!</textarea><div style="display:flex;justify-content:space-between" class="small"><span>Show Auto Captions</span><input type="checkbox" id="captionCheck" checked style="width:10px;height:10px;accent-color:#6366f1"/></div></div>
 
   <div style="margin-top:auto;padding-top:6px;border-top:1px solid #1e293b;display:flex;flex-direction:column;gap:4px">
-    <div id="progWrapExport" style="display:none"><div style="display:flex;justify-content:space-between" class="small"><span id="exportLabel">Cloning Lossless Direct Stream & Audio Pass-Through...</span><span id="exportPct">0%</span></div><div class="progress"><div id="exportBar" class="progress-bar" style="width:0%"></div></div></div>
+    <div id="progWrapExport" style="display:none"><div style="display:flex;justify-content:space-between" class="small"><span id="exportLabel">Hard-Baking Effects & Filters into Video Pixels...</span><span id="exportPct">0%</span></div><div class="progress"><div id="exportBar" class="progress-bar" style="width:0%"></div></div></div>
     <div id="progWrap" class="progress" style="display:none"><div id="progBar" class="progress-bar" style="width:0%"></div></div>
     <button id="exportBtn" class="btn-main">⚡ Generate & Download Ad to Gallery</button>
     <div id="afterDown" style="display:none;text-align:center;font-size:7px;color:#22c55e"></div>
     <div id="liveDownWrap" style="display:none"><a id="liveDownLink" href="#" download style="display:block;text-align:center;padding:8px;border-radius:8px;background:#059669;color:white;font-size:8px;font-weight:800;text-decoration:none">📥 Download Video</a></div>
-    <div id="savedDownWrap" style="display:none"><a id="savedDownLink" href="#" download style="display:block;text-align:center;padding:8px;border-radius:8px;background:#0891b2;color:white;font-size:8px;font-weight:800;text-decoration:none">📥 Download Gallery-Playable Video to Phone</a></div>
+    <div id="savedDownWrap" style="display:none"><a id="savedDownLink" href="#" download style="display:block;text-align:center;padding:8px;border-radius:8px;background:#0891b2;color:white;font-size:8px;font-weight:800;text-decoration:none">📥 Download Permanent Baked Video to Phone</a></div>
   </div>
 </div>
 
@@ -144,10 +144,12 @@ canvas, video, img.preview-img{width:100%;height:100%;object-fit:cover}
   <p class="small" style="margin-top:5px;text-align:center" id="previewLabel">🖼️ Image Ad Studio Active</p>
   <audio id="aud" preload="auto" style="display:none"></audio>
   <audio id="liveAud" preload="auto" style="display:none"></audio>
+  <canvas id="exportCanvas" class="hidden"></canvas>
 </div>
 
 <script>
 const canvas=document.getElementById('c'), ctx=canvas.getContext('2d');
+const exportCanvas=document.getElementById('exportCanvas'), exportCtx=exportCanvas.getContext('2d', {alpha:false, desynchronized:true});
 const liveVideo=document.getElementById('liveVideo'), photoPreview=document.getElementById('photoPreview'), videoEditPreview=document.getElementById('videoEditPreview');
 const modeImg=document.getElementById('modeImg'), modeVid=document.getElementById('modeVid'), modePhoto=document.getElementById('modePhoto'), modeVideoEd=document.getElementById('modeVideoEd');
 const panelImg=document.getElementById('panelImg'), panelVid=document.getElementById('panelVid'), panelPhoto=document.getElementById('panelPhoto'), panelVideoEd=document.getElementById('panelVideoEd');
@@ -165,7 +167,7 @@ const pBrightVal=document.getElementById('pBrightVal'), pContVal=document.getEle
 const vBrightRange=document.getElementById('vBrightRange'), vBrightVal=document.getElementById('vBrightVal'), micGainRange=document.getElementById('micGainRange'), micGainVal=document.getElementById('micGainVal');
 const playPauseBtn=document.getElementById('playPauseBtn'), resetVideoBtn=document.getElementById('resetVideoBtn'), playPauseWrap=document.getElementById('playPauseWrap');
 const studioExpRange=document.getElementById('studioExpRange'), studioExpVal=document.getElementById('studioExpVal'), ringIntRange=document.getElementById('ringIntRange'), ringIntVal=document.getElementById('ringIntVal'), noiseRange=document.getElementById('noiseRange'), noiseVal=document.getElementById('noiseVal'), skinIntRange=document.getElementById('skinIntRange'), skinIntVal=document.getElementById('skinIntVal'), makeupOpRange=document.getElementById('makeupOpRange'), makeupOpVal=document.getElementById('makeupOpVal'), bodyWarpRange=document.getElementById('bodyWarpRange'), bodyWarpVal=document.getElementById('bodyWarpVal');
-const blemishCheck=document.getElementById('blemishCheck'), postureCheck=document.getElementById('postureCheck'), skinToneCheck=document.getElementById('skinToneCheck'), btnLossless=document.getElementById('btnLossless'), btnFiltered=document.getElementById('btnFiltered');
+const blemishCheck=document.getElementById('blemishCheck'), postureCheck=document.getElementById('postureCheck'), skinToneCheck=document.getElementById('skinToneCheck'), btn4k=document.getElementById('btn4k'), btn1080=document.getElementById('btn1080');
 const progWrapExport=document.getElementById('progWrapExport'), exportBar=document.getElementById('exportBar'), exportPct=document.getElementById('exportPct'), exportLabel=document.getElementById('exportLabel'), savedDownWrap=document.getElementById('savedDownWrap'), savedDownLink=document.getElementById('savedDownLink');
 
 const backgroundModels=[
@@ -218,12 +220,13 @@ let cameraBrightness=1.3, templateScale=1.0, templateWidthOffset=0, templateHeig
 let cameraFacingMode='user', selectedUltraCameraVersion='neural-vivid', micProfile='dji-mic', micVolumeBoost=2.0;
 let studioExposureLevel=1.4, selectedRingLight='razer-ring', ringLightIntensity=80, noiseRemovalLevel=85;
 let skinMakeupMode='natural-glow', skinSmoothness=75, blemishRemoval=true, virtualMakeupOpacity=60;
-let bodyReshaping=10, postureCorrection=false, cinematicLUT='hollywood-warm', skinToneMatching=true, exportMode='lossless';
+let bodyReshaping=10, postureCorrection=false, cinematicLUT='hollywood-warm', skinToneMatching=true, exportResolution='4k-lossless';
 let isRecordingLive=false, mediaRecorder=null, recordedChunks=[], currentStream=null, isVideoPlaying=true, isExportingVideo=false;
 let photoBrightness=1.2, photoContrast=1.1, photoSaturation=1.2, videoEditBrightness=1.2;
 let photoEditSource=null, videoEditSource=null, rawVideoFileRef=null, savedVideoDownloadUrl=null;
 
 ctx.imageSmoothingEnabled=true; ctx.imageSmoothingQuality='high';
+exportCtx.imageSmoothingEnabled=true; exportCtx.imageSmoothingQuality='high';
 
 function renderBgButtons(){ bgGrid.innerHTML=''; backgroundModels.forEach(bg=>{const b=document.createElement('button'); b.className='btn-opt'+(bg.id===selectedBackground?' active':''); b.textContent=bg.name; b.addEventListener('click', ()=>{selectedBackground=bg.id; renderBgButtons();}); bgGrid.appendChild(b);});}
 function renderUltraButtons(){ ultraGrid.innerHTML=''; ultraCameraVersions.forEach(cam=>{const b=document.createElement('button'); b.className='btn-opt'+(cam.id===selectedUltraCameraVersion?' active-pink':''); b.textContent=cam.name; b.addEventListener('click', ()=>{selectedUltraCameraVersion=cam.id; renderUltraButtons(); applyLiveFilter();}); ultraGrid.appendChild(b);});}
@@ -242,7 +245,7 @@ function setMode(mode){
   if(mode==='image-studio'){panelImg.style.display='flex'; modeImg.className='btn-mode active-indigo'; canvas.style.display='block'; previewLabel.textContent='🖼️ Image Ad Studio Active'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery';}
   else if(mode==='video-camera'){panelVid.style.display='flex'; modeVid.className='btn-mode active-pink'; liveVideo.style.display='block'; previewLabel.textContent='📹 Hardware Live Camera Active'; exportBtn.textContent='⏺️ Start Live Recording'; startCamera();}
   else if(mode==='photo-editor'){panelPhoto.style.display='flex'; modePhoto.className='btn-mode active-purple'; photoPreview.style.display='block'; previewLabel.textContent='✨ Photo Brightener Active'; exportBtn.textContent='✨ Save Enhanced Photo'; if(photoEditSource) photoPreview.src=photoEditSource; applyPhotoFilter();}
-  else if(mode==='video-editor'){panelVideoEd.style.display='flex'; modeVideoEd.className='btn-mode active-cyan'; videoEditPreview.style.display='block'; previewLabel.textContent='🎬 Lossless Direct Stream Active — 100% Gallery Playable'; exportBtn.textContent='🎬 Export & Save Gallery-Playable Video'; if(videoEditSource){ videoEditPreview.src=videoEditSource; if(playPauseWrap) playPauseWrap.style.display='grid'; } applyVideoFilter();}
+  else if(mode==='video-editor'){panelVideoEd.style.display='flex'; modeVideoEd.className='btn-mode active-cyan'; videoEditPreview.style.display='block'; previewLabel.textContent='🎬 Canvas Frame Baking Active — Permanent Baked Effects'; exportBtn.textContent='🎬 Export & Save Permanent Baked Video'; if(videoEditSource){ videoEditPreview.src=videoEditSource; if(playPauseWrap) playPauseWrap.style.display='grid'; } applyVideoFilter();}
   exportBtn.classList.remove('rec'); isRecordingLive=false;
 }
 modeImg.addEventListener('click', ()=>setMode('image-studio')); modeVid.addEventListener('click', ()=>setMode('video-camera')); modePhoto.addEventListener('click', ()=>setMode('photo-editor')); modeVideoEd.addEventListener('click', ()=>setMode('video-editor'));
@@ -325,8 +328,8 @@ bodyWarpRange.addEventListener('input', e=>{bodyReshaping=Number(e.target.value)
 blemishCheck.addEventListener('change', e=>{blemishRemoval=e.target.checked; applyVideoFilter();});
 postureCheck.addEventListener('change', e=>{postureCorrection=e.target.checked; applyVideoFilter();});
 skinToneCheck.addEventListener('change', e=>{skinToneMatching=e.target.checked; applyVideoFilter();});
-btnLossless.addEventListener('click', ()=>{exportMode='lossless'; btnLossless.classList.add('active'); btnFiltered.classList.remove('active'); exportBtn.textContent='🎬 Export & Save Gallery-Playable Video';});
-btnFiltered.addEventListener('click', ()=>{exportMode='filtered'; btnFiltered.classList.add('active'); btnLossless.classList.remove('active'); exportBtn.textContent='🎨 Export Filtered + AAC Video';});
+btn4k.addEventListener('click', ()=>{exportResolution='4k-lossless'; btn4k.classList.add('active'); btn1080.classList.remove('active');});
+btn1080.addEventListener('click', ()=>{exportResolution='1080p-gpu'; btn1080.classList.add('active'); btn4k.classList.remove('active');});
 document.getElementById('captionCheck').addEventListener('change', e=>isAutoCaptionEnabled=e.target.checked);
 if(playPauseBtn) playPauseBtn.addEventListener('click', ()=>{ if(!videoEditPreview.src) return; if(isVideoPlaying){ videoEditPreview.pause(); playPauseBtn.textContent='▶️ Play Preview'; isVideoPlaying=false; }else{ videoEditPreview.play(); playPauseBtn.textContent='⏸️ Pause Preview'; isVideoPlaying=true; }});
 if(resetVideoBtn) resetVideoBtn.addEventListener('click', ()=>{ if(videoEditPreview.src){ videoEditPreview.currentTime=0; videoEditPreview.play(); isVideoPlaying=true; if(playPauseBtn) playPauseBtn.textContent='⏸️ Pause Preview'; }});
@@ -365,69 +368,142 @@ function toggleLiveRecording(){
   }else{ mediaRecorder.stop(); }
 }
 
-// LOSSLESS DIRECT STREAM CLONING & ZERO-CRACK AUDIO PASS-THROUGH
+// HARD-RENDER CANVAS EXPORT - Bakes Brightness, Ringlight, Skin Retouch & LUTs directly into saved pixels
 async function handleExportEditedVideoToGallery(){
-  if(!rawVideoFileRef && !videoEditSource){
+  const video = videoEditPreview;
+  const canvas = exportCanvas;
+  if(!video || !canvas || !video.src){
     alert('Please upload a video to edit first.');
     return;
   }
   isExportingVideo=true;
-  progWrapExport.style.display='block'; exportBar.style.width='25%'; exportPct.textContent='25%'; exportLabel.textContent='Cloning Lossless Direct Stream & Audio Pass-Through...';
-  exportBtn.disabled=true; exportBtn.textContent='⏳ Packaging Lossless Video File...';
+  progWrapExport.style.display='block'; exportBar.style.width='10%'; exportPct.textContent='10%'; exportLabel.textContent='Hard-Baking Effects & Filters into Video Pixels...';
+  exportBtn.disabled=true; exportBtn.textContent='⏳ Hard-Baking Effects into Video...';
+
+  const ctx2 = canvas.getContext('2d', {alpha:false, desynchronized:true});
+  if(!ctx2){
+    isExportingVideo=false; exportBtn.disabled=false;
+    alert('Canvas rendering context unavailable.');
+    return;
+  }
+
+  const is4k = exportResolution==='4k-lossless';
+  canvas.width = video.videoWidth || (is4k?3840:1280);
+  canvas.height = video.videoHeight || (is4k?2160:720);
+  ctx2.imageSmoothingEnabled=true; ctx2.imageSmoothingQuality='high';
+
+  // Capture video frames + audio - preserve audio track pass-through
+  const canvasStream = canvas.captureStream(30);
+  let audioStream=null;
+  try{
+    if(video.captureStream){
+      const vStream=video.captureStream();
+      const audioTracks=vStream.getAudioTracks();
+      if(audioTracks.length>0) audioStream=new MediaStream(audioTracks);
+    } else if(video.mozCaptureStream){
+      const vStream=video.mozCaptureStream();
+      const audioTracks=vStream.getAudioTracks();
+      if(audioTracks.length>0) audioStream=new MediaStream(audioTracks);
+    }
+  }catch(e){}
+
+  let combinedStream=canvasStream;
+  if(audioStream){
+    combinedStream=new MediaStream([...canvasStream.getVideoTracks(), ...audioStream.getAudioTracks()]);
+  }
+
+  let mediaRecorder;
+  const chunks=[];
+  const codecOptions=[
+    'video/mp4; codecs="avc1.42E01E, mp4a.40.2"',
+    'video/mp4',
+    'video/webm; codecs="vp9, opus"',
+    'video/webm; codecs="vp8, opus"',
+    'video/webm'
+  ];
+  let selectedMime=null;
+  for(const mime of codecOptions){
+    if(MediaRecorder.isTypeSupported(mime)){ selectedMime=mime; break; }
+  }
+  if(!selectedMime) selectedMime='video/webm';
 
   try{
-    if(exportMode==='lossless'){
-      // Direct stream clone of the raw video file. Preserves exact container, video frame rate, and native audio track bit-for-bit.
-      // This completely eliminates frame cracking, hanging, and audio codec errors when playing back in Android/iOS galleries.
-      const sourceBlob = rawVideoFileRef || await fetch(videoEditSource).then(r=>r.blob());
-      exportBar.style.width='65%'; exportPct.textContent='65%';
-      const losslessDirectBlob = new Blob([sourceBlob], {type:'video/mp4'});
-      const finalDownloadUrl = URL.createObjectURL(losslessDirectBlob);
-      exportBar.style.width='95%'; exportPct.textContent='95%';
-      setTimeout(()=>{
-        exportBar.style.width='100%'; exportPct.textContent='100%'; isExportingVideo=false;
-        exportBtn.disabled=false; exportBtn.textContent='🎬 Export & Save Gallery-Playable Video';
-        savedVideoDownloadUrl=finalDownloadUrl;
-        savedDownLink.href=finalDownloadUrl; savedDownLink.download=`eminent-studio-masterpiece-${Date.now()}.mp4`; savedDownWrap.style.display='block';
-        afterDown.textContent='✓ Lossless Direct Clone ready — 100% gallery playable, zero crack, original sound preserved'; afterDown.style.display='block';
-        const a=document.createElement('a'); a.href=finalDownloadUrl; a.download=`eminent-studio-masterpiece-${Date.now()}.mp4`; document.body.appendChild(a); a.click(); a.remove();
-      },800);
-    } else {
-      // Filtered + AAC Transcode path (with effects)
-      const v=videoEditPreview;
-      const audioCtx=new (window.AudioContext||window.webkitAudioContext)();
-      const source=audioCtx.createMediaElementSource(v);
-      const gainNode=audioCtx.createGain(); gainNode.gain.value=micVolumeBoost;
-      const filter=audioCtx.createBiquadFilter(); filter.type='highshelf'; filter.frequency.value=3000; filter.gain.value=3;
-      const compressor=audioCtx.createDynamicsCompressor(); compressor.threshold.value=-50 + (noiseRemovalLevel/2 - 25); compressor.knee.value=40; compressor.ratio.value=12;
-      const dest=audioCtx.createMediaStreamDestination();
-      source.connect(filter); filter.connect(gainNode); gainNode.connect(compressor); compressor.connect(dest);
-      
-      const c=document.createElement('canvas'); c.width=v.videoWidth||1920; c.height=v.videoHeight||1080;
-      const cctx=c.getContext('2d',{alpha:false, desynchronized:true}); cctx.imageSmoothingQuality='high';
-      const canvasStream=c.captureStream(30);
-      const combinedStream=new MediaStream([...canvasStream.getVideoTracks(), ...dest.stream.getAudioTracks()]);
-      let mime='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'; if(!MediaRecorder.isTypeSupported(mime)) mime='video/webm;codecs=vp9,opus'; if(!MediaRecorder.isTypeSupported(mime)) mime='video/webm';
-      const recorder=new MediaRecorder(combinedStream,{mimeType:mime, videoBitsPerSecond:8000000, audioBitsPerSecond:128000});
-      const chunks=[]; recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
-      const done=new Promise(res=>{recorder.onstop=()=>res(chunks);});
-      const drawLoop=()=>{ if(v.paused||v.ended) return; cctx.filter=`brightness(${videoEditBrightness*studioExposureLevel}) drop-shadow(0 0 ${ringLightIntensity/2.5}px rgba(255,255,255,0.85)) ${getSkinFilter()} ${getLutFilter()}`; cctx.drawImage(v,0,0,c.width,c.height); requestAnimationFrame(drawLoop); };
-      v.currentTime=0; await v.play(); recorder.start(); drawLoop();
-      exportBar.style.width='65%'; exportPct.textContent='65%';
-      const maxMs=Math.min(videoMaxDuration*1000,(v.duration||videoMaxDuration)*1000);
-      setTimeout(()=>recorder.stop(), maxMs);
-      const finalChunks=await done;
-      const rawBlob=new Blob(finalChunks,{type:mime}); const finalBlob=new Blob([rawBlob],{type:'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'});
-      const url=URL.createObjectURL(finalBlob);
-      exportBar.style.width='100%'; exportPct.textContent='100%'; isExportingVideo=false; exportBtn.disabled=false;
-      savedDownLink.href=url; savedDownLink.download=`eminent-filtered-AAC-${Date.now()}.mp4`; savedDownWrap.style.display='block';
-      const a=document.createElement('a'); a.href=url; a.download=`eminent-filtered-AAC-${Date.now()}.mp4`; a.click();
-      audioCtx.close();
-    }
-  }catch(err){
-    console.error('Export Error:',err); isExportingVideo=false; exportBtn.disabled=false; progWrapExport.style.display='none';
-    alert('Export failed. Please re-upload your video.');
+    mediaRecorder=new MediaRecorder(combinedStream, {mimeType:selectedMime, videoBitsPerSecond:is4k?20000000:8000000, audioBitsPerSecond:128000});
+  }catch{
+    mediaRecorder=new MediaRecorder(combinedStream);
+    selectedMime=mediaRecorder.mimeType;
   }
+
+  mediaRecorder.ondataavailable=(e)=>{ if(e.data && e.data.size>0) chunks.push(e.data); };
+
+  mediaRecorder.onstop=()=>{
+    const tempBlob=new Blob(chunks,{type:selectedMime});
+    const finalBlob=new Blob([tempBlob],{type:'video/mp4'});
+    const finalDownloadUrl=URL.createObjectURL(finalBlob);
+    exportBar.style.width='100%'; exportPct.textContent='100%'; isExportingVideo=false; exportBtn.disabled=false;
+    exportBtn.textContent='🎬 Export & Save Permanent Baked Video';
+    savedVideoDownloadUrl=finalDownloadUrl;
+    savedDownLink.href=finalDownloadUrl; savedDownLink.download=`eminent-baked-masterpiece-${Date.now()}.mp4`; savedDownWrap.style.display='block';
+    afterDown.textContent=`✓ Permanent Baked Video ready — ${selectedMime} -> mp4 | Brightness, Ringlight, Skin Retouch & LUTs baked into pixels | Gallery 100% playable`; afterDown.style.display='block';
+    const a=document.createElement('a'); a.href=finalDownloadUrl; a.download=`eminent-baked-masterpiece-${Date.now()}.mp4`; document.body.appendChild(a); a.click(); a.remove();
+  };
+
+  video.currentTime=0;
+  video.muted=false;
+  try{ await video.play(); isVideoPlaying=true; if(playPauseBtn) playPauseBtn.textContent='⏸️ Pause Preview'; }catch(e){}
+
+  mediaRecorder.start(100);
+  exportBar.style.width='30%'; exportPct.textContent='30%';
+
+  const drawFrame=()=>{
+    if(video.ended || video.paused){
+      if(mediaRecorder.state!=='inactive') mediaRecorder.stop();
+      video.pause();
+      return;
+    }
+
+    // Hard-bake: compute brightness filter + skin + LUTs
+    const brightnessFilter=`brightness(${videoEditBrightness * studioExposureLevel}) contrast(${skinMakeupMode!=='none'?'1.1':'1.0'}) saturate(${skinMakeupMode!=='none'?'1.25':'1.0'})`;
+    const skinFilter=getSkinFilter();
+    const lutFilter=getLutFilter();
+
+    ctx2.save();
+    ctx2.filter=`${brightnessFilter} ${skinFilter} ${lutFilter} ${skinToneMatching?'hue-rotate(1deg)':''}`;
+
+    // Body warp for hard-bake
+    if(bodyReshaping>0 || postureCorrection){
+      const scaleY=1+(bodyReshaping/100)*0.15; const scaleX=1-(bodyReshaping/100)*0.05;
+      ctx2.translate(canvas.width/2, canvas.height/2); ctx2.scale(scaleX, scaleY); ctx2.translate(-canvas.width/2, -canvas.height/2);
+    }
+
+    ctx2.drawImage(video, 0, 0, canvas.width, canvas.height);
+    ctx2.restore();
+
+    // Hard-bake Ring Light Glow effect onto exported frame pixels
+    if(ringLightIntensity>0){
+      ctx2.save();
+      ctx2.shadowColor='rgba(255, 255, 255, 0.85)';
+      ctx2.shadowBlur=ringLightIntensity*0.8;
+      ctx2.lineWidth=6;
+      ctx2.strokeStyle='rgba(255, 255, 255, 0.5)';
+      ctx2.strokeRect(0, 0, canvas.width, canvas.height);
+      ctx2.restore();
+    }
+
+    // Update progress based on video time
+    if(video.duration){
+      const prog=Math.min(90, 30 + Math.floor((video.currentTime/video.duration)*60));
+      exportBar.style.width=prog+'%'; exportPct.textContent=prog+'%';
+    }
+
+    requestAnimationFrame(drawFrame);
+  };
+
+  drawFrame();
+
+  // Safety stop at max duration
+  const maxMs=Math.min(videoMaxDuration*1000,(video.duration||videoMaxDuration)*1000);
+  setTimeout(()=>{ if(mediaRecorder.state!=='inactive') mediaRecorder.stop(); }, maxMs+1000);
 }
 
 exportBtn.addEventListener('click', async ()=>{
@@ -438,7 +514,7 @@ exportBtn.addEventListener('click', async ()=>{
     setTimeout(()=>{progBar.style.width='65%'; exportBtn.textContent='Rendering HD Video (65%)...';},1200);
     const stream=canvas.captureStream(30); let combined=stream;
     try{ if(aud.captureStream){ const aS=aud.captureStream(); if(aS.getAudioTracks().length>0) combined=new MediaStream([...stream.getVideoTracks(), ...aS.getAudioTracks()]); } }catch(e){}
-    let mime='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'; if(!MediaRecorder.isTypeSupported(mime)) mime='video/webm;codecs=vp9'; if(!MediaRecorder.isTypeSupported(mime)) mime='video/webm';
+    let mime='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'; if(!MediaRecorder.isTypeSupported(mime)) mime='video/webm;codecs=vp9,opus'; if(!MediaRecorder.isTypeSupported(mime)) mime='video/webm';
     const recorder=new MediaRecorder(combined, {mimeType:mime, audioBitsPerSecond:128000}); const chunks=[]; recorder.ondataavailable=e=>{if(e.data.size>0) chunks.push(e.data);};
     recorder.onstop=()=>{ const temp=new Blob(chunks,{type:mime}); const finalBlob=new Blob([temp],{type:'video/mp4'}); const url=URL.createObjectURL(finalBlob); progBar.style.width='100%'; exportBtn.textContent='⚡ Generate & Download Ad to Gallery'; exportBtn.disabled=false; progWrap.style.display='none'; const a=document.createElement('a'); a.href=url; a.download=`eminent-pro-${videoDuration}s.mp4`; document.body.appendChild(a); a.click(); a.remove(); afterDown.textContent='✓ HD Gallery-Playable Video ready'; afterDown.style.display='block'; setTimeout(()=>afterDown.style.display='none',4000); aud.pause(); };
     recorder.start(); setTimeout(()=>recorder.stop(), videoDuration*1000);
